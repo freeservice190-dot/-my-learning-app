@@ -1,0 +1,34 @@
+{
+  "id": "09-object-o-string",
+  "title": "অবজেক্ট ও স্ট্রিং মেথড",
+  "type": "lesson",
+  "content": [
+    {
+      "type": "heading",
+      "value": "অবজেক্ট কী?"
+    },
+    {
+      "type": "text",
+      "value": "অবজেক্ট হলো key-value জোড়ার একটি সংগ্রহ। বাস্তব জীবনের কোনো বস্তুর বিভিন্ন বৈশিষ্ট্য (property) বোঝাতে অবজেক্ট খুব উপযোগী।"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "const student = {\n  name: \"সাবরিনা\",\n  age: 22,\n  isGraduated: false,\n  greet() {\n    console.log(\"আমি \" + this.name);\n  }\n};\n\nconsole.log(student.name);      // ডট নোটেশন\nconsole.log(student[\"age\"]);    // ব্র্যাকেট নোটেশন\nstudent.greet();\n\n// নতুন প্রপার্টি যুক্ত করা\nstudent.department = \"CSE\";\n\nconst { name, age } = student; // ডিস্ট্রাকচারিং\nconsole.log(name, age);"
+    },
+    {
+      "type": "heading",
+      "value": "স্ট্রিং মেথড"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "let text = \"  Bangla Programming  \";\nconsole.log(text.trim());                 // অতিরিক্ত স্পেস বাদ\nconsole.log(text.toLowerCase());\nconsole.log(text.toUpperCase());\nconsole.log(text.includes(\"Bangla\"));     // true\nconsole.log(text.replace(\"Bangla\", \"বাংলা\"));\nconsole.log(text.trim().split(\" \"));      // অ্যারে তে ভাগ করা\n\nlet name = \"রিমি\";\nconsole.log(`আমার নাম ${name}`);          // টেমপ্লেট লিটারাল"
+    },
+    {
+      "type": "tip",
+      "value": "টেমপ্লেট লিটারাল (ব্যাকটিক `` দিয়ে লেখা স্ট্রিং) এর ভেতরে ${} দিয়ে সরাসরি ভ্যারিয়েবল বসানো যায় — এটি + দিয়ে স্ট্রিং জোড়া দেওয়ার চেয়ে অনেক পরিষ্কার।"
+    }
+  ],
+  "estimatedMinutes": 9
+}

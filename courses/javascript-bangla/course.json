@@ -1,0 +1,25 @@
+{
+  "id": "javascript-bangla",
+  "title": "জাভাস্ক্রিপ্ট শিখি (বিগিনার থেকে অ্যাডভান্সড)",
+  "description": "শূন্য থেকে শুরু করে অ্যাডভান্সড লেভেল পর্যন্ত জাভাস্ক্রিপ্ট শেখার সম্পূর্ণ বাংলা কোর্স — ভ্যারিয়েবল থেকে শুরু করে Async/Await, OOP এবং মডার্ন ES6+ ফিচার পর্যন্ত।",
+  "icon": "🟨",
+  "order": 1,
+  "lessons": [
+    "01-porichiti",
+    "02-variable-o-datatype",
+    "03-operator",
+    "04-condition",
+    "05-loop",
+    "06-quiz-1",
+    "07-function",
+    "08-array",
+    "09-object-o-string",
+    "10-dom-o-event",
+    "11-quiz-2",
+    "12-es6-modern-js",
+    "13-array-methods-advanced",
+    "14-async-promise-await",
+    "15-oop-closure-scope",
+    "16-quiz-final"
+  ]
+}

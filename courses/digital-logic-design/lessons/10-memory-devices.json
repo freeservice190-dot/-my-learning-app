@@ -1,0 +1,89 @@
+{
+  "id": "10-memory-devices",
+  "title": "RAM, ROM, PLA & PAL",
+  "type": "lesson",
+  "estimatedMinutes": 22,
+  "content": [
+    {
+      "type": "heading",
+      "value": "Random Access Memory (RAM)"
+    },
+    {
+      "type": "text",
+      "value": "RAM stores data that can be both read and written, with any address accessible in roughly equal time ('random' access, as opposed to sequential). It is volatile - contents are lost when power is removed."
+    },
+    {
+      "type": "heading",
+      "value": "Memory decoding"
+    },
+    {
+      "type": "text",
+      "value": "A memory array is organized as a grid of address lines decoded into word-select lines, much like the decoders studied earlier. An n-bit address can select one of 2^n unique memory words, and a separate set of lines determines how many bits wide each word is."
+    },
+    {
+      "type": "heading",
+      "value": "Read Only Memory (ROM)"
+    },
+    {
+      "type": "text",
+      "value": "ROM stores fixed data that is normally only read, not written, during normal operation. Internally a ROM is an AND array (fixed, generating all 2^n minterms from n address lines) feeding a programmable OR array that selects which minterms combine to form each output bit."
+    },
+    {
+      "type": "heading",
+      "value": "Programmable Logic Array (PLA)"
+    },
+    {
+      "type": "text",
+      "value": "A PLA has both a programmable AND array and a programmable OR array. Unlike a ROM, it does not need to generate every possible minterm - only the product terms actually used by your design - making it more efficient for functions that don't need all 2^n minterms."
+    },
+    {
+      "type": "heading",
+      "value": "Programmable Array Logic (PAL)"
+    },
+    {
+      "type": "text",
+      "value": "A PAL has a programmable AND array but a fixed OR array. It's cheaper and simpler to manufacture than a PLA, at the cost of some flexibility, and was historically popular for implementing custom combinational logic before modern FPGAs became standard."
+    },
+    {
+      "type": "list",
+      "items": [
+        "ROM: fixed AND array, programmable OR array",
+        "PLA: programmable AND array, programmable OR array",
+        "PAL: programmable AND array, fixed OR array"
+      ]
+    },
+    {
+      "type": "tip",
+      "value": "A quick way to remember the difference: ROM is the least flexible (good for table lookups), PLA is the most flexible (but most expensive), and PAL sits in between."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "Which memory type is volatile (loses data without power)?",
+      "options": [
+        "ROM",
+        "RAM",
+        "PROM"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What distinguishes a PLA from a ROM?",
+      "options": [
+        "A PLA's AND array is also programmable, so it doesn't need every minterm",
+        "A PLA has no OR array at all",
+        "A PLA cannot implement combinational logic"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "A PAL has:",
+      "options": [
+        "A fixed AND array and programmable OR array",
+        "A programmable AND array and a fixed OR array",
+        "Both arrays fixed"
+      ],
+      "answer": 1
+    }
+  ]
+}

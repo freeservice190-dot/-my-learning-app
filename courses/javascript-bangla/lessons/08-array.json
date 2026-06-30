@@ -1,0 +1,43 @@
+{
+  "id": "08-array",
+  "title": "অ্যারে (Array)",
+  "type": "lesson",
+  "content": [
+    {
+      "type": "heading",
+      "value": "অ্যারে কী?"
+    },
+    {
+      "type": "text",
+      "value": "অ্যারে হলো একটি ভ্যারিয়েবলের মধ্যে একাধিক মান একসাথে রাখার উপায়। প্রতিটি মানের একটি ইনডেক্স থাকে, যা ০ থেকে শুরু হয়।"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "const fruits = [\"আম\", \"কাঁঠাল\", \"লিচু\"];\nconsole.log(fruits[0]);      // আম\nconsole.log(fruits.length);  // 3\n\nfruits.push(\"পেয়ারা\");        // শেষে যুক্ত করা\nfruits.pop();                  // শেষ থেকে বাদ দেওয়া\nfruits.unshift(\"কলা\");        // শুরুতে যুক্ত করা\nfruits.shift();                // শুরু থেকে বাদ দেওয়া\n\nconsole.log(fruits);"
+    },
+    {
+      "type": "heading",
+      "value": "সাধারণ অ্যারে মেথড"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "const nums = [5, 3, 8, 1];\nconsole.log(nums.indexOf(8));    // 2\nconsole.log(nums.includes(3));   // true\nconsole.log(nums.slice(1, 3));   // [3, 8]\nconsole.log(nums.sort());        // [1, 3, 5, 8]\nconsole.log(nums.reverse());     // [8, 5, 3, 1]\nconsole.log(nums.join(\", \"));    // \"8, 5, 3, 1\""
+    },
+    {
+      "type": "tip",
+      "value": "sort() এবং reverse() মূল অ্যারেটিকেই পরিবর্তন করে দেয় — এদেরকে 'mutating' মেথড বলা হয়।"
+    },
+    {
+      "type": "list",
+      "items": [
+        "push/pop — শেষে যুক্ত/বাদ দেওয়া",
+        "shift/unshift — শুরুতে যুক্ত/বাদ দেওয়া",
+        "slice — অংশবিশেষ কপি করে, মূল অ্যারে পরিবর্তন করে না",
+        "splice — মূল অ্যারে থেকে অংশ যুক্ত বা বাদ দেয়"
+      ]
+    }
+  ],
+  "estimatedMinutes": 9
+}

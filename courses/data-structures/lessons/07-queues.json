@@ -1,0 +1,95 @@
+{
+  "id": "07-queues",
+  "title": "Queues: Circular, Priority & Double-Ended",
+  "type": "lesson",
+  "estimatedMinutes": 20,
+  "content": [
+    {
+      "type": "heading",
+      "value": "Queue: FIFO structure"
+    },
+    {
+      "type": "text",
+      "value": "A queue allows insertion at the rear and removal from the front (First In First Out), modeling a real-world line. Both enqueue and dequeue are O(1) with a proper implementation."
+    },
+    {
+      "type": "heading",
+      "value": "The problem with a simple array queue"
+    },
+    {
+      "type": "text",
+      "value": "If you implement a queue with a plain array and always dequeue from index 0, every dequeue operation requires shifting all remaining elements - O(n). A circular queue fixes this."
+    },
+    {
+      "type": "heading",
+      "value": "Circular queue"
+    },
+    {
+      "type": "text",
+      "value": "Treats the underlying array as a ring: front and rear indices wrap around using modulo arithmetic, so freed space at the front is reused without shifting."
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "#define SIZE 5\nint queue[SIZE], front = -1, rear = -1;\n\nvoid enqueue(int value) {\n    if ((rear + 1) % SIZE == front) { printf(\"Full\\n\"); return; }\n    if (front == -1) front = 0;\n    rear = (rear + 1) % SIZE;\n    queue[rear] = value;\n}\n\nint dequeue() {\n    if (front == -1) { printf(\"Empty\\n\"); return -1; }\n    int val = queue[front];\n    if (front == rear) front = rear = -1; // queue now empty\n    else front = (front + 1) % SIZE;\n    return val;\n}"
+    },
+    {
+      "type": "heading",
+      "value": "Priority queue"
+    },
+    {
+      "type": "text",
+      "value": "Each element has a priority; dequeue always removes the highest-priority element first, regardless of insertion order. Commonly implemented with a heap (see the Heaps lesson) for O(log n) insert/remove, though a simple sorted array or list also works for small datasets."
+    },
+    {
+      "type": "heading",
+      "value": "Double-ended queue (Deque)"
+    },
+    {
+      "type": "text",
+      "value": "Allows insertion and removal from both ends - front and rear. A deque can simulate both a stack and a regular queue, which makes it a flexible building block for algorithms like sliding-window problems."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Simple array queue: O(n) dequeue due to shifting (unless circular)",
+        "Circular queue: O(1) enqueue/dequeue, fixed capacity",
+        "Priority queue: dequeue returns highest priority, typically O(log n) with a heap",
+        "Deque: O(1) insert/remove at both ends"
+      ]
+    },
+    {
+      "type": "tip",
+      "value": "In a circular queue, distinguishing 'full' from 'empty' is the classic gotcha - both can look like front == rear. The (rear+1)%SIZE == front trick (sacrificing one slot) is the standard fix taught in DS courses."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "A queue follows which order?",
+      "options": [
+        "LIFO",
+        "FIFO",
+        "Priority only"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What problem does a circular queue solve compared to a plain array queue?",
+      "options": [
+        "It avoids O(n) shifting on dequeue by wrapping indices with modulo",
+        "It removes the need for a rear pointer",
+        "It allows negative indices"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "A deque allows insertion/removal:",
+      "options": [
+        "Only at the front",
+        "Only at the rear",
+        "At both the front and rear"
+      ],
+      "answer": 2
+    }
+  ]
+}

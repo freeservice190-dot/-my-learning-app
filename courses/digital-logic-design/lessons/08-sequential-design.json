@@ -1,0 +1,95 @@
+{
+  "id": "08-sequential-design",
+  "title": "State Diagrams, Mealy/Moore Machines & State Reduction",
+  "type": "lesson",
+  "estimatedMinutes": 22,
+  "content": [
+    {
+      "type": "heading",
+      "value": "Modeling sequential behavior"
+    },
+    {
+      "type": "text",
+      "value": "A sequential circuit's behavior over time is captured with a state diagram: states are circles, and arrows (labeled with input/output) show transitions triggered by each clock edge."
+    },
+    {
+      "type": "heading",
+      "value": "Moore machine"
+    },
+    {
+      "type": "text",
+      "value": "Output depends only on the current state, not directly on the input. Outputs are written inside (or attached to) the state circle itself."
+    },
+    {
+      "type": "heading",
+      "value": "Mealy machine"
+    },
+    {
+      "type": "text",
+      "value": "Output depends on both the current state and the current input. Outputs are written on the transition arrows, not the states. Mealy machines often react one clock cycle faster than equivalent Moore machines, but their output can glitch if the input changes asynchronously."
+    },
+    {
+      "type": "heading",
+      "value": "Sequential circuit design procedure"
+    },
+    {
+      "type": "list",
+      "items": [
+        "1. Derive the state diagram from the word description of the problem",
+        "2. Build the state table (present state, input, next state, output)",
+        "3. Assign binary codes to each state",
+        "4. Derive flip-flop excitation equations and output equations (often via K-maps)",
+        "5. Draw the resulting logic circuit"
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "State reduction"
+    },
+    {
+      "type": "text",
+      "value": "Two states are equivalent if, for every possible input, they produce the same output and transition to equivalent next states. Merging equivalent states reduces the total number of flip-flops needed, which lowers circuit cost without changing the circuit's external behavior."
+    },
+    {
+      "type": "heading",
+      "value": "State assignment"
+    },
+    {
+      "type": "text",
+      "value": "Once redundant states are removed, each remaining state is assigned a unique binary code. Different assignments can lead to drastically different circuit complexity, which is why this step is a deliberate design choice, not arbitrary."
+    },
+    {
+      "type": "tip",
+      "value": "When solving state-reduction problems, build an implication table (or simply compare state-table rows pairwise) to systematically find equivalent state pairs rather than guessing."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "In a Moore machine, the output depends on:",
+      "options": [
+        "Only the current input",
+        "Only the current state",
+        "Both state and input"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "In a Mealy machine, where are outputs labeled in the state diagram?",
+      "options": [
+        "Inside the state circles",
+        "On the transition arrows",
+        "They are never labeled"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Why perform state reduction?",
+      "options": [
+        "To add more flip-flops",
+        "To merge equivalent states and reduce circuit cost",
+        "To make the state diagram more complex"
+      ],
+      "answer": 1
+    }
+  ]
+}

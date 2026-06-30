@@ -1,0 +1,52 @@
+{
+  "id": "13-array-methods-advanced",
+  "title": "অ্যাডভান্সড অ্যারে মেথড: map, filter, reduce",
+  "type": "lesson",
+  "content": [
+    {
+      "type": "heading",
+      "value": "map() — প্রতিটি আইটেম রূপান্তর করা"
+    },
+    {
+      "type": "text",
+      "value": "এই মেথডগুলো ফাংশনাল প্রোগ্রামিংয়ের মূল ভিত্তি এবং আধুনিক জাভাস্ক্রিপ্ট কোডে সবচেয়ে বেশি ব্যবহৃত হয়।"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "const nums = [1, 2, 3, 4, 5];\n\nconst doubled = nums.map(n => n * 2);\nconsole.log(doubled); // [2, 4, 6, 8, 10]"
+    },
+    {
+      "type": "heading",
+      "value": "filter() — শর্ত অনুযায়ী আইটেম বাছাই"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "const evens = nums.filter(n => n % 2 === 0);\nconsole.log(evens); // [2, 4]"
+    },
+    {
+      "type": "heading",
+      "value": "reduce() — সব আইটেম একত্র করে একটি মান বানানো"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "const total = nums.reduce((sum, n) => sum + n, 0);\nconsole.log(total); // 15\n\n// একসাথে চেইন করা\nconst result = nums.filter(n => n % 2 !== 0).map(n => n * 10);\nconsole.log(result); // [10, 30, 50]"
+    },
+    {
+      "type": "heading",
+      "value": "find() ও forEach()"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "const found = nums.find(n => n > 3);\nconsole.log(found); // 4\n\nnums.forEach(n => console.log(\"আইটেম:\", n));"
+    },
+    {
+      "type": "tip",
+      "value": "map, filter, reduce — এই তিনটি মেথড কখনোই মূল অ্যারে পরিবর্তন করে না, বরং নতুন একটি ফলাফল রিটার্ন করে। এটি ফাংশনাল প্রোগ্রামিং স্টাইলের মূল নিয়ম।"
+    }
+  ],
+  "estimatedMinutes": 10
+}

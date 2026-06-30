@@ -1,0 +1,49 @@
+{
+  "id": "02-variable-o-datatype",
+  "title": "ভ্যারিয়েবল ও ডেটা টাইপ",
+  "type": "lesson",
+  "content": [
+    {
+      "type": "heading",
+      "value": "ভ্যারিয়েবল কী?"
+    },
+    {
+      "type": "text",
+      "value": "ভ্যারিয়েবল হলো এমন একটি নাম, যার মধ্যে আমরা ডেটা সংরক্ষণ করে রাখি, যাতে পরে সেই ডেটা ব্যবহার করা যায়। আধুনিক জাভাস্ক্রিপ্টে ভ্যারিয়েবল তৈরি করার তিনটি কিওয়ার্ড আছে: var, let এবং const।"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "let name = \"রাকিব\";\nconst age = 25;\nvar city = \"ঢাকা\"; // পুরাতন স্টাইল, এড়িয়ে চলুন\n\nconsole.log(name, age, city);"
+    },
+    {
+      "type": "tip",
+      "value": "আজকাল var ব্যবহার না করে let (পরিবর্তনযোগ্য মান) ও const (অপরিবর্তনযোগ্য মান) ব্যবহার করাই ভালো প্র্যাকটিস।"
+    },
+    {
+      "type": "heading",
+      "value": "ডেটা টাইপ"
+    },
+    {
+      "type": "text",
+      "value": "জাভাস্ক্রিপ্টে কয়েক প্রকারের প্রিমিটিভ ডেটা টাইপ আছে।"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "let str = \"আমি বাংলায় কোড লিখছি\"; // String\nlet num = 100;                    // Number\nlet isActive = true;              // Boolean\nlet empty = null;                 // Null\nlet notAssigned;                  // Undefined\nlet bigNum = 9007199254740993n;   // BigInt\nlet sym = Symbol(\"id\");           // Symbol\n\nconsole.log(typeof str, typeof num, typeof isActive);"
+    },
+    {
+      "type": "list",
+      "items": [
+        "String — টেক্সট ডেটার জন্য, কোটেশনের ভেতরে লেখা হয়",
+        "Number — সব ধরনের সংখ্যার জন্য (পূর্ণ ও দশমিক)",
+        "Boolean — true অথবা false",
+        "Undefined — ভ্যারিয়েবল ঘোষণা করা হয়েছে কিন্তু মান দেওয়া হয়নি",
+        "Null — খালি বা 'কিছু নেই' বোঝাতে ইচ্ছাকৃতভাবে ব্যবহার করা হয়",
+        "Object ও Array — জটিল ডেটা সংরক্ষণের জন্য (পরের লেসনে বিস্তারিত)"
+      ]
+    }
+  ],
+  "estimatedMinutes": 8
+}

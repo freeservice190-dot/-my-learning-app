@@ -1,0 +1,42 @@
+{
+  "id": "04-text-formatting",
+  "title": "টেক্সট ফরম্যাটিং ট্যাগ",
+  "type": "lesson",
+  "estimatedMinutes": 8,
+  "content": [
+    {
+      "type": "heading",
+      "value": "টেক্সট স্টাইল করার ট্যাগসমূহ"
+    },
+    {
+      "type": "text",
+      "value": "নিচের ট্যাগগুলো দিয়ে টেক্সটকে বোল্ড, ইটালিক বা আলাদাভাবে হাইলাইট করা যায়।"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<p><b>বোল্ড টেক্সট</b></p>\n<p><strong>গুরুত্বপূর্ণ (বোল্ড) টেক্সট</strong></p>\n<p><i>ইটালিক টেক্সট</i></p>\n<p><em>জোর দেওয়া (ইটালিক) টেক্সট</em></p>\n<p><mark>হাইলাইট করা টেক্সট</mark></p>\n<p><small>ছোট টেক্সট</small></p>\n<p>H<sub>2</sub>O এবং x<sup>2</sup></p>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<b> শুধু দেখতে বোল্ড করে, কিন্তু <strong> ব্রাউজার ও স্ক্রিন রিডারকে বোঝায় এটি গুরুত্বপূর্ণ",
+        "<i> শুধু ইটালিক দেখায়, <em> অর্থগতভাবে জোর দেওয়াকে বোঝায়",
+        "<sub> ও <sup> যথাক্রমে সাবস্ক্রিপ্ট ও সুপারস্ক্রিপ্ট তৈরি করে"
+      ]
+    },
+    {
+      "type": "tip",
+      "value": "SEO ও Accessibility-এর জন্য সবসময় <strong> ও <em> ব্যবহার করা ভালো অভ্যাস, শুধু <b>/<i> এর বদলে।"
+    },
+    {
+      "type": "heading",
+      "value": "Blockquote ও Preformatted টেক্সট"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<blockquote>এটি একটি উদ্ধৃতি (quote)।</blockquote>\n<pre>  এই   স্পেস\n  হুবহু থাকবে</pre>"
+    }
+  ]
+}

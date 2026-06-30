@@ -1,0 +1,88 @@
+{
+  "id": "02-searching-bubble-sort",
+  "title": "Linear & Binary Search, Bubble Sort",
+  "type": "lesson",
+  "estimatedMinutes": 18,
+  "content": [
+    {
+      "type": "heading",
+      "value": "Linear search"
+    },
+    {
+      "type": "text",
+      "value": "Checks every element one by one until a match is found. Works on unsorted data but is O(n) in the worst case."
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "int linearSearch(int arr[], int n, int key) {\n    for (int i = 0; i < n; i++) {\n        if (arr[i] == key) return i;\n    }\n    return -1;\n}"
+    },
+    {
+      "type": "heading",
+      "value": "Binary search"
+    },
+    {
+      "type": "text",
+      "value": "Requires the array to be sorted. Repeatedly compares the key to the middle element and discards the half of the array that cannot contain it, giving O(log n) performance."
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "int binarySearch(int arr[], int n, int key) {\n    int low = 0, high = n - 1;\n    while (low <= high) {\n        int mid = (low + high) / 2;\n        if (arr[mid] == key) return mid;\n        else if (arr[mid] < key) low = mid + 1;\n        else high = mid - 1;\n    }\n    return -1;\n}"
+    },
+    {
+      "type": "tip",
+      "value": "Use low + (high-low)/2 instead of (low+high)/2 in languages with fixed-width integers to avoid overflow - good habit even though it rarely matters in small C exam programs."
+    },
+    {
+      "type": "heading",
+      "value": "Bubble sort"
+    },
+    {
+      "type": "text",
+      "value": "Repeatedly steps through the array, swapping adjacent elements if they're in the wrong order. Each full pass 'bubbles' the largest remaining unsorted element to its final position. Simple to implement but O(n^2), so it's used mainly for teaching and very small datasets."
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "void bubbleSort(int arr[], int n) {\n    for (int i = 0; i < n - 1; i++) {\n        for (int j = 0; j < n - i - 1; j++) {\n            if (arr[j] > arr[j + 1]) {\n                int temp = arr[j];\n                arr[j] = arr[j + 1];\n                arr[j + 1] = temp;\n            }\n        }\n    }\n}"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Linear search: O(n), works unsorted",
+        "Binary search: O(log n), requires sorted data",
+        "Bubble sort: O(n^2) worst/average, O(n) best case (already sorted, with an early-exit flag)"
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "question": "Binary search requires the array to be:",
+      "options": [
+        "Sorted",
+        "Unsorted",
+        "Of even length"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "What is bubble sort's worst-case time complexity?",
+      "options": [
+        "O(n)",
+        "O(n log n)",
+        "O(n^2)"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Binary search's time complexity is:",
+      "options": [
+        "O(n)",
+        "O(log n)",
+        "O(n^2)"
+      ],
+      "answer": 1
+    }
+  ]
+}

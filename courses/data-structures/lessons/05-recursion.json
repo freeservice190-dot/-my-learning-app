@@ -1,0 +1,87 @@
+{
+  "id": "05-recursion",
+  "title": "Recursion: Tower of Hanoi & Ackermann Function",
+  "type": "lesson",
+  "estimatedMinutes": 18,
+  "content": [
+    {
+      "type": "heading",
+      "value": "What is recursion?"
+    },
+    {
+      "type": "text",
+      "value": "A recursive function solves a problem by calling itself on a smaller version of the same problem, until it reaches a base case that can be answered directly. Every recursive function needs: (1) a base case to stop, and (2) a recursive case that moves toward the base case."
+    },
+    {
+      "type": "heading",
+      "value": "Tower of Hanoi"
+    },
+    {
+      "type": "text",
+      "value": "Classic recursion example: move n disks from a source peg to a destination peg, using an auxiliary peg, never placing a larger disk on a smaller one. The insight: to move n disks, first move the top n-1 disks out of the way, move the largest disk directly, then move the n-1 disks onto it."
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "void hanoi(int n, char from, char aux, char to) {\n    if (n == 0) return; // base case\n    hanoi(n - 1, from, to, aux);\n    printf(\"Move disk %d from %c to %c\\n\", n, from, to);\n    hanoi(n - 1, aux, from, to);\n}"
+    },
+    {
+      "type": "text",
+      "value": "Tower of Hanoi requires 2^n - 1 moves for n disks, which is why recursion is so natural here: trying to write it iteratively is much harder than the recursive version."
+    },
+    {
+      "type": "heading",
+      "value": "Ackermann function"
+    },
+    {
+      "type": "text",
+      "value": "A function used to illustrate recursion that grows extremely fast and is NOT primitive recursive (it can't be written as a simple bounded loop). It's a textbook example of how deep, mutually-referencing recursion can compute things that simple iteration cannot easily express."
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "int ackermann(int m, int n) {\n    if (m == 0) return n + 1;\n    if (n == 0) return ackermann(m - 1, 1);\n    return ackermann(m - 1, ackermann(m, n - 1));\n}"
+    },
+    {
+      "type": "tip",
+      "value": "Ackermann(4, n) is already astronomically large - never test it with m or n above 3 in a live demo, it will exhaust the call stack."
+    },
+    {
+      "type": "heading",
+      "value": "Recursion vs iteration"
+    },
+    {
+      "type": "text",
+      "value": "Recursion often makes code shorter and closer to the mathematical definition of a problem, but each call consumes stack memory. Deeply recursive functions without a clear base case (or with one that's reached too slowly) cause stack overflow."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "Every recursive function must have:",
+      "options": [
+        "A loop",
+        "A base case and a recursive case",
+        "Only global variables"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "How many moves does the Tower of Hanoi require for n disks?",
+      "options": [
+        "n^2",
+        "2n",
+        "2^n - 1"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Why is the Ackermann function notable in computer science?",
+      "options": [
+        "It runs in constant time",
+        "It grows extremely fast and is not expressible as simple bounded iteration",
+        "It is used for sorting"
+      ],
+      "answer": 1
+    }
+  ]
+}

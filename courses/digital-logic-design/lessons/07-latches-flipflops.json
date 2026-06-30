@@ -1,0 +1,102 @@
+{
+  "id": "07-latches-flipflops",
+  "title": "Latches, Flip-Flops & Clocked Sequential Circuits",
+  "type": "lesson",
+  "estimatedMinutes": 25,
+  "content": [
+    {
+      "type": "heading",
+      "value": "From combinational to sequential"
+    },
+    {
+      "type": "text",
+      "value": "Sequential circuits have memory: their output depends on both current inputs and past state. The basic memory element is the latch or flip-flop."
+    },
+    {
+      "type": "heading",
+      "value": "SR latch"
+    },
+    {
+      "type": "text",
+      "value": "Built from cross-coupled NOR or NAND gates. S (set) forces output Q to 1, R (reset) forces Q to 0. When both S and R are inactive, the latch holds its previous state. Having S and R both active simultaneously is an invalid/undefined state and must be avoided."
+    },
+    {
+      "type": "heading",
+      "value": "Latches vs flip-flops"
+    },
+    {
+      "type": "text",
+      "value": "A latch is level-triggered - it responds to inputs continuously while an enable signal is high. A flip-flop is edge-triggered - it only updates its state at the rising or falling edge of a clock signal, making timing far more predictable in larger synchronous systems."
+    },
+    {
+      "type": "heading",
+      "value": "D flip-flop"
+    },
+    {
+      "type": "text",
+      "value": "The simplest, most widely used flip-flop. On the active clock edge, output Q simply takes on the value of input D. It is the building block of registers."
+    },
+    {
+      "type": "heading",
+      "value": "JK flip-flop"
+    },
+    {
+      "type": "text",
+      "value": "A refinement of the SR latch that eliminates the invalid state: when both J and K are 1, the output toggles instead of being undefined."
+    },
+    {
+      "type": "code",
+      "language": "text",
+      "value": "J  K | Q(next)\n0  0 |  Q (hold)\n0  1 |  0  (reset)\n1  0 |  1  (set)\n1  1 |  Q' (toggle)"
+    },
+    {
+      "type": "heading",
+      "value": "T flip-flop"
+    },
+    {
+      "type": "text",
+      "value": "A toggle flip-flop: when T=1, output flips on each clock edge; when T=0, it holds. It's derived from a JK flip-flop by tying J and K together, and is the core building block of binary counters."
+    },
+    {
+      "type": "heading",
+      "value": "The race-around problem"
+    },
+    {
+      "type": "text",
+      "value": "In a level-triggered JK latch, if both J and K remain 1 for the whole duration the clock is high, the output can toggle uncontrollably multiple times within a single clock pulse. This is solved using a master-slave flip-flop configuration, which only allows one controlled toggle per clock cycle."
+    },
+    {
+      "type": "tip",
+      "value": "Always state which edge (rising or falling) a flip-flop triggers on when drawing timing diagrams - this is one of the most commonly lost marks in DLD exams."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "What is the key difference between a latch and a flip-flop?",
+      "options": [
+        "Latches are edge-triggered, flip-flops are level-triggered",
+        "Latches are level-triggered, flip-flops are edge-triggered",
+        "There is no difference"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "In a JK flip-flop, what happens when J=K=1?",
+      "options": [
+        "Output holds",
+        "Output is undefined",
+        "Output toggles"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "The race-around problem occurs in which type of circuit?",
+      "options": [
+        "A D flip-flop",
+        "A level-triggered JK latch held with J=K=1 for too long",
+        "A combinational adder"
+      ],
+      "answer": 1
+    }
+  ]
+}

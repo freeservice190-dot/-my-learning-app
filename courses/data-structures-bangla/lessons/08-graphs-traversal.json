@@ -1,0 +1,102 @@
+{
+  "id": "08-graphs-traversal",
+  "title": "গ্রাফ ও ট্রাভার্সাল (BFS, DFS)",
+  "type": "lesson",
+  "estimatedMinutes": 22,
+  "content": [
+    {
+      "type": "heading",
+      "value": "গ্রাফ কী?"
+    },
+    {
+      "type": "text",
+      "value": "একটি গ্রাফ হলো এজ দ্বারা সংযুক্ত ভার্টেক্স (নোড) এর একটি সেট। গ্রাফ ডাইরেক্টেড বা আনডাইরেক্টেড, এবং ওয়েটেড বা আনওয়েটেড হতে পারে। এগুলো নেটওয়ার্ক মডেল করে: রাস্তা, সামাজিক সংযোগ, নির্ভরশীলতা, ইত্যাদি।"
+    },
+    {
+      "type": "heading",
+      "value": "উপস্থাপনা পদ্ধতি"
+    },
+    {
+      "type": "list",
+      "items": [
+        "অ্যাডজেসেন্সি ম্যাট্রিক্স: একটি V x V গ্রিড যেখানে এজ থাকলে cell [i][j] = 1 (অথবা ওজন) হয়। এজ খোঁজা O(1) কিন্তু স্পেস O(V^2)।",
+        "অ্যাডজেসেন্সি লিস্ট: প্রতিটি ভার্টেক্স তার প্রতিবেশীদের একটি লিস্ট সংরক্ষণ করে। স্পেস O(V+E), স্পার্স গ্রাফের জন্য ভালো।"
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "// Adjacency list node\nstruct AdjNode {\n    int vertex;\n    struct AdjNode *next;\n};\nstruct AdjNode* adjList[MAX_VERTICES];"
+    },
+    {
+      "type": "heading",
+      "value": "ব্রেডথ-ফার্স্ট সার্চ (BFS)"
+    },
+    {
+      "type": "text",
+      "value": "একটি গ্রাফ স্তরে স্তরে অনুসন্ধান করে, আরও দূরে যাওয়ার আগে একটি নোডের সব প্রতিবেশী পরিদর্শন করে। নোড পুনরায় পরিদর্শন এড়াতে একটি কিউ ও একটি visited অ্যারে ব্যবহার করে। একটি আনওয়েটেড গ্রাফে সবচেয়ে ছোট পথ (এজ সংখ্যার দিক থেকে) খুঁজে বের করে।"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "void bfs(int start, int V) {\n    int visited[MAX_VERTICES] = {0};\n    int queue[MAX_VERTICES], front = 0, rear = 0;\n    visited[start] = 1;\n    queue[rear++] = start;\n    while (front < rear) {\n        int u = queue[front++];\n        printf(\"%d \", u);\n        struct AdjNode *temp = adjList[u];\n        while (temp != NULL) {\n            if (!visited[temp->vertex]) {\n                visited[temp->vertex] = 1;\n                queue[rear++] = temp->vertex;\n            }\n            temp = temp->next;\n        }\n    }\n}"
+    },
+    {
+      "type": "heading",
+      "value": "ডেপথ-ফার্স্ট সার্চ (DFS)"
+    },
+    {
+      "type": "text",
+      "value": "পেছনে ফেরার আগে একটি পথে যতদূর সম্ভব অনুসন্ধান করে। স্বাভাবিকভাবে রিকার্শন (যা কল স্ট্যাক ব্যবহার করে) দিয়ে বাস্তবায়িত হয়, অথবা একটি সুস্পষ্ট স্ট্যাক দিয়ে ইটারেটিভভাবে।"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "int visited[MAX_VERTICES] = {0};\n\nvoid dfs(int u) {\n    visited[u] = 1;\n    printf(\"%d \", u);\n    struct AdjNode *temp = adjList[u];\n    while (temp != NULL) {\n        if (!visited[temp->vertex]) dfs(temp->vertex);\n        temp = temp->next;\n    }\n}"
+    },
+    {
+      "type": "heading",
+      "value": "BFS বনাম DFS"
+    },
+    {
+      "type": "list",
+      "items": [
+        "BFS: কিউ-ভিত্তিক, আনওয়েটেড গ্রাফে সবচেয়ে ছোট পথ খুঁজে বের করে, প্রশস্ত গ্রাফের জন্য বেশি মেমোরি ব্যবহার করে",
+        "DFS: স্ট্যাক/রিকার্শন-ভিত্তিক, গভীর গ্রাফের জন্য কম মেমোরি ব্যবহার করে, সাইকেল শনাক্তকরণ ও টপোলজিক্যাল সর্টের জন্য স্বাভাবিক"
+      ]
+    },
+    {
+      "type": "tip",
+      "value": "একটি নোড enqueue/push করার মুহূর্তেই তাকে visited হিসেবে চিহ্নিত করুন, dequeue/pop করার সময় নয় - দেরিতে চিহ্নিত করা পুনরাবৃত্ত পরিদর্শনের সবচেয়ে সাধারণ বাগ।"
+    }
+  ],
+  "quiz": [
+    {
+      "question": "BFS কোন ডেটা স্ট্রাকচারের উপর নির্ভর করে?",
+      "options": [
+        "স্ট্যাক",
+        "কিউ",
+        "হিপ"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "কোন ট্রাভার্সাল স্বাভাবিকভাবে কল স্ট্যাকের মাধ্যমে রিকার্শনের সাথে সংগতিপূর্ণ?",
+      "options": [
+        "BFS",
+        "DFS",
+        "কোনোটিই না"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "স্পার্স গ্রাফের জন্য কোন গ্রাফ উপস্থাপনা পদ্ধতি ভালো?",
+      "options": [
+        "অ্যাডজেসেন্সি ম্যাট্রিক্স",
+        "অ্যাডজেসেন্সি লিস্ট",
+        "দক্ষতার দিক থেকে দুটোই একই"
+      ],
+      "answer": 1
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "id": "08-graphs-traversal",
+  "title": "Graphs & Traversals (BFS, DFS)",
+  "type": "lesson",
+  "estimatedMinutes": 22,
+  "content": [
+    {
+      "type": "heading",
+      "value": "What is a graph?"
+    },
+    {
+      "type": "text",
+      "value": "A graph is a set of vertices (nodes) connected by edges. Graphs can be directed or undirected, and weighted or unweighted. They model networks: roads, social connections, dependencies, etc."
+    },
+    {
+      "type": "heading",
+      "value": "Representations"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Adjacency matrix: a V x V grid where cell [i][j] = 1 (or weight) if an edge exists. O(1) edge lookup but O(V^2) space.",
+        "Adjacency list: each vertex stores a list of its neighbors. O(V+E) space, better for sparse graphs."
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "// Adjacency list node\nstruct AdjNode {\n    int vertex;\n    struct AdjNode *next;\n};\nstruct AdjNode* adjList[MAX_VERTICES];"
+    },
+    {
+      "type": "heading",
+      "value": "Breadth-First Search (BFS)"
+    },
+    {
+      "type": "text",
+      "value": "Explores a graph level by level, visiting all neighbors of a node before moving further out. Uses a queue and a visited array to avoid revisiting nodes. Finds the shortest path (in terms of edge count) in an unweighted graph."
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "void bfs(int start, int V) {\n    int visited[MAX_VERTICES] = {0};\n    int queue[MAX_VERTICES], front = 0, rear = 0;\n    visited[start] = 1;\n    queue[rear++] = start;\n    while (front < rear) {\n        int u = queue[front++];\n        printf(\"%d \", u);\n        struct AdjNode *temp = adjList[u];\n        while (temp != NULL) {\n            if (!visited[temp->vertex]) {\n                visited[temp->vertex] = 1;\n                queue[rear++] = temp->vertex;\n            }\n            temp = temp->next;\n        }\n    }\n}"
+    },
+    {
+      "type": "heading",
+      "value": "Depth-First Search (DFS)"
+    },
+    {
+      "type": "text",
+      "value": "Explores as far as possible down one path before backtracking. Naturally implemented with recursion (which uses the call stack), or iteratively with an explicit stack."
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "int visited[MAX_VERTICES] = {0};\n\nvoid dfs(int u) {\n    visited[u] = 1;\n    printf(\"%d \", u);\n    struct AdjNode *temp = adjList[u];\n    while (temp != NULL) {\n        if (!visited[temp->vertex]) dfs(temp->vertex);\n        temp = temp->next;\n    }\n}"
+    },
+    {
+      "type": "heading",
+      "value": "BFS vs DFS"
+    },
+    {
+      "type": "list",
+      "items": [
+        "BFS: queue-based, finds shortest path in unweighted graphs, uses more memory for wide graphs",
+        "DFS: stack/recursion-based, uses less memory for deep graphs, natural for cycle detection and topological sort"
+      ]
+    },
+    {
+      "type": "tip",
+      "value": "Always mark a node as visited the moment you enqueue/push it, not when you dequeue/pop it - marking too late is the most common bug that causes duplicate visits."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "Which data structure does BFS rely on?",
+      "options": [
+        "Stack",
+        "Queue",
+        "Heap"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Which traversal naturally maps to recursion via the call stack?",
+      "options": [
+        "BFS",
+        "DFS",
+        "Neither"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Which graph representation is better for sparse graphs?",
+      "options": [
+        "Adjacency matrix",
+        "Adjacency list",
+        "They are identical in efficiency"
+      ],
+      "answer": 1
+    }
+  ]
+}

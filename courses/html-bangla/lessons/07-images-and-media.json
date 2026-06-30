@@ -1,0 +1,51 @@
+{
+  "id": "07-images-and-media",
+  "title": "ছবি ও মিডিয়া",
+  "type": "lesson",
+  "estimatedMinutes": 9,
+  "content": [
+    {
+      "type": "heading",
+      "value": "ছবি যোগ করা — <img>"
+    },
+    {
+      "type": "text",
+      "value": "<img> একটি void/self-closing ট্যাগ। src অ্যাট্রিবিউটে ছবির পাথ এবং alt অ্যাট্রিবিউটে ছবির বর্ণনা দিতে হয়, যা ছবি লোড না হলে বা স্ক্রিন রিডারের জন্য কাজে লাগে।"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<img src=\"photo.jpg\" alt=\"একটি সুন্দর পাহাড়ের ছবি\" width=\"400\" height=\"300\">"
+    },
+    {
+      "type": "list",
+      "items": [
+        "src — ছবির লোকেশন (লোকাল ফাইল বা URL)",
+        "alt — ছবির বিকল্প বর্ণনা, accessibility-র জন্য অবশ্যই দিতে হয়",
+        "width ও height — ছবির আকার নির্ধারণ করে, লেআউট শিফট কমায়"
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "ছবিকে লিংক করা"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<a href=\"index.html\">\n  <img src=\"logo.png\" alt=\"কোম্পানির লোগো\">\n</a>"
+    },
+    {
+      "type": "heading",
+      "value": "অডিও ও ভিডিও"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<audio controls>\n  <source src=\"gaan.mp3\" type=\"audio/mpeg\">\n  তোমার ব্রাউজার অডিও সাপোর্ট করে না।\n</audio>\n\n<video width=\"480\" controls>\n  <source src=\"video.mp4\" type=\"video/mp4\">\n  তোমার ব্রাউজার ভিডিও সাপোর্ট করে না।\n</video>"
+    },
+    {
+      "type": "tip",
+      "value": "controls অ্যাট্রিবিউট দিলে প্লে/পজ বাটনসহ একটি ডিফল্ট প্লেয়ার দেখা যায়।"
+    }
+  ]
+}

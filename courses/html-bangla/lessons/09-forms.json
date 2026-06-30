@@ -1,0 +1,51 @@
+{
+  "id": "09-forms",
+  "title": "ফর্ম (Forms)",
+  "type": "lesson",
+  "estimatedMinutes": 12,
+  "content": [
+    {
+      "type": "heading",
+      "value": "ফর্ম কেন দরকার"
+    },
+    {
+      "type": "text",
+      "value": "ফর্ম দিয়ে ইউজারের কাছ থেকে ডেটা নেওয়া হয় — যেমন লগইন, সাইনআপ, কন্টাক্ট ফর্ম ইত্যাদি। <form> ট্যাগের ভেতরে বিভিন্ন ইনপুট এলিমেন্ট থাকে।"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<form action=\"/submit\" method=\"POST\">\n  <label for=\"name\">নাম:</label>\n  <input type=\"text\" id=\"name\" name=\"name\" placeholder=\"তোমার নাম লেখো\">\n\n  <label for=\"email\">ইমেইল:</label>\n  <input type=\"email\" id=\"email\" name=\"email\" required>\n\n  <button type=\"submit\">জমা দাও</button>\n</form>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "action — ফর্মের ডেটা কোথায় পাঠানো হবে",
+        "method — GET না POST পদ্ধতিতে ডেটা পাঠানো হবে",
+        "label এর for অ্যাট্রিবিউট input এর id এর সাথে মিলতে হয়, এতে লেবেলে ক্লিক করলেও ইনপুট ফোকাস হয়"
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "বিভিন্ন ধরনের input type"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<input type=\"text\">\n<input type=\"password\">\n<input type=\"number\">\n<input type=\"date\">\n<input type=\"checkbox\"> আমি রাজি\n<input type=\"radio\" name=\"gender\"> ছেলে\n<input type=\"radio\" name=\"gender\"> মেয়ে\n<input type=\"file\">\n<textarea rows=\"4\" cols=\"30\"></textarea>"
+    },
+    {
+      "type": "heading",
+      "value": "ড্রপডাউন: <select>"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<select name=\"city\">\n  <option value=\"dhaka\">ঢাকা</option>\n  <option value=\"chittagong\">চট্টগ্রাম</option>\n  <option value=\"narayanganj\">নারায়ণগঞ্জ</option>\n</select>"
+    },
+    {
+      "type": "tip",
+      "value": "required, minlength, pattern এর মতো অ্যাট্রিবিউট দিয়ে JavaScript ছাড়াই বেসিক ভ্যালিডেশন করা যায়।"
+    }
+  ]
+}

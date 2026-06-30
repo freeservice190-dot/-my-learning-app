@@ -1,0 +1,50 @@
+{
+  "id": "05-loop",
+  "title": "লুপ",
+  "type": "lesson",
+  "content": [
+    {
+      "type": "heading",
+      "value": "for লুপ"
+    },
+    {
+      "type": "text",
+      "value": "একই কাজ বারবার করার জন্য লুপ ব্যবহার করা হয়। for লুপ সবচেয়ে বেশি ব্যবহৃত হয় যখন পুনরাবৃত্তির সংখ্যা আগে থেকেই জানা থাকে।"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "for (let i = 1; i <= 5; i++) {\n  console.log(\"গণনা: \" + i);\n}"
+    },
+    {
+      "type": "heading",
+      "value": "while ও do...while লুপ"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "let i = 0;\nwhile (i < 3) {\n  console.log(\"while:\", i);\n  i++;\n}\n\nlet j = 0;\ndo {\n  console.log(\"do-while:\", j);\n  j++;\n} while (j < 3);"
+    },
+    {
+      "type": "heading",
+      "value": "for...of এবং for...in"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "const fruits = [\"আম\", \"কাঁঠাল\", \"লিচু\"];\nfor (const fruit of fruits) {\n  console.log(fruit);\n}\n\nconst person = { name: \"করিম\", age: 30 };\nfor (const key in person) {\n  console.log(key, \"=\", person[key]);\n}"
+    },
+    {
+      "type": "tip",
+      "value": "অ্যারের জন্য for...of এবং অবজেক্টের জন্য for...in ব্যবহার করুন — এতে কোড পরিষ্কার থাকে।"
+    },
+    {
+      "type": "list",
+      "items": [
+        "break — লুপ সম্পূর্ণ বন্ধ করে দেয়",
+        "continue — বর্তমান ইটারেশন স্কিপ করে পরের ইটারেশনে যায়"
+      ]
+    }
+  ],
+  "estimatedMinutes": 9
+}

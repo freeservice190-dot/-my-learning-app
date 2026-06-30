@@ -1,0 +1,51 @@
+{
+  "id": "15-oop-closure-scope",
+  "title": "Closure, Scope, this এবং OOP (Class)",
+  "type": "lesson",
+  "content": [
+    {
+      "type": "heading",
+      "value": "Scope ও Closure"
+    },
+    {
+      "type": "text",
+      "value": "Scope নির্ধারণ করে কোন এলাকায় একটি ভ্যারিয়েবল অ্যাক্সেস করা যাবে। Closure হলো এমন একটি ফাংশন, যা তার বাইরের স্কোপের ভ্যারিয়েবল মনে রাখতে পারে, এমনকি বাইরের ফাংশন শেষ হয়ে গেলেও।"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "function counter() {\n  let count = 0;\n  return function () {\n    count++;\n    return count;\n  };\n}\n\nconst increment = counter();\nconsole.log(increment()); // 1\nconsole.log(increment()); // 2\nconsole.log(increment()); // 3 — count ভ্যারিয়েবলটি 'মনে' থাকে"
+    },
+    {
+      "type": "heading",
+      "value": "this কিওয়ার্ড"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "const car = {\n  brand: \"টয়োটা\",\n  showBrand() {\n    console.log(this.brand); // 'this' এখানে car অবজেক্টকে নির্দেশ করে\n  }\n};\ncar.showBrand(); // টয়োটা"
+    },
+    {
+      "type": "heading",
+      "value": "ক্লাস ও অবজেক্ট-ওরিয়েন্টেড প্রোগ্রামিং"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "class Animal {\n  constructor(name, sound) {\n    this.name = name;\n    this.sound = sound;\n  }\n  makeSound() {\n    console.log(`${this.name} বলছে: ${this.sound}`);\n  }\n}\n\nclass Dog extends Animal {\n  constructor(name) {\n    super(name, \"ঘেউ ঘেউ\");\n  }\n  fetch() {\n    console.log(`${this.name} বল আনছে!`);\n  }\n}\n\nconst myDog = new Dog(\"বাদশা\");\nmyDog.makeSound(); // বাদশা বলছে: ঘেউ ঘেউ\nmyDog.fetch();     // বাদশা বল আনছে!"
+    },
+    {
+      "type": "tip",
+      "value": "extends এবং super() ব্যবহার করে একটি ক্লাস আরেকটি ক্লাসের সব প্রপার্টি ও মেথড ইনহেরিট (উত্তরাধিকার) করতে পারে — এটিই OOP-এর Inheritance ধারণা।"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Encapsulation — ডেটা ও মেথড একসাথে একটি ক্লাসে আবদ্ধ রাখা",
+        "Inheritance — extends দিয়ে একটি ক্লাস অন্য ক্লাসের ফিচার পাওয়া",
+        "Polymorphism — একই মেথড ভিন্ন ক্লাসে ভিন্নভাবে কাজ করা"
+      ]
+    }
+  ],
+  "estimatedMinutes": 12
+}

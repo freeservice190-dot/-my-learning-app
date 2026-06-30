@@ -1,0 +1,97 @@
+{
+  "id": "03-sorting-algorithms",
+  "title": "Insertion, Selection, Counting & Radix Sort",
+  "type": "lesson",
+  "estimatedMinutes": 22,
+  "content": [
+    {
+      "type": "heading",
+      "value": "Insertion sort"
+    },
+    {
+      "type": "text",
+      "value": "Builds the sorted array one element at a time, taking each new element and inserting it into its correct position among the already-sorted elements to its left. Efficient for small or nearly-sorted data."
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "void insertionSort(int arr[], int n) {\n    for (int i = 1; i < n; i++) {\n        int key = arr[i];\n        int j = i - 1;\n        while (j >= 0 && arr[j] > key) {\n            arr[j + 1] = arr[j];\n            j--;\n        }\n        arr[j + 1] = key;\n    }\n}"
+    },
+    {
+      "type": "heading",
+      "value": "Selection sort"
+    },
+    {
+      "type": "text",
+      "value": "Repeatedly finds the minimum element from the unsorted portion and swaps it into its correct position at the front. Always O(n^2) comparisons regardless of input order, but makes at most n swaps - useful when writes are expensive."
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "void selectionSort(int arr[], int n) {\n    for (int i = 0; i < n - 1; i++) {\n        int minIdx = i;\n        for (int j = i + 1; j < n; j++) {\n            if (arr[j] < arr[minIdx]) minIdx = j;\n        }\n        int temp = arr[i];\n        arr[i] = arr[minIdx];\n        arr[minIdx] = temp;\n    }\n}"
+    },
+    {
+      "type": "heading",
+      "value": "Counting sort"
+    },
+    {
+      "type": "text",
+      "value": "A non-comparison sort. Counts how many times each value occurs, then uses those counts to place elements directly into output position. Runs in O(n+k) time where k is the range of input values, but only works well when k is not much larger than n (e.g. sorting exam scores 0-100)."
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "void countingSort(int arr[], int n, int maxVal) {\n    int *count = calloc(maxVal + 1, sizeof(int));\n    int *output = malloc(n * sizeof(int));\n    for (int i = 0; i < n; i++) count[arr[i]]++;\n    for (int i = 1; i <= maxVal; i++) count[i] += count[i - 1];\n    for (int i = n - 1; i >= 0; i--) {\n        output[count[arr[i]] - 1] = arr[i];\n        count[arr[i]]--;\n    }\n    for (int i = 0; i < n; i++) arr[i] = output[i];\n    free(count); free(output);\n}"
+    },
+    {
+      "type": "heading",
+      "value": "Radix sort"
+    },
+    {
+      "type": "text",
+      "value": "Sorts integers digit by digit, from least significant to most significant, using a stable sort (typically counting sort) as a subroutine at each digit position. Runs in O(d*(n+k)) where d is the number of digits - excellent for sorting large lists of fixed-width integers."
+    },
+    {
+      "type": "tip",
+      "value": "Counting sort must be stable (preserve relative order of equal elements) for radix sort to work correctly - this is why the inner loop walks backward (from n-1 down to 0)."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Insertion sort: O(n^2) worst, O(n) best (nearly sorted input)",
+        "Selection sort: always O(n^2) comparisons",
+        "Counting sort: O(n+k), not comparison-based",
+        "Radix sort: O(d*(n+k)), great for large integer datasets"
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "question": "Which sort always performs O(n^2) comparisons regardless of input order?",
+      "options": [
+        "Insertion sort",
+        "Selection sort",
+        "Counting sort"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Counting sort works best when:",
+      "options": [
+        "The range of values (k) is small relative to n",
+        "The data is already a linked list",
+        "The array is huge and the value range is huge too"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Radix sort processes digits in what order?",
+      "options": [
+        "Most significant to least significant only",
+        "Least significant to most significant",
+        "Random order"
+      ],
+      "answer": 1
+    }
+  ]
+}

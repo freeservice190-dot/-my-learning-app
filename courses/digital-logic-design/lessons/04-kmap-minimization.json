@@ -1,0 +1,97 @@
+{
+  "id": "04-kmap-minimization",
+  "title": "Universal Gates, K-Maps & Don't Care Conditions",
+  "type": "lesson",
+  "estimatedMinutes": 25,
+  "content": [
+    {
+      "type": "heading",
+      "value": "Implementing any circuit with one gate type"
+    },
+    {
+      "type": "text",
+      "value": "Because NAND and NOR are universal, any Boolean function can be built using only NAND gates or only NOR gates. This matters in real fabrication because manufacturing a single gate type simplifies the chip design."
+    },
+    {
+      "type": "code",
+      "language": "text",
+      "value": "AND using NAND:  A.B = ((A.B)')'  -> two NANDs\nNOT using NAND:  A' = (A.A)'      -> tie both inputs together\nOR using NAND:   A+B = (A'.B')'   -> three NANDs (DeMorgan)"
+    },
+    {
+      "type": "heading",
+      "value": "Karnaugh maps (K-maps)"
+    },
+    {
+      "type": "text",
+      "value": "A K-map is a grid arrangement of a truth table where adjacent cells differ by exactly one bit (Gray code ordering). Grouping adjacent 1s into the largest possible power-of-2 rectangles (1, 2, 4, 8 cells) lets you read off a minimized SOP expression directly, replacing tedious algebraic simplification."
+    },
+    {
+      "type": "list",
+      "items": [
+        "2-variable map: 4 cells",
+        "3-variable map: 8 cells",
+        "4-variable map: 16 cells, arranged with Gray-code row/column headers",
+        "Groups must be rectangular and sized as powers of 2 (1,2,4,8...)",
+        "Larger groups produce simpler (fewer-literal) terms",
+        "Cells can wrap around the edges of the map"
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "Worked example"
+    },
+    {
+      "type": "text",
+      "value": "F(A,B,C,D) = sum of minterms (0,1,2,5,8,9,10) is plotted on a 4-variable K-map. Grouping the four corner cells (0,2,8,10) gives the term B'D'. Grouping (0,1,8,9) gives B'C'. Grouping (1,5,9) is not a valid power-of-2 group alone, so it pairs with another adjacent 1 to form a group of 2."
+    },
+    {
+      "type": "heading",
+      "value": "Don't care conditions"
+    },
+    {
+      "type": "text",
+      "value": "Sometimes certain input combinations never occur in practice (e.g. invalid BCD codes 10-15). These cells are marked 'X' (don't care) on the K-map. You may treat an X as either 0 or 1, whichever helps form a larger group - this often produces a much simpler circuit."
+    },
+    {
+      "type": "tip",
+      "value": "On a K-map, only use don't-care cells when they help enlarge a group that already contains at least one required 1. Never form a group made entirely of don't-cares."
+    },
+    {
+      "type": "heading",
+      "value": "Reading the final expression"
+    },
+    {
+      "type": "text",
+      "value": "Each group of 1s becomes one product term in the simplified SOP expression - only the variables that stay constant across the whole group appear in that term."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "In a K-map, adjacent cells should differ by how many bits?",
+      "options": [
+        "Zero",
+        "Exactly one",
+        "Exactly two"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Why are don't-care cells useful?",
+      "options": [
+        "They force smaller groups",
+        "They can be set to 0 or 1 to help form larger, simpler groups",
+        "They must always be treated as 1"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Group sizes on a K-map must be:",
+      "options": [
+        "Any size",
+        "Powers of 2 (1, 2, 4, 8...)",
+        "Always exactly 4 cells"
+      ],
+      "answer": 1
+    }
+  ]
+}

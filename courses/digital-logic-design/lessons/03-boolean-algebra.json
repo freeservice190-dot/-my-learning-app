@@ -1,0 +1,117 @@
+{
+  "id": "03-boolean-algebra",
+  "title": "Boolean Algebra, DeMorgan's Theorem & Logic Gates",
+  "type": "lesson",
+  "estimatedMinutes": 25,
+  "content": [
+    {
+      "type": "heading",
+      "value": "Boolean algebra basics"
+    },
+    {
+      "type": "text",
+      "value": "Boolean algebra is the math of two-valued logic (0 and 1) and is the foundation for analyzing and simplifying digital circuits. The three core operations are AND (.), OR (+), and NOT (overline or apostrophe)."
+    },
+    {
+      "type": "heading",
+      "value": "Key identities"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Identity: A + 0 = A,  A . 1 = A",
+        "Null: A + 1 = 1,  A . 0 = 0",
+        "Idempotent: A + A = A,  A . A = A",
+        "Complement: A + A' = 1,  A . A' = 0",
+        "Commutative: A + B = B + A,  A.B = B.A",
+        "Associative: (A+B)+C = A+(B+C)",
+        "Distributive: A.(B+C) = A.B + A.C",
+        "Absorption: A + A.B = A,  A.(A+B) = A"
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "DeMorgan's theorems"
+    },
+    {
+      "type": "text",
+      "value": "These two theorems let you push complements through AND/OR expressions, which is essential for converting circuits into NAND-only or NOR-only implementations."
+    },
+    {
+      "type": "code",
+      "language": "text",
+      "value": "(A . B)' = A' + B'\n(A + B)' = A' . B'"
+    },
+    {
+      "type": "heading",
+      "value": "Basic logic gates"
+    },
+    {
+      "type": "list",
+      "items": [
+        "AND: output 1 only if all inputs are 1",
+        "OR: output 1 if at least one input is 1",
+        "NOT: inverts the input",
+        "NAND: AND followed by NOT (universal gate)",
+        "NOR: OR followed by NOT (universal gate)",
+        "XOR: output 1 if inputs differ",
+        "XNOR: output 1 if inputs are the same"
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "Truth table example: XOR"
+    },
+    {
+      "type": "code",
+      "language": "text",
+      "value": "A  B | A XOR B\n0  0 |   0\n0  1 |   1\n1  0 |   1\n1  1 |   0"
+    },
+    {
+      "type": "heading",
+      "value": "Canonical forms: SOP and POS"
+    },
+    {
+      "type": "text",
+      "value": "Any Boolean function can be written as a Sum of Products (OR of AND terms, built from minterms where the function is 1) or a Product of Sums (AND of OR terms, built from maxterms where the function is 0). These canonical forms are the bridge between a truth table and a circuit."
+    },
+    {
+      "type": "code",
+      "language": "text",
+      "value": "F(A,B,C) = sum of minterms (1,3,6,7)\nSOP form: F = A'B'C + A'BC + AB C' + ABC"
+    },
+    {
+      "type": "tip",
+      "value": "Always double-check a simplified expression by re-deriving its truth table and comparing it to the original - a single sign error in DeMorgan's law is the most common exam mistake."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "What does DeMorgan's theorem say about (A + B)'?",
+      "options": [
+        "A' + B'",
+        "A' . B'",
+        "A . B"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Which gates are called 'universal gates'?",
+      "options": [
+        "AND and OR",
+        "NAND and NOR",
+        "XOR and XNOR"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "A Sum of Products expression is built from which terms?",
+      "options": [
+        "Maxterms",
+        "Minterms",
+        "Don't cares only"
+      ],
+      "answer": 1
+    }
+  ]
+}

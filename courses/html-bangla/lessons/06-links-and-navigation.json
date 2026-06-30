@@ -1,0 +1,47 @@
+{
+  "id": "06-links-and-navigation",
+  "title": "লিংক ও নেভিগেশন",
+  "type": "lesson",
+  "estimatedMinutes": 9,
+  "content": [
+    {
+      "type": "heading",
+      "value": "অ্যাঙ্কর ট্যাগ <a>"
+    },
+    {
+      "type": "text",
+      "value": "<a> ট্যাগ দিয়ে এক পেজ থেকে আরেক পেজে, বা একই পেজের ভেতরে এক জায়গা থেকে অন্য জায়গায় লিংক তৈরি করা হয়। href অ্যাট্রিবিউটে গন্তব্যের ঠিকানা লিখতে হয়।"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<a href=\"https://www.google.com\">গুগলে যাও</a>\n<a href=\"about.html\">আমাদের সম্পর্কে</a>\n<a href=\"#section2\">নিচের সেকশনে যাও</a>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "External link: পুরো URL দিতে হয়, যেমন https://example.com",
+        "Internal link: একই সাইটের অন্য পেজের নাম দিতে হয়, যেমন about.html",
+        "Anchor link: # এর পর id দিয়ে একই পেজের কোনো অংশে যাওয়া যায়"
+      ]
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<a href=\"https://example.com\" target=\"_blank\">নতুন ট্যাবে খুলবে</a>\n<a href=\"mailto:info@example.com\">ইমেইল পাঠাও</a>\n<a href=\"tel:+8801XXXXXXXXX\">কল করো</a>"
+    },
+    {
+      "type": "text",
+      "value": "target=\"_blank\" দিলে লিংকটি নতুন ব্রাউজার ট্যাবে খুলবে। mailto: দিয়ে ইমেইল ক্লায়েন্ট খোলে, আর tel: দিয়ে মোবাইলে সরাসরি ফোন নাম্বার ডায়াল করা যায়।"
+    },
+    {
+      "type": "tip",
+      "value": "অ্যাকর‍্যান্ড ব্যবহারে নিরাপত্তার জন্য target=\"_blank\" এর সাথে rel=\"noopener noreferrer\" যোগ করা ভালো অভ্যাস।"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<nav>\n  <ul>\n    <li><a href=\"index.html\">হোম</a></li>\n    <li><a href=\"about.html\">আমাদের সম্পর্কে</a></li>\n    <li><a href=\"contact.html\">যোগাযোগ</a></li>\n  </ul>\n</nav>"
+    }
+  ]
+}

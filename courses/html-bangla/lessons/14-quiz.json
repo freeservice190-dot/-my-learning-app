@@ -1,0 +1,98 @@
+{
+  "id": "14-quiz",
+  "title": "কুইজ: HTML জ্ঞান যাচাই",
+  "type": "quiz",
+  "estimatedMinutes": 10,
+  "content": [
+    {
+      "type": "heading",
+      "value": "নিজের জ্ঞান যাচাই করো"
+    },
+    {
+      "type": "text",
+      "value": "নিচের প্রশ্নগুলোর উত্তর দিয়ে যাচাই করো তুমি এই কোর্স থেকে কতটা শিখেছো।"
+    }
+  ],
+  "quiz": [
+    {
+      "question": "HTML এর পূর্ণরূপ কী?",
+      "options": [
+        "HyperText Markup Language",
+        "HighText Machine Language",
+        "HyperTransfer Markup Language",
+        "Home Tool Markup Language"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "কোন ট্যাগ দিয়ে সবচেয়ে বড় হেডিং তৈরি হয়?",
+      "options": [
+        "<h6>",
+        "<head>",
+        "<h1>",
+        "<header>"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "একটি ছবি যোগ করতে কোন ট্যাগ ব্যবহার হয়?",
+      "options": [
+        "<picture>",
+        "<img>",
+        "<src>",
+        "<image>"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "id এবং class অ্যাট্রিবিউটের মধ্যে পার্থক্য কী?",
+      "options": [
+        "কোনো পার্থক্য নেই",
+        "id একবার ব্যবহার হয়, class একাধিকবার",
+        "class শুধু div এ ব্যবহার হয়",
+        "id শুধু CSS এর জন্য, class শুধু JS এর জন্য"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "কোন ট্যাগ Ordered List তৈরি করে?",
+      "options": [
+        "<ul>",
+        "<li>",
+        "<ol>",
+        "<dl>"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "ফর্মে ইমেইল ইনপুটের জন্য কোন type ব্যবহার করা হয়?",
+      "options": [
+        "type=\"text\"",
+        "type=\"email\"",
+        "type=\"mail\"",
+        "type=\"address\""
+      ],
+      "answer": 1
+    },
+    {
+      "question": "নিচের কোনটি একটি সিমান্টিক ট্যাগ?",
+      "options": [
+        "<div>",
+        "<span>",
+        "<article>",
+        "<b>"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "<div> এবং <span> এর মধ্যে মূল পার্থক্য কী?",
+      "options": [
+        "div ইনলাইন, span ব্লক",
+        "div ব্লক-লেভেল, span ইনলাইন",
+        "দুটোই একই",
+        "span শুধু টেক্সটের জন্য"
+      ],
+      "answer": 1
+    }
+  ]
+}

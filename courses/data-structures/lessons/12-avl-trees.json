@@ -1,0 +1,96 @@
+{
+  "id": "12-avl-trees",
+  "title": "AVL Trees: Self-Balancing BSTs",
+  "type": "lesson",
+  "estimatedMinutes": 22,
+  "content": [
+    {
+      "type": "heading",
+      "value": "Why balance matters"
+    },
+    {
+      "type": "text",
+      "value": "A plain BST can degenerate into a linked list (e.g. inserting already-sorted data), making operations O(n) instead of O(log n). An AVL tree (Adelson-Velsky and Landis) is a self-balancing BST that fixes this by keeping every subtree's height difference small."
+    },
+    {
+      "type": "heading",
+      "value": "Balance factor"
+    },
+    {
+      "type": "text",
+      "value": "For every node, the balance factor = height(left subtree) - height(right subtree). An AVL tree requires this value to stay in {-1, 0, 1} for every node. Whenever an insertion or deletion pushes a node's balance factor outside this range, a rotation restores it."
+    },
+    {
+      "type": "heading",
+      "value": "The four rotation cases"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Left-Left (LL): single right rotation",
+        "Right-Right (RR): single left rotation",
+        "Left-Right (LR): left rotation on child, then right rotation on node",
+        "Right-Left (RL): right rotation on child, then left rotation on node"
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "// Right rotation (fixes LL case)\nstruct TreeNode* rightRotate(struct TreeNode *y) {\n    struct TreeNode *x = y->left;\n    struct TreeNode *T2 = x->right;\n    x->right = y;\n    y->left = T2;\n    // update heights of y, then x after this\n    return x; // new subtree root\n}"
+    },
+    {
+      "type": "heading",
+      "value": "Insertion procedure"
+    },
+    {
+      "type": "list",
+      "items": [
+        "1. Insert the node exactly as in a normal BST",
+        "2. Walk back up updating heights",
+        "3. At each ancestor, compute the balance factor",
+        "4. If unbalanced, identify which of the four cases applies (by comparing keys) and apply the corresponding rotation(s)"
+      ]
+    },
+    {
+      "type": "tip",
+      "value": "Identify the rotation case by checking where the newly inserted key falls relative to the unbalanced node and its child: if it went left-left, it's LL; left then right, it's LR; and so on."
+    },
+    {
+      "type": "heading",
+      "value": "Why AVL trees are worth the overhead"
+    },
+    {
+      "type": "text",
+      "value": "By guaranteeing height stays O(log n), AVL trees keep search, insert, and delete all at O(log n) in every case - unlike a plain BST, which can degrade to O(n). The cost is the extra bookkeeping (heights/balance factors) and occasional rotations on every insert/delete."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "What balance factor values are allowed at every node of an AVL tree?",
+      "options": [
+        "{-1, 0, 1}",
+        "{-2, -1, 0, 1, 2}",
+        "Only 0"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Which rotation fixes a Left-Left imbalance?",
+      "options": [
+        "Single left rotation",
+        "Single right rotation",
+        "Double rotation"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Why use an AVL tree instead of a plain BST?",
+      "options": [
+        "It uses less memory",
+        "It guarantees O(log n) height, avoiding worst-case O(n) operations",
+        "It doesn't need comparisons"
+      ],
+      "answer": 1
+    }
+  ]
+}

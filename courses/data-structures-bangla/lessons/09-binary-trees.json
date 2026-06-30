@@ -1,0 +1,88 @@
+{
+  "id": "09-binary-trees",
+  "title": "বাইনারি ট্রি: উপস্থাপনা ও ট্রাভার্সাল",
+  "type": "lesson",
+  "estimatedMinutes": 20,
+  "content": [
+    {
+      "type": "heading",
+      "value": "ট্রি পরিভাষা"
+    },
+    {
+      "type": "text",
+      "value": "একটি ট্রি হলো একটি স্তরবিন্যস্ত (hierarchical) স্ট্রাকচার: একটি রুট নোড, যেখানে প্রতিটি নোডের শূন্য বা তার বেশি চাইল্ড নোড থাকতে পারে এবং কোনো সাইকেল থাকে না। একটি বাইনারি ট্রি প্রতিটি নোডকে সর্বোচ্চ দুটি চাইল্ডে সীমাবদ্ধ করে, যেগুলোকে প্রচলিতভাবে left ও right বলা হয়।"
+    },
+    {
+      "type": "heading",
+      "value": "মেমোরি উপস্থাপনা"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "struct TreeNode {\n    int data;\n    struct TreeNode *left;\n    struct TreeNode *right;\n};"
+    },
+    {
+      "type": "text",
+      "value": "বাইনারি ট্রি একটি অ্যারেতেও সংরক্ষণ করা যায় (হিপের জন্য সাধারণ): ইনডেক্স i-তে থাকা একটি নোডের জন্য, এর left চাইল্ড থাকে 2i+1 এ এবং right চাইল্ড 2i+2 এ (0-ইনডেক্সড), যেখানে কোনো সুস্পষ্ট পয়েন্টারের প্রয়োজন হয় না।"
+    },
+    {
+      "type": "heading",
+      "value": "ট্রি ট্রাভার্সাল ক্রম"
+    },
+    {
+      "type": "list",
+      "items": [
+        "প্রিঅর্ডার: নোড, তারপর বাম সাবট্রি, তারপর ডান সাবট্রি পরিদর্শন (Node-Left-Right)",
+        "ইনঅর্ডার: বাম সাবট্রি, তারপর নোড, তারপর ডান সাবট্রি পরিদর্শন (Left-Node-Right)",
+        "পোস্টঅর্ডার: বাম সাবট্রি, তারপর ডান সাবট্রি, তারপর নোড পরিদর্শন (Left-Right-Node)",
+        "লেভেল অর্ডার: একটি কিউ ব্যবহার করে স্তরে স্তরে নোড পরিদর্শন (এটি ট্রিতে প্রয়োগ করা BFS)"
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "void preorder(struct TreeNode *root) {\n    if (root == NULL) return;\n    printf(\"%d \", root->data);\n    preorder(root->left);\n    preorder(root->right);\n}\n\nvoid inorder(struct TreeNode *root) {\n    if (root == NULL) return;\n    inorder(root->left);\n    printf(\"%d \", root->data);\n    inorder(root->right);\n}\n\nvoid postorder(struct TreeNode *root) {\n    if (root == NULL) return;\n    postorder(root->left);\n    postorder(root->right);\n    printf(\"%d \", root->data);\n}"
+    },
+    {
+      "type": "tip",
+      "value": "একটি বাইনারি সার্চ ট্রির ইনঅর্ডার ট্রাভার্সাল সবসময় সাজানো ক্রমে নোড পরিদর্শন করে - এই একটি তথ্য প্রায়ই পরীক্ষা করা হয় এবং মুখস্থ রাখা গুরুত্বপূর্ণ।"
+    },
+    {
+      "type": "heading",
+      "value": "লেভেল-অর্ডার ট্রাভার্সাল"
+    },
+    {
+      "type": "text",
+      "value": "একটি কিউ ব্যবহার করে: রুট দিয়ে enqueue শুরু করুন, তারপর বারবার একটি নোড dequeue করুন, সেটি প্রিন্ট করুন, এবং এর নন-নাল চাইল্ডগুলো enqueue করুন, যতক্ষণ না কিউ খালি হয়।"
+    }
+  ],
+  "quiz": [
+    {
+      "question": "প্রিঅর্ডার ট্রাভার্সালে, নোডটি নিজে কখন পরিদর্শন করা হয়?",
+      "options": [
+        "এর সাবট্রিগুলোর আগে",
+        "এর সাবট্রিগুলোর মাঝখানে",
+        "উভয় সাবট্রির পরে"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "বাইনারি সার্চ ট্রির ইনঅর্ডার ট্রাভার্সাল কী তৈরি করে:",
+      "options": [
+        "এলোমেলো ক্রমে",
+        "সাজানো ক্রম",
+        "বিপরীত সাজানো ক্রম"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "লেভেল-অর্ডার ট্রাভার্সাল কোন ডেটা স্ট্রাকচার ব্যবহার করে?",
+      "options": [
+        "স্ট্যাক",
+        "কিউ",
+        "হিপ"
+      ],
+      "answer": 1
+    }
+  ]
+}

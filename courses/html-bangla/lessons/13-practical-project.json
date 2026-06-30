@@ -1,0 +1,38 @@
+{
+  "id": "13-practical-project",
+  "title": "প্র্যাকটিক্যাল প্রজেক্ট: একটি প্রোফাইল পেজ বানাও",
+  "type": "lesson",
+  "estimatedMinutes": 20,
+  "content": [
+    {
+      "type": "heading",
+      "value": "প্রজেক্ট: একটি সম্পূর্ণ পার্সোনাল প্রোফাইল পেজ"
+    },
+    {
+      "type": "text",
+      "value": "এখন আমরা আগে শেখা সব কিছু একসাথে ব্যবহার করে একটি সম্পূর্ণ HTML পেজ বানাবো — semantic ট্যাগ, লিস্ট, লিংক, ছবি, ফর্ম সব মিলিয়ে।"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<!DOCTYPE html>\n<html lang=\"bn\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>আমার প্রোফাইল</title>\n</head>\n<body>\n  <header>\n    <img src=\"profile.jpg\" alt=\"আমার ছবি\" width=\"120\">\n    <h1>রাহাত হোসেন</h1>\n    <p>ওয়েব ডেভেলপমেন্ট শিক্ষার্থী</p>\n    <nav>\n      <ul>\n        <li><a href=\"#about\">পরিচিতি</a></li>\n        <li><a href=\"#skills\">দক্ষতা</a></li>\n        <li><a href=\"#contact\">যোগাযোগ</a></li>\n      </ul>\n    </nav>\n  </header>\n\n  <main>\n    <section id=\"about\">\n      <h2>আমার সম্পর্কে</h2>\n      <p>আমি একজন কম্পিউটার সায়েন্স শিক্ষার্থী এবং ওয়েব ডেভেলপমেন্ট শিখছি।</p>\n    </section>\n\n    <section id=\"skills\">\n      <h2>আমার দক্ষতা</h2>\n      <ul>\n        <li>HTML</li>\n        <li>CSS</li>\n        <li>JavaScript (শেখার পথে)</li>\n      </ul>\n    </section>\n\n    <section id=\"contact\">\n      <h2>যোগাযোগ করো</h2>\n      <form>\n        <label for=\"msg\">তোমার বার্তা:</label><br>\n        <textarea id=\"msg\" name=\"msg\" rows=\"4\" cols=\"30\"></textarea><br>\n        <button type=\"submit\">পাঠাও</button>\n      </form>\n    </section>\n  </main>\n\n  <footer>\n    <p>&copy; ২০২৬ রাহাত হোসেন। সর্বস্বত্ব সংরক্ষিত।</p>\n  </footer>\n</body>\n</html>"
+    },
+    {
+      "type": "heading",
+      "value": "নিজে চেষ্টা করো (অ্যাসাইনমেন্ট)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "এই কোডটি একটি .html ফাইলে কপি করে ব্রাউজারে খুলে দেখো",
+        "তোমার নিজের নাম, ছবি ও তথ্য দিয়ে পরিবর্তন করো",
+        "একটি নতুন <section> যোগ করো 'আমার শখ' শিরোনামে, একটি <ul> লিস্ট সহ",
+        "একটি <table> যোগ করো তোমার পড়াশোনার রেজাল্ট দেখানোর জন্য"
+      ]
+    },
+    {
+      "type": "tip",
+      "value": "পরবর্তী CSS কোর্সে আমরা ঠিক এই পেজটিকেই সুন্দর করে ডিজাইন করব!"
+    }
+  ]
+}

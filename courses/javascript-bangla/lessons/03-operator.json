@@ -1,0 +1,42 @@
+{
+  "id": "03-operator",
+  "title": "অপারেটর",
+  "type": "lesson",
+  "content": [
+    {
+      "type": "heading",
+      "value": "অ্যারিথমেটিক অপারেটর"
+    },
+    {
+      "type": "text",
+      "value": "অপারেটর দিয়ে আমরা ভ্যারিয়েবলের ওপর গাণিতিক বা লজিক্যাল কাজ করি।"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "let a = 10, b = 3;\nconsole.log(a + b);  // যোগ -> 13\nconsole.log(a - b);  // বিয়োগ -> 7\nconsole.log(a * b);  // গুণ -> 30\nconsole.log(a / b);  // ভাগ -> 3.333...\nconsole.log(a % b);  // ভাগশেষ -> 1\nconsole.log(a ** b); // পাওয়ার -> 1000"
+    },
+    {
+      "type": "heading",
+      "value": "তুলনা ও লজিক্যাল অপারেটর"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "console.log(5 == \"5\");   // true (টাইপ চেক করে না)\nconsole.log(5 === \"5\");  // false (টাইপও চেক করে)\nconsole.log(5 !== \"5\");  // true\n\nconsole.log(true && false); // AND -> false\nconsole.log(true || false); // OR -> true\nconsole.log(!true);         // NOT -> false"
+    },
+    {
+      "type": "tip",
+      "value": "তুলনা করার সময় সবসময় === এবং !== ব্যবহার করুন, == এবং != এড়িয়ে চলুন — এতে অপ্রত্যাশিত বাগ কম হয়।"
+    },
+    {
+      "type": "list",
+      "items": [
+        "+= , -= , *= , /= — শর্টকাট অ্যাসাইনমেন্ট অপারেটর",
+        "++ এবং -- — যথাক্রমে ১ বাড়ানো বা কমানোর জন্য",
+        "?? — Nullish Coalescing, null/undefined হলে ডিফল্ট মান দেয়"
+      ]
+    }
+  ],
+  "estimatedMinutes": 7
+}

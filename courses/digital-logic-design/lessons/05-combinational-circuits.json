@@ -1,0 +1,104 @@
+{
+  "id": "05-combinational-circuits",
+  "title": "Adders, Subtractors, BCD Adder & Comparators",
+  "type": "lesson",
+  "estimatedMinutes": 25,
+  "content": [
+    {
+      "type": "heading",
+      "value": "Combinational vs sequential circuits"
+    },
+    {
+      "type": "text",
+      "value": "A combinational circuit's output depends only on its current inputs (no memory). This lesson covers the classic combinational building blocks used inside an ALU."
+    },
+    {
+      "type": "heading",
+      "value": "Half adder"
+    },
+    {
+      "type": "text",
+      "value": "Adds two single bits and produces a Sum and a Carry."
+    },
+    {
+      "type": "code",
+      "language": "text",
+      "value": "Sum  = A XOR B\nCarry = A . B"
+    },
+    {
+      "type": "heading",
+      "value": "Full adder"
+    },
+    {
+      "type": "text",
+      "value": "Adds two bits plus a carry-in, used to build multi-bit adders by chaining full adders together (a ripple-carry adder)."
+    },
+    {
+      "type": "code",
+      "language": "text",
+      "value": "Sum   = A XOR B XOR Cin\nCout  = AB + Cin(A XOR B)"
+    },
+    {
+      "type": "heading",
+      "value": "Binary subtractor"
+    },
+    {
+      "type": "text",
+      "value": "Subtraction is implemented by adding the 2's complement of the subtrahend. A practical adder/subtractor circuit XORs each bit of B with a mode control line M: if M=0 it computes A+B, if M=1 the XOR inverts B and M also feeds the carry-in, producing A-B."
+    },
+    {
+      "type": "heading",
+      "value": "BCD adder"
+    },
+    {
+      "type": "text",
+      "value": "Built from a 4-bit binary adder plus correction logic. After adding two BCD digits with a standard 4-bit adder, if the result is greater than 9 or a carry was produced, add 6 (0110) using a second adder stage to push the result back into valid BCD range."
+    },
+    {
+      "type": "heading",
+      "value": "Magnitude comparator"
+    },
+    {
+      "type": "text",
+      "value": "Compares two binary numbers and outputs three signals: A>B, A=B, A<B. It works by comparing bits from the most significant down, similar to how you'd compare two numbers digit by digit by hand."
+    },
+    {
+      "type": "code",
+      "language": "text",
+      "value": "For 1-bit comparator:\n(A=B) = AB + A'B'\n(A>B) = AB'\n(A<B) = A'B"
+    },
+    {
+      "type": "tip",
+      "value": "When drawing a ripple-carry adder, always label Cin/Cout chains clearly - exam graders look for the carry path connecting each full adder stage to the next."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "What does a half adder compute?",
+      "options": [
+        "Sum and Carry of two bits",
+        "Sum of three bits",
+        "Difference of two bits only"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "How is subtraction commonly implemented in binary hardware?",
+      "options": [
+        "A separate subtractor circuit unrelated to addition",
+        "By adding the 2's complement of the subtrahend",
+        "By dividing by -1"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "When does a BCD adder apply the +6 correction?",
+      "options": [
+        "Always",
+        "When the 4-bit binary sum exceeds 9 or generates a carry",
+        "Only on the first digit"
+      ],
+      "answer": 1
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "07-function",
+  "title": "ফাংশন",
+  "type": "lesson",
+  "content": [
+    {
+      "type": "heading",
+      "value": "ফাংশন কেন প্রয়োজন?"
+    },
+    {
+      "type": "text",
+      "value": "ফাংশন হলো কোডের একটি পুনঃব্যবহারযোগ্য ব্লক, যা একটি নির্দিষ্ট কাজ সম্পন্ন করে। একই কোড বারবার না লিখে, ফাংশন তৈরি করে যতবার প্রয়োজন কল করা যায়।"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "function greet(name) {\n  return \"স্বাগতম, \" + name + \"!\";\n}\n\nconsole.log(greet(\"নাফিস\"));"
+    },
+    {
+      "type": "heading",
+      "value": "ফাংশন এক্সপ্রেশন ও অ্যারো ফাংশন"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "// ফাংশন এক্সপ্রেশন\nconst add = function (a, b) {\n  return a + b;\n};\n\n// অ্যারো ফাংশন (ES6)\nconst multiply = (a, b) => a * b;\n\nconsole.log(add(4, 5));\nconsole.log(multiply(4, 5));"
+    },
+    {
+      "type": "heading",
+      "value": "ডিফল্ট প্যারামিটার ও রেস্ট প্যারামিটার"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "function power(base, exponent = 2) {\n  return base ** exponent;\n}\nconsole.log(power(5)); // exponent ডিফল্ট 2\n\nfunction sumAll(...numbers) {\n  return numbers.reduce((total, n) => total + n, 0);\n}\nconsole.log(sumAll(1, 2, 3, 4)); // 10"
+    },
+    {
+      "type": "tip",
+      "value": "অ্যারো ফাংশনের নিজস্ব 'this' থাকে না — এটি বাইরের স্কোপ থেকে this নেয়, যা ক্লাসের মেথড বা কলব্যাকে গুরুত্বপূর্ণ।"
+    }
+  ],
+  "estimatedMinutes": 9
+}

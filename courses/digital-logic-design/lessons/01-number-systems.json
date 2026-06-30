@@ -1,0 +1,100 @@
+{
+  "id": "01-number-systems",
+  "title": "Number Systems & Conversions",
+  "type": "lesson",
+  "estimatedMinutes": 20,
+  "content": [
+    {
+      "type": "heading",
+      "value": "Why number systems matter"
+    },
+    {
+      "type": "text",
+      "value": "Digital circuits only understand two voltage levels: high and low. We label these 1 and 0, which means every number, character, and instruction inside a computer is ultimately binary. Before designing any circuit, you need to be fluent in converting between the number systems engineers actually use: binary, octal, decimal, and hexadecimal."
+    },
+    {
+      "type": "heading",
+      "value": "The four systems"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Binary (base 2): digits 0-1, used directly by hardware",
+        "Octal (base 8): digits 0-7, a shorthand for groups of 3 bits",
+        "Decimal (base 10): digits 0-9, the system humans use",
+        "Hexadecimal (base 16): digits 0-9 and A-F, a shorthand for groups of 4 bits"
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "Converting any base to decimal"
+    },
+    {
+      "type": "text",
+      "value": "Multiply each digit by the base raised to its position power, then sum. Position counting starts at 0 from the rightmost digit."
+    },
+    {
+      "type": "code",
+      "language": "text",
+      "value": "(1011)2 = 1x2^3 + 0x2^2 + 1x2^1 + 1x2^0\n        = 8 + 0 + 2 + 1 = (11)10\n\n(2F)16 = 2x16^1 + 15x16^0 = 32 + 15 = (47)10"
+    },
+    {
+      "type": "heading",
+      "value": "Converting decimal to any base"
+    },
+    {
+      "type": "text",
+      "value": "Repeatedly divide the integer part by the target base and collect remainders from last to first. For the fractional part, repeatedly multiply by the base and collect the integer digits produced, from first to last."
+    },
+    {
+      "type": "code",
+      "language": "text",
+      "value": "Convert (41)10 to binary:\n41 / 2 = 20 r 1\n20 / 2 = 10 r 0\n10 / 2 = 5  r 0\n5  / 2 = 2  r 1\n2  / 2 = 1  r 0\n1  / 2 = 0  r 1\nRead remainders bottom-to-top: (101001)2"
+    },
+    {
+      "type": "heading",
+      "value": "Binary <-> Octal <-> Hexadecimal shortcuts"
+    },
+    {
+      "type": "text",
+      "value": "Because 8 = 2^3 and 16 = 2^4, you can convert binary to octal by grouping bits in sets of 3, and binary to hex by grouping bits in sets of 4 (pad with leading zeros if needed)."
+    },
+    {
+      "type": "code",
+      "language": "text",
+      "value": "(10110111)2\nGroup by 4 for hex: 1011 0111 -> B7\nGroup by 3 for octal: 010 110 111 -> 267"
+    },
+    {
+      "type": "tip",
+      "value": "Memorize powers of 2 up to 2^10 (1024) - they show up constantly when sizing memory and counters."
+    },
+    {
+      "type": "heading",
+      "value": "Practice"
+    },
+    {
+      "type": "text",
+      "value": "Convert (75)10 to binary, octal, and hex; then convert (1101.101)2 back to decimal. Doing this by hand a few times builds the speed you need for exams and timed quizzes."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "What is (1011)2 in decimal?",
+      "options": [
+        "9",
+        "11",
+        "13"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Why are hex and octal useful shorthand for binary?",
+      "options": [
+        "They use fewer digits to represent the same value, with clean bit-grouping",
+        "They are easier for circuits to process directly",
+        "They eliminate the need for binary entirely"
+      ],
+      "answer": 0
+    }
+  ]
+}

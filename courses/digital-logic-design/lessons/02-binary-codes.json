@@ -1,0 +1,104 @@
+{
+  "id": "02-binary-codes",
+  "title": "Signed Numbers, BCD, and Gray Code",
+  "type": "lesson",
+  "estimatedMinutes": 22,
+  "content": [
+    {
+      "type": "heading",
+      "value": "Representing negative numbers"
+    },
+    {
+      "type": "text",
+      "value": "Hardware needs a way to represent sign using only 0s and 1s. The three classic methods are sign-magnitude, 1's complement, and 2's complement. 2's complement is what virtually all modern processors use because it makes addition and subtraction use the same circuitry."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Sign-magnitude: leftmost bit is the sign (0=+, 1=-), remaining bits are magnitude",
+        "1's complement: flip every bit of the positive number to get the negative",
+        "2's complement: flip every bit, then add 1"
+      ]
+    },
+    {
+      "type": "code",
+      "language": "text",
+      "value": "Represent -9 in 8-bit 2's complement:\n+9 = 00001001\nflip bits = 11110110\nadd 1     = 11110111  <- this is -9"
+    },
+    {
+      "type": "heading",
+      "value": "2's complement subtraction"
+    },
+    {
+      "type": "text",
+      "value": "To compute A - B, take the 2's complement of B and add it to A. Discard any carry out of the most significant bit."
+    },
+    {
+      "type": "heading",
+      "value": "Binary Coded Decimal (BCD)"
+    },
+    {
+      "type": "text",
+      "value": "BCD encodes each decimal digit separately using 4 bits (0000-1001). It wastes some bit patterns (1010-1111 are invalid) but makes converting to/from human-readable decimal trivial, which is why it's used in digital clocks and calculators."
+    },
+    {
+      "type": "heading",
+      "value": "BCD addition rule"
+    },
+    {
+      "type": "text",
+      "value": "Add the two 4-bit groups using normal binary addition. If the 4-bit result is greater than 9, or a carry was generated out of that group, add 6 (0110) to correct it back into valid BCD."
+    },
+    {
+      "type": "code",
+      "language": "text",
+      "value": "BCD: 8 + 7\n1000 + 0111 = 1111 (15, invalid BCD digit)\nAdd 0110 correction: 1111 + 0110 = 1 0101\nResult: carry 1, digit 0101 -> reads as '15' in BCD (1 0101)"
+    },
+    {
+      "type": "heading",
+      "value": "Gray code"
+    },
+    {
+      "type": "text",
+      "value": "Gray code is a binary sequence where only one bit changes between consecutive values. This prevents glitches in circuits like rotary encoders, where multiple bits flipping at slightly different times could be misread."
+    },
+    {
+      "type": "code",
+      "language": "text",
+      "value": "Binary -> Gray conversion: g(n) = b(n)\ng(i) = b(i) XOR b(i+1)  for each lower bit\n\nExample: Binary 0111 -> Gray 0100"
+    },
+    {
+      "type": "tip",
+      "value": "Exam favorite: convert a 4-bit binary count sequence (0000 to 1111) entirely into Gray code. Practice this table until it's automatic."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "Which representation lets adders handle both addition and subtraction with the same hardware?",
+      "options": [
+        "Sign-magnitude",
+        "1's complement",
+        "2's complement"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "In BCD addition, when do you add a correction of 0110?",
+      "options": [
+        "Always, after every addition",
+        "Only when the 4-bit sum exceeds 9 or produces a carry",
+        "Only for the first digit"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What is the defining property of Gray code?",
+      "options": [
+        "It uses base 8",
+        "Only one bit changes between consecutive values",
+        "It is always 8 bits wide"
+      ],
+      "answer": 1
+    }
+  ]
+}

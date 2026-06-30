@@ -1,0 +1,43 @@
+{
+  "id": "04-condition",
+  "title": "কন্ডিশন ও কন্ট্রোল ফ্লো",
+  "type": "lesson",
+  "content": [
+    {
+      "type": "heading",
+      "value": "if, else if, else"
+    },
+    {
+      "type": "text",
+      "value": "কন্ডিশনাল স্টেটমেন্ট দিয়ে আমরা সিদ্ধান্ত নিই কোন কোড ব্লক রান হবে, কোন শর্তের ওপর ভিত্তি করে।"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "let marks = 75;\n\nif (marks >= 80) {\n  console.log(\"A+\");\n} else if (marks >= 60) {\n  console.log(\"A\");\n} else {\n  console.log(\"পাস করার চেষ্টা করুন\");\n}"
+    },
+    {
+      "type": "heading",
+      "value": "switch স্টেটমেন্ট"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "let day = 3;\nswitch (day) {\n  case 1:\n    console.log(\"শনিবার\");\n    break;\n  case 2:\n    console.log(\"রবিবার\");\n    break;\n  case 3:\n    console.log(\"সোমবার\");\n    break;\n  default:\n    console.log(\"অজানা দিন\");\n}"
+    },
+    {
+      "type": "heading",
+      "value": "টার্নারি অপারেটর"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "let age = 20;\nlet result = (age >= 18) ? \"প্রাপ্তবয়স্ক\" : \"অপ্রাপ্তবয়স্ক\";\nconsole.log(result);"
+    },
+    {
+      "type": "tip",
+      "value": "switch ব্যবহারের সময় প্রতিটি case এর পরে break লিখতে ভুলবেন না, না হলে কোড পরের case-এও চলে যাবে।"
+    }
+  ],
+  "estimatedMinutes": 8
+}

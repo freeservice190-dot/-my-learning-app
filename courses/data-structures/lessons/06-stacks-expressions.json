@@ -1,0 +1,104 @@
+{
+  "id": "06-stacks-expressions",
+  "title": "Stacks & Infix/Prefix/Postfix Expressions",
+  "type": "lesson",
+  "estimatedMinutes": 22,
+  "content": [
+    {
+      "type": "heading",
+      "value": "Stack: LIFO structure"
+    },
+    {
+      "type": "text",
+      "value": "A stack only allows access at one end (the top): push adds an element, pop removes the most recently added one. Both are O(1)."
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "#define MAX 100\nint stack[MAX], top = -1;\n\nvoid push(int value) {\n    if (top == MAX - 1) { printf(\"Overflow\\n\"); return; }\n    stack[++top] = value;\n}\n\nint pop() {\n    if (top == -1) { printf(\"Underflow\\n\"); return -1; }\n    return stack[top--];\n}"
+    },
+    {
+      "type": "heading",
+      "value": "Expression notations"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Infix: operator between operands, e.g. A + B (needs precedence/parentheses rules)",
+        "Prefix (Polish): operator before operands, e.g. + A B",
+        "Postfix (Reverse Polish): operator after operands, e.g. A B +"
+      ]
+    },
+    {
+      "type": "text",
+      "value": "Computers evaluate postfix and prefix expressions trivially with a stack, without needing precedence rules or parentheses - this is why compilers convert infix expressions internally."
+    },
+    {
+      "type": "heading",
+      "value": "Evaluating postfix with a stack"
+    },
+    {
+      "type": "text",
+      "value": "Scan left to right: push operands onto the stack; when an operator is found, pop the top two operands, apply the operator, and push the result back."
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "// Example: 5 6 2 + * = 5 * (6+2) = 40\n// Scan: push 5, push 6, push 2, see '+' -> pop 2,6 -> push 8\n// see '*' -> pop 8,5 -> push 40 -> result on top of stack"
+    },
+    {
+      "type": "heading",
+      "value": "Infix to postfix conversion"
+    },
+    {
+      "type": "text",
+      "value": "Use an operator stack and an output queue/list. Operands go straight to output. Operators are pushed onto the stack after popping (to output) any operators on the stack with greater or equal precedence. Parentheses control grouping: '(' is pushed, and ')' pops operators until the matching '(' is found."
+    },
+    {
+      "type": "tip",
+      "value": "When converting infix to postfix by hand for an exam, build a small table tracking the stack contents and output after each token - graders give partial credit for showing this trace."
+    },
+    {
+      "type": "heading",
+      "value": "Other stack applications"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Function call management (the call stack)",
+        "Undo/redo functionality in editors",
+        "Balanced parentheses / bracket matching",
+        "Backtracking algorithms (maze solving, DFS)"
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "question": "A stack follows which access order?",
+      "options": [
+        "FIFO (First In First Out)",
+        "LIFO (Last In First Out)",
+        "Random access"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Why do compilers prefer postfix/prefix over infix internally?",
+      "options": [
+        "They look nicer",
+        "They can be evaluated with a simple stack scan, without precedence rules",
+        "They use fewer characters"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "In postfix evaluation, what do you do when you encounter an operator?",
+      "options": [
+        "Push it onto the stack",
+        "Pop the top two operands, apply the operator, push the result",
+        "Ignore it"
+      ],
+      "answer": 1
+    }
+  ]
+}

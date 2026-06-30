@@ -1,0 +1,43 @@
+{
+  "id": "10-dom-o-event",
+  "title": "DOM ও ইভেন্ট হ্যান্ডলিং",
+  "type": "lesson",
+  "content": [
+    {
+      "type": "heading",
+      "value": "DOM কী?"
+    },
+    {
+      "type": "text",
+      "value": "DOM (Document Object Model) হলো ব্রাউজারের তৈরি করা HTML পেজের একটি ট্রি-আকৃতির রিপ্রেজেন্টেশন, যাকে জাভাস্ক্রিপ্ট দিয়ে অ্যাক্সেস ও পরিবর্তন করা যায়।"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "// এলিমেন্ট সিলেক্ট করা\nconst title = document.querySelector(\"h1\");\nconst allButtons = document.querySelectorAll(\"button\");\n\n// কনটেন্ট পরিবর্তন করা\ntitle.textContent = \"নতুন শিরোনাম\";\ntitle.style.color = \"green\";\n\n// নতুন এলিমেন্ট তৈরি করা\nconst newPara = document.createElement(\"p\");\nnewPara.textContent = \"এটি নতুন প্যারাগ্রাফ\";\ndocument.body.appendChild(newPara);"
+    },
+    {
+      "type": "heading",
+      "value": "ইভেন্ট হ্যান্ডলিং"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "const btn = document.querySelector(\"#myButton\");\n\nbtn.addEventListener(\"click\", function () {\n  alert(\"বাটনে ক্লিক করা হয়েছে!\");\n});\n\ndocument.querySelector(\"#myInput\").addEventListener(\"keyup\", (e) => {\n  console.log(\"টাইপ করছেন:\", e.target.value);\n});"
+    },
+    {
+      "type": "tip",
+      "value": "ইনলাইন onclick=\"...\" ব্যবহার না করে addEventListener() ব্যবহার করুন — একই এলিমেন্টে একাধিক ইভেন্ট যুক্ত করা যায় এবং কোড আলাদা থাকে।"
+    },
+    {
+      "type": "list",
+      "items": [
+        "click, dblclick — ক্লিক ইভেন্ট",
+        "keyup, keydown — কিবোর্ড ইভেন্ট",
+        "submit — ফর্ম সাবমিট হলে",
+        "load, DOMContentLoaded — পেজ লোড হওয়ার ইভেন্ট"
+      ]
+    }
+  ],
+  "estimatedMinutes": 10
+}

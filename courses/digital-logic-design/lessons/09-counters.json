@@ -1,0 +1,94 @@
+{
+  "id": "09-counters",
+  "title": "Ripple, Synchronous, Up-Down & MOD Counters",
+  "type": "lesson",
+  "estimatedMinutes": 22,
+  "content": [
+    {
+      "type": "heading",
+      "value": "What a counter does"
+    },
+    {
+      "type": "text",
+      "value": "A counter is a sequential circuit, built from flip-flops, that cycles through a defined sequence of states in response to clock pulses - typically counting in binary."
+    },
+    {
+      "type": "heading",
+      "value": "Ripple (asynchronous) counters"
+    },
+    {
+      "type": "text",
+      "value": "Each flip-flop's clock input is driven by the output of the previous flip-flop, not by the system clock directly. This makes them simple to build (just T or JK flip-flops in toggle mode chained together) but introduces a small propagation delay that 'ripples' through the chain, which limits maximum speed."
+    },
+    {
+      "type": "heading",
+      "value": "Synchronous (parallel) counters"
+    },
+    {
+      "type": "text",
+      "value": "All flip-flops share the same clock signal, and combinational logic determines each flip-flop's next input based on the current count. This eliminates ripple delay and is the preferred design for higher-speed applications, at the cost of slightly more complex logic."
+    },
+    {
+      "type": "heading",
+      "value": "Up-down counters"
+    },
+    {
+      "type": "text",
+      "value": "Includes a direction control input that lets the circuit count upward or downward through its sequence, typically by selecting between the normal and complemented outputs feeding the next stage."
+    },
+    {
+      "type": "heading",
+      "value": "MOD-N counters"
+    },
+    {
+      "type": "text",
+      "value": "A counter that cycles through N distinct states before repeating (e.g. a MOD-6 counter counts 0 to 5, then resets). To build one, design for the next power-of-2 size of flip-flops, then add reset/feedback logic that forces the counter back to 0 (or its starting state) once it reaches state N."
+    },
+    {
+      "type": "code",
+      "language": "text",
+      "value": "MOD-6 counter using 3 flip-flops (0-7 range available):\nWhen count reaches 110 (6), force asynchronous clear\nso the sequence is 000,001,010,011,100,101,000,..."
+    },
+    {
+      "type": "heading",
+      "value": "Other counters"
+    },
+    {
+      "type": "text",
+      "value": "Ring counters and Johnson (twisted-ring) counters shift a single active bit (or a complemented bit, for Johnson counters) through a loop of flip-flops, producing simple, glitch-free sequences useful for control/sequencing applications."
+    },
+    {
+      "type": "tip",
+      "value": "When designing a MOD-N counter for an exam, always state clearly which state triggers the reset/clear condition, and whether that reset is synchronous or asynchronous - examiners check this explicitly."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "What is the main drawback of ripple counters?",
+      "options": [
+        "They cannot count past 9",
+        "Propagation delay accumulates through the flip-flop chain",
+        "They require analog components"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "In a synchronous counter, all flip-flops are:",
+      "options": [
+        "Clocked by the previous flip-flop's output",
+        "Clocked by the same shared clock signal",
+        "Not clocked at all"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "A MOD-6 counter cycles through how many distinct states?",
+      "options": [
+        "5",
+        "6",
+        "8"
+      ],
+      "answer": 1
+    }
+  ]
+}

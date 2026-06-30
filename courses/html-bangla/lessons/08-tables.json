@@ -1,0 +1,52 @@
+{
+  "id": "08-tables",
+  "title": "টেবিল",
+  "type": "lesson",
+  "estimatedMinutes": 10,
+  "content": [
+    {
+      "type": "heading",
+      "value": "টেবিল তৈরির বেসিক স্ট্রাকচার"
+    },
+    {
+      "type": "text",
+      "value": "টেবিল দিয়ে সারি (row) ও কলামে (column) সাজানো ডেটা দেখানো হয়, যেমন রেজাল্ট শিট বা মূল্য তালিকা।"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<table border=\"1\">\n  <tr>\n    <th>নাম</th>\n    <th>বয়স</th>\n  </tr>\n  <tr>\n    <td>রাহাত</td>\n    <td>২২</td>\n  </tr>\n  <tr>\n    <td>সাদিয়া</td>\n    <td>২০</td>\n  </tr>\n</table>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<table> — পুরো টেবিলের বাইরের ট্যাগ",
+        "<tr> — Table Row, একটি সারি",
+        "<th> — Table Header, সারির হেডার (বোল্ড ও মাঝখানে দেখায়)",
+        "<td> — Table Data, সাধারণ সেল"
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "thead, tbody, tfoot দিয়ে সুসংগঠিত টেবিল"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<table>\n  <thead>\n    <tr><th>প্রোডাক্ট</th><th>দাম</th></tr>\n  </thead>\n  <tbody>\n    <tr><td>বই</td><td>২০০ টাকা</td></tr>\n    <tr><td>কলম</td><td>১০ টাকা</td></tr>\n  </tbody>\n  <tfoot>\n    <tr><td>মোট</td><td>২১০ টাকা</td></tr>\n  </tfoot>\n</table>"
+    },
+    {
+      "type": "heading",
+      "value": "সেল মার্জ করা: colspan ও rowspan"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<table border=\"1\">\n  <tr>\n    <th colspan=\"2\">যোগাযোগের তথ্য</th>\n  </tr>\n  <tr>\n    <td>ফোন</td>\n    <td>ইমেইল</td>\n  </tr>\n</table>"
+    },
+    {
+      "type": "tip",
+      "value": "শুধু লেআউট বা ডিজাইনের জন্য টেবিল ব্যবহার করা উচিত না — টেবিল শুধু প্রকৃত ট্যাবুলার ডেটার জন্য। লেআউটের জন্য CSS Flexbox/Grid ব্যবহার করা উচিত।"
+    }
+  ]
+}

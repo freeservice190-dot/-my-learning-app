@@ -1,0 +1,119 @@
+{
+  "id": "04-linked-lists",
+  "title": "Singly, Doubly & Circular Linked Lists",
+  "type": "lesson",
+  "estimatedMinutes": 25,
+  "content": [
+    {
+      "type": "heading",
+      "value": "Why linked lists?"
+    },
+    {
+      "type": "text",
+      "value": "Unlike arrays, linked lists store elements in separate nodes connected by pointers, scattered anywhere in memory. This makes insertion/deletion O(1) once you have a pointer to the right spot, at the cost of O(n) access time (no direct indexing) and extra memory for pointers."
+    },
+    {
+      "type": "heading",
+      "value": "Singly linked list node"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "struct Node {\n    int data;\n    struct Node *next;\n};"
+    },
+    {
+      "type": "heading",
+      "value": "Traversal"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "void traverse(struct Node *head) {\n    struct Node *cur = head;\n    while (cur != NULL) {\n        printf(\"%d -> \", cur->data);\n        cur = cur->next;\n    }\n    printf(\"NULL\\n\");\n}"
+    },
+    {
+      "type": "heading",
+      "value": "Insertion at the front"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "struct Node* insertFront(struct Node *head, int value) {\n    struct Node *newNode = malloc(sizeof(struct Node));\n    newNode->data = value;\n    newNode->next = head;\n    return newNode; // new head\n}"
+    },
+    {
+      "type": "heading",
+      "value": "Deletion of a given value"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "struct Node* deleteValue(struct Node *head, int value) {\n    struct Node *cur = head, *prev = NULL;\n    while (cur != NULL && cur->data != value) {\n        prev = cur;\n        cur = cur->next;\n    }\n    if (cur == NULL) return head; // not found\n    if (prev == NULL) head = cur->next; // deleting head\n    else prev->next = cur->next;\n    free(cur);\n    return head;\n}"
+    },
+    {
+      "type": "heading",
+      "value": "Doubly linked list"
+    },
+    {
+      "type": "text",
+      "value": "Each node has two pointers: next and prev. This allows traversal in both directions and makes deletion of a known node O(1) without needing to track a 'previous' pointer separately, at the cost of extra memory per node."
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "struct DNode {\n    int data;\n    struct DNode *next;\n    struct DNode *prev;\n};"
+    },
+    {
+      "type": "heading",
+      "value": "Circular linked list"
+    },
+    {
+      "type": "text",
+      "value": "The last node's next pointer points back to the first node instead of NULL, forming a ring. Useful for round-robin scheduling or any application that needs to cycle through elements repeatedly. Traversal must check 'have I returned to the head?' instead of checking for NULL."
+    },
+    {
+      "type": "heading",
+      "value": "List reversal"
+    },
+    {
+      "type": "text",
+      "value": "Reversing a singly linked list in-place requires re-pointing each node's next pointer to the previous node, walking through with three pointers: prev, cur, and next."
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "struct Node* reverse(struct Node *head) {\n    struct Node *prev = NULL, *cur = head, *next;\n    while (cur != NULL) {\n        next = cur->next;\n        cur->next = prev;\n        prev = cur;\n        cur = next;\n    }\n    return prev; // new head\n}"
+    },
+    {
+      "type": "tip",
+      "value": "In list-reversal exam questions, draw the three pointers (prev, cur, next) on paper at each step - it's the most common place students lose track of which pointer moves when."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "What is the main advantage of a linked list over an array?",
+      "options": [
+        "O(1) random access by index",
+        "O(1) insertion/deletion once you have the right pointer, no shifting needed",
+        "Linked lists use less memory per element"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "In a circular linked list, the last node's next pointer points to:",
+      "options": [
+        "NULL",
+        "The head node",
+        "Itself"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Reversing a singly linked list in place typically uses how many tracking pointers?",
+      "options": [
+        "One",
+        "Two",
+        "Three (prev, cur, next)"
+      ],
+      "answer": 2
+    }
+  ]
+}

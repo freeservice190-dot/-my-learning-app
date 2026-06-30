@@ -1,0 +1,23 @@
+{
+  "id": "data-structures-bangla",
+  "title": "Data Structures (CSE 205, C)",
+  "description": "Full CSE 205 syllabus in C: arrays, searching, sorting, linked lists, recursion, stacks, queues, graphs, trees, heaps, AVL trees, and hash tables.",
+  "icon": "\ud83e\uddf1",
+  "order": 2,
+  "lessons": [
+    "01-arrays",
+    "02-searching-bubble-sort",
+    "03-sorting-algorithms",
+    "04-linked-lists",
+    "05-recursion",
+    "06-stacks-expressions",
+    "07-queues",
+    "08-graphs-traversal",
+    "09-binary-trees",
+    "10-binary-search-trees",
+    "11-heaps",
+    "12-avl-trees",
+    "13-hash-tables",
+    "14-quiz"
+  ]
+}

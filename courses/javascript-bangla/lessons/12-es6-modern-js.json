@@ -1,0 +1,43 @@
+{
+  "id": "12-es6-modern-js",
+  "title": "ES6+ মডার্ন ফিচার",
+  "type": "lesson",
+  "content": [
+    {
+      "type": "heading",
+      "value": "let, const এবং ব্লক স্কোপ"
+    },
+    {
+      "type": "text",
+      "value": "ES6 (ECMAScript 2015) থেকে জাভাস্ক্রিপ্টে অনেক নতুন ও শক্তিশালী ফিচার যুক্ত হয়েছে, যা কোডকে আরও পরিষ্কার ও আধুনিক করে তোলে।"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "// স্প্রেড অপারেটর\nconst arr1 = [1, 2, 3];\nconst arr2 = [...arr1, 4, 5];\nconsole.log(arr2); // [1, 2, 3, 4, 5]\n\nconst obj1 = { a: 1, b: 2 };\nconst obj2 = { ...obj1, c: 3 };\nconsole.log(obj2); // { a: 1, b: 2, c: 3 }"
+    },
+    {
+      "type": "heading",
+      "value": "ডিস্ট্রাকচারিং"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "const [first, second, ...rest] = [10, 20, 30, 40];\nconsole.log(first, second, rest); // 10 20 [30, 40]\n\nconst { name, age = 18 } = { name: \"তানিম\" };\nconsole.log(name, age); // তানিম 18"
+    },
+    {
+      "type": "heading",
+      "value": "অপশনাল চেইনিং ও Nullish Coalescing"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "const user = { profile: { city: \"খুলনা\" } };\nconsole.log(user.profile?.city);       // খুলনা\nconsole.log(user.address?.zip);        // undefined, error হয় না\n\nlet input = null;\nlet value = input ?? \"ডিফল্ট মান\";\nconsole.log(value); // ডিফল্ট মান"
+    },
+    {
+      "type": "tip",
+      "value": "অপশনাল চেইনিং (?.) ব্যবহার করলে nested অবজেক্টের গভীরে থাকা প্রপার্টি অ্যাক্সেস করতে গিয়ে 'Cannot read property of undefined' এরর এড়ানো যায়।"
+    }
+  ],
+  "estimatedMinutes": 9
+}

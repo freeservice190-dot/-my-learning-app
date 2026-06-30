@@ -1,0 +1,83 @@
+{
+  "id": "01-arrays",
+  "title": "Arrays: Representation, Insertion & Deletion",
+  "type": "lesson",
+  "estimatedMinutes": 18,
+  "content": [
+    {
+      "type": "heading",
+      "value": "What is a data structure?"
+    },
+    {
+      "type": "text",
+      "value": "A data structure is a way of organizing data in memory so it can be accessed and modified efficiently. The array is the simplest one: a fixed-size, contiguous block of memory holding elements of the same type, accessed by index in constant time."
+    },
+    {
+      "type": "heading",
+      "value": "Array basics in C"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "int arr[5] = {10, 20, 30, 40, 50};\nprintf(\"%d\", arr[2]); // 30, O(1) access via base address + index*size"
+    },
+    {
+      "type": "heading",
+      "value": "Insertion into an array"
+    },
+    {
+      "type": "text",
+      "value": "Because array memory is contiguous, inserting an element at position i requires shifting every element from i onward one slot to the right, then placing the new value. This makes insertion O(n) in the worst case."
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "void insert(int arr[], int *n, int pos, int value) {\n    for (int i = *n; i > pos; i--) {\n        arr[i] = arr[i - 1];\n    }\n    arr[pos] = value;\n    (*n)++;\n}"
+    },
+    {
+      "type": "heading",
+      "value": "Deletion from an array"
+    },
+    {
+      "type": "text",
+      "value": "Deleting an element at position i requires shifting all later elements one slot to the left to close the gap - also O(n)."
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "void deleteAt(int arr[], int *n, int pos) {\n    for (int i = pos; i < *n - 1; i++) {\n        arr[i] = arr[i + 1];\n    }\n    (*n)--;\n}"
+    },
+    {
+      "type": "heading",
+      "value": "Why complexity matters"
+    },
+    {
+      "type": "text",
+      "value": "Array access is O(1) - fast and predictable, which is why arrays are preferred when you mostly read data. But insertion/deletion in the middle is O(n), which is why other structures like linked lists exist for data that changes frequently."
+    },
+    {
+      "type": "tip",
+      "value": "Always track the current logical size of the array separately from its allocated capacity - a classic source of off-by-one bugs in exams."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "What is the time complexity of accessing arr[i] in an array?",
+      "options": [
+        "O(1)",
+        "O(n)",
+        "O(log n)"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Why is insertion into the middle of an array O(n)?",
+      "options": [
+        "Because all elements must be re-shifted to make room",
+        "Because arrays are stored in linked nodes",
+        "It is actually O(1)"
+      ],
+      "answer": 0
+    }
+  ]
+}

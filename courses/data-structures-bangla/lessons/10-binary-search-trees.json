@@ -1,0 +1,84 @@
+{
+  "id": "10-binary-search-trees",
+  "title": "বাইনারি সার্চ ট্রি: সন্নিবেশ ও মুছে ফেলা",
+  "type": "lesson",
+  "estimatedMinutes": 22,
+  "content": [
+    {
+      "type": "heading",
+      "value": "BST এর বৈশিষ্ট্য"
+    },
+    {
+      "type": "text",
+      "value": "প্রতিটি নোডের জন্য, এর বাম সাবট্রির সব মান ছোট এবং ডান সাবট্রির সব মান বড়। এই বৈশিষ্ট্যের কারণে সার্চ, ইনসার্ট ও ডিলিট O(h) সময়ে চলে, যেখানে h হলো ট্রির উচ্চতা - একটি ব্যালেন্সড ট্রির জন্য O(log n), কিন্তু একটি অবনমিত (skewed) ট্রির জন্য O(n)।"
+    },
+    {
+      "type": "heading",
+      "value": "সার্চ"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "struct TreeNode* search(struct TreeNode *root, int key) {\n    if (root == NULL || root->data == key) return root;\n    if (key < root->data) return search(root->left, key);\n    return search(root->right, key);\n}"
+    },
+    {
+      "type": "heading",
+      "value": "সন্নিবেশ"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "struct TreeNode* insert(struct TreeNode *root, int key) {\n    if (root == NULL) {\n        struct TreeNode *node = malloc(sizeof(struct TreeNode));\n        node->data = key;\n        node->left = node->right = NULL;\n        return node;\n    }\n    if (key < root->data) root->left = insert(root->left, key);\n    else if (key > root->data) root->right = insert(root->right, key);\n    return root; // duplicates ignored\n}"
+    },
+    {
+      "type": "heading",
+      "value": "মুছে ফেলা - তিনটি কেস"
+    },
+    {
+      "type": "list",
+      "items": [
+        "লিফ নোড (কোনো চাইল্ড নেই): শুধু সরিয়ে দিন",
+        "একটি চাইল্ড: নোডটিকে তার একমাত্র চাইল্ড দিয়ে প্রতিস্থাপন করুন",
+        "দুটি চাইল্ড: নোডের মান তার ইনঅর্ডার উত্তরসূরি (right সাবট্রির সবচেয়ে ছোট মান) দিয়ে প্রতিস্থাপন করুন, তারপর সেই উত্তরসূরি নোডটি মুছে দিন"
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "struct TreeNode* minValueNode(struct TreeNode *node) {\n    while (node->left != NULL) node = node->left;\n    return node;\n}\n\nstruct TreeNode* deleteNode(struct TreeNode *root, int key) {\n    if (root == NULL) return root;\n    if (key < root->data) root->left = deleteNode(root->left, key);\n    else if (key > root->data) root->right = deleteNode(root->right, key);\n    else {\n        if (root->left == NULL) { struct TreeNode *temp = root->right; free(root); return temp; }\n        if (root->right == NULL) { struct TreeNode *temp = root->left; free(root); return temp; }\n        struct TreeNode *succ = minValueNode(root->right);\n        root->data = succ->data;\n        root->right = deleteNode(root->right, succ->data);\n    }\n    return root;\n}"
+    },
+    {
+      "type": "tip",
+      "value": "দুটি চাইল্ডের ক্ষেত্রে আপনি ইনঅর্ডার উত্তরসূরি (right সাবট্রির সর্বনিম্ন) অথবা ইনঅর্ডার পূর্বসূরি (left সাবট্রির সর্বোচ্চ) - যেকোনোটি ব্যবহার করতে পারেন - দুটোই সঠিক, শুধু সামঞ্জস্যপূর্ণ থাকুন এবং কোনটি ব্যবহার করছেন তা উল্লেখ করুন।"
+    }
+  ],
+  "quiz": [
+    {
+      "question": "একটি BST-এ, একটি নোডের চেয়ে ছোট মানগুলো কোথায় সংরক্ষিত থাকে?",
+      "options": [
+        "এর right সাবট্রিতে",
+        "এর left সাবট্রিতে",
+        "যেকোনো এলোমেলো জায়গায়"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "দুটি চাইল্ডযুক্ত একটি নোড মুছে ফেলার সময় আপনি কী করবেন?",
+      "options": [
+        "সরাসরি মুছে দিন",
+        "এটিকে তার ইনঅর্ডার উত্তরসূরি (বা পূর্বসূরি) দিয়ে প্রতিস্থাপন করুন, তারপর সেই নোডটি সরিয়ে দিন",
+        "এটিকে রুট দিয়ে প্রতিস্থাপন করুন"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "সবচেয়ে খারাপ ক্ষেত্রে (skewed ট্রি) BST সার্চের সময় জটিলতা কত?",
+      "options": [
+        "O(log n)",
+        "O(n)",
+        "O(1)"
+      ],
+      "answer": 1
+    }
+  ]
+}

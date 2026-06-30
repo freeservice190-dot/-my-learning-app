@@ -1,0 +1,64 @@
+{
+  "id": "12-html5-advanced",
+  "title": "HTML5 এডভান্সড ফিচার",
+  "type": "lesson",
+  "estimatedMinutes": 10,
+  "content": [
+    {
+      "type": "heading",
+      "value": "<canvas> দিয়ে গ্রাফিক্স আঁকা"
+    },
+    {
+      "type": "text",
+      "value": "<canvas> একটি ফাঁকা ক্যানভাস তৈরি করে যেখানে JavaScript দিয়ে শেপ, লাইন, ছবি বা গেম আঁকা যায়।"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<canvas id=\"myCanvas\" width=\"300\" height=\"150\"></canvas>\n<script>\n  const ctx = document.getElementById(\"myCanvas\").getContext(\"2d\");\n  ctx.fillStyle = \"teal\";\n  ctx.fillRect(20, 20, 150, 80);\n</script>"
+    },
+    {
+      "type": "heading",
+      "value": "<svg> দিয়ে ভেক্টর গ্রাফিক্স"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<svg width=\"100\" height=\"100\">\n  <circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"purple\" />\n</svg>"
+    },
+    {
+      "type": "heading",
+      "value": "data-* অ্যাট্রিবিউট"
+    },
+    {
+      "type": "text",
+      "value": "data-* দিয়ে কাস্টম ডেটা একটি এলিমেন্টে সংরক্ষণ করা যায়, যা পরে JavaScript দিয়ে ব্যবহার করা যায়।"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<button data-user-id=\"42\">প্রোফাইল দেখো</button>"
+    },
+    {
+      "type": "heading",
+      "value": "iframe — অন্য পেজ এমবেড করা"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<iframe src=\"https://www.youtube.com/embed/xyz\" width=\"560\" height=\"315\"></iframe>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<details> ও <summary> দিয়ে JavaScript ছাড়াই collapsible/accordion তৈরি করা যায়",
+        "<progress> ও <meter> দিয়ে প্রোগ্রেস বার বা মাপ দেখানো যায়",
+        "<template> ট্যাগের কন্টেন্ট ব্রাউজার সরাসরি রেন্ডার করে না, JavaScript দিয়ে ক্লোন করে ব্যবহার করতে হয়"
+      ]
+    },
+    {
+      "type": "tip",
+      "value": "এই অ্যাডভান্সড ফিচারগুলো জানা থাকলে ইন্টারভিউ ও বাস্তব প্রজেক্টে অনেক সুবিধা হয় — এগুলোই 'এক্সপার্ট লেভেল'-এর HTML জ্ঞান।"
+    }
+  ]
+}

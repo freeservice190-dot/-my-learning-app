@@ -1,0 +1,20 @@
+{
+  "id": "digital-logic-design-bangla",
+  "title": "Digital Logic Design (CSE 203)",
+  "description": "Full CSE 203 syllabus: number systems, Boolean algebra, K-maps, combinational & sequential circuits, counters, and memory devices. Based on Mano & Ciletti, Digital Design (5th Ed.).",
+  "icon": "\ud83d\udd22",
+  "order": 1,
+  "lessons": [
+    "01-number-systems",
+    "02-binary-codes",
+    "03-boolean-algebra",
+    "04-kmap-minimization",
+    "05-combinational-circuits",
+    "06-decoders-encoders-mux",
+    "07-latches-flipflops",
+    "08-sequential-design",
+    "09-counters",
+    "10-memory-devices",
+    "11-quiz"
+  ]
+}

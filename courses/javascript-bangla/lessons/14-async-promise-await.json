@@ -1,0 +1,43 @@
+{
+  "id": "14-async-promise-await",
+  "title": "Async প্রোগ্রামিং: Callback, Promise ও Async/Await",
+  "type": "lesson",
+  "content": [
+    {
+      "type": "heading",
+      "value": "Asynchronous কোড কেন প্রয়োজন?"
+    },
+    {
+      "type": "text",
+      "value": "API থেকে ডেটা আনা বা ফাইল পড়ার মতো কাজ সময় নেয়। এই সময় পুরো প্রোগ্রাম থেমে না থেকে অন্য কাজ চালিয়ে যাওয়াকে Asynchronous (Async) প্রোগ্রামিং বলে।"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "// পুরাতন পদ্ধতি: Callback\nfunction fetchData(callback) {\n  setTimeout(() => {\n    callback(\"ডেটা পাওয়া গেছে\");\n  }, 1000);\n}\nfetchData((data) => console.log(data));"
+    },
+    {
+      "type": "heading",
+      "value": "Promise"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "function fetchUser() {\n  return new Promise((resolve, reject) => {\n    setTimeout(() => {\n      const success = true;\n      if (success) resolve({ name: \"জুবায়ের\" });\n      else reject(\"এরর হয়েছে!\");\n    }, 1000);\n  });\n}\n\nfetchUser()\n  .then((user) => console.log(\"পাওয়া গেছে:\", user.name))\n  .catch((err) => console.log(\"সমস্যা:\", err));"
+    },
+    {
+      "type": "heading",
+      "value": "Async/Await — Promise লেখার সহজ উপায়"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "value": "async function getUser() {\n  try {\n    const user = await fetchUser();\n    console.log(\"ইউজার:\", user.name);\n  } catch (err) {\n    console.log(\"সমস্যা:\", err);\n  }\n}\ngetUser();\n\n// Fetch API দিয়ে রিয়েল উদাহরণ\nasync function getPosts() {\n  const response = await fetch(\"https://api.example.com/posts\");\n  const data = await response.json();\n  console.log(data);\n}"
+    },
+    {
+      "type": "tip",
+      "value": "async/await মূলত Promise-এর ওপর তৈরি একটি 'সিনট্যাক্স সুগার' — ভেতরে Promise-ই কাজ করে, কিন্তু কোড দেখতে সাধারণ সিনক্রোনাস কোডের মতো হয়, যা পড়া ও বোঝা সহজ।"
+    }
+  ],
+  "estimatedMinutes": 11
+}

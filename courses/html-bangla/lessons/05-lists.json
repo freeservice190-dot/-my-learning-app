@@ -1,0 +1,51 @@
+{
+  "id": "05-lists",
+  "title": "তালিকা (Lists)",
+  "type": "lesson",
+  "estimatedMinutes": 8,
+  "content": [
+    {
+      "type": "heading",
+      "value": "তিন ধরনের লিস্ট"
+    },
+    {
+      "type": "text",
+      "value": "HTML-এ তিন ধরনের তালিকা তৈরি করা যায়: Unordered (বুলেট পয়েন্ট), Ordered (নাম্বার দেওয়া), এবং Description (শব্দ-অর্থ জোড়া)।"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<ul>\n  <li>চা</li>\n  <li>কফি</li>\n  <li>দুধ</li>\n</ul>"
+    },
+    {
+      "type": "text",
+      "value": "<ul> মানে Unordered List — প্রতিটি আইটেমের আগে বুলেট পয়েন্ট দেখায়। <li> মানে List Item, প্রতিটি আইটেমের জন্য আলাদা ট্যাগ লাগে।"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<ol>\n  <li>প্রথম ধাপ</li>\n  <li>দ্বিতীয় ধাপ</li>\n  <li>তৃতীয় ধাপ</li>\n</ol>"
+    },
+    {
+      "type": "text",
+      "value": "<ol> মানে Ordered List — প্রতিটি আইটেমের আগে স্বয়ংক্রিয়ভাবে ১, ২, ৩ নাম্বার বসে। ধাপে ধাপে কোনো কিছু বোঝাতে এটি ব্যবহার হয়।"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<dl>\n  <dt>HTML</dt>\n  <dd>পেজের কাঠামো তৈরি করে</dd>\n  <dt>CSS</dt>\n  <dd>পেজের ডিজাইন করে</dd>\n</dl>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "লিস্টের ভেতরে আরেকটি লিস্ট বসানো যায় (nested list)",
+        "<ol> ট্যাগে start=\"5\" দিয়ে লিস্ট ৫ থেকে শুরু করানো যায়",
+        "<ul> ট্যাগে type এর বদলে CSS দিয়ে বুলেট স্টাইল পরিবর্তন করাই এখনকার স্ট্যান্ডার্ড নিয়ম"
+      ]
+    },
+    {
+      "type": "tip",
+      "value": "নেভিগেশন মেনু (nav menu) তৈরি করতে প্রায় সবসময় <ul><li> ব্যবহার হয়, কারণ এটি একগুচ্ছ লিংকের তালিকা।"
+    }
+  ]
+}

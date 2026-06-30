@@ -1,0 +1,99 @@
+{
+  "id": "11-heaps",
+  "title": "Heaps: Heapsort & Huffman's Algorithm",
+  "type": "lesson",
+  "estimatedMinutes": 22,
+  "content": [
+    {
+      "type": "heading",
+      "value": "Heap property"
+    },
+    {
+      "type": "text",
+      "value": "A binary heap is a complete binary tree (filled left to right at every level) satisfying the heap property: in a max-heap, every parent is greater than or equal to its children; in a min-heap, every parent is less than or equal to its children. Heaps are usually stored in an array."
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "// For node at index i (0-indexed array):\n// left child  = 2*i + 1\n// right child = 2*i + 2\n// parent      = (i - 1) / 2"
+    },
+    {
+      "type": "heading",
+      "value": "Heapify"
+    },
+    {
+      "type": "text",
+      "value": "Heapify fixes a single violation of the heap property by comparing a node to its children and swapping with the larger (max-heap) child, repeating down the tree until the property holds."
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "void heapify(int arr[], int n, int i) {\n    int largest = i, left = 2*i + 1, right = 2*i + 2;\n    if (left < n && arr[left] > arr[largest]) largest = left;\n    if (right < n && arr[right] > arr[largest]) largest = right;\n    if (largest != i) {\n        int temp = arr[i]; arr[i] = arr[largest]; arr[largest] = temp;\n        heapify(arr, n, largest);\n    }\n}"
+    },
+    {
+      "type": "heading",
+      "value": "Heapsort"
+    },
+    {
+      "type": "text",
+      "value": "Build a max-heap from the array, then repeatedly swap the root (the maximum) with the last element and shrink the heap, re-heapifying each time. Runs in O(n log n) and sorts in place."
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "void heapSort(int arr[], int n) {\n    for (int i = n/2 - 1; i >= 0; i--) heapify(arr, n, i);\n    for (int i = n - 1; i > 0; i--) {\n        int temp = arr[0]; arr[0] = arr[i]; arr[i] = temp;\n        heapify(arr, i, 0);\n    }\n}"
+    },
+    {
+      "type": "heading",
+      "value": "Huffman's algorithm"
+    },
+    {
+      "type": "text",
+      "value": "A greedy algorithm that builds an optimal prefix-free binary code for data compression, using a min-heap. It repeatedly extracts the two lowest-frequency nodes, merges them into a new node with combined frequency, and reinserts that merged node, until only one node (the tree root) remains."
+    },
+    {
+      "type": "list",
+      "items": [
+        "1. Put every symbol into a min-heap, keyed by frequency",
+        "2. Extract the two minimum-frequency nodes",
+        "3. Create a new internal node with these two as children, frequency = sum of both",
+        "4. Insert the new node back into the heap",
+        "5. Repeat until one node remains - that's the Huffman tree root",
+        "6. Code for each symbol = path from root to leaf (0 for left, 1 for right)"
+      ]
+    },
+    {
+      "type": "tip",
+      "value": "Symbols that appear more frequently end up closer to the root in a Huffman tree, giving them shorter codes - this is exactly why Huffman coding compresses data."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "In a max-heap stored as an array, where is the left child of index i?",
+      "options": [
+        "i/2",
+        "2i + 1",
+        "2i - 1"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What is heapsort's time complexity?",
+      "options": [
+        "O(n)",
+        "O(n log n)",
+        "O(n^2)"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Huffman's algorithm repeatedly merges which two nodes?",
+      "options": [
+        "The two highest-frequency nodes",
+        "The two lowest-frequency nodes",
+        "Two random nodes"
+      ],
+      "answer": 1
+    }
+  ]
+}

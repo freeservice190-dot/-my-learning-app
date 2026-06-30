@@ -1,0 +1,23 @@
+{
+  "id": "html-bangla",
+  "title": "HTML শিখি বাংলায় (Beginner to Expert)",
+  "description": "একদম শুরু থেকে এক্সপার্ট লেভেল পর্যন্ত সম্পূর্ণ বাংলা ভাষায় HTML কোর্স — থিওরি ও প্র্যাকটিক্যাল কোডিং সহ।",
+  "icon": "🌐",
+  "order": 1,
+  "lessons": [
+    "01-poricoy",
+    "02-document-structure",
+    "03-tags-and-elements",
+    "04-text-formatting",
+    "05-lists",
+    "06-links-and-navigation",
+    "07-images-and-media",
+    "08-tables",
+    "09-forms",
+    "10-semantic-html",
+    "11-attributes-div-span",
+    "12-html5-advanced",
+    "13-practical-project",
+    "14-quiz"
+  ]
+}

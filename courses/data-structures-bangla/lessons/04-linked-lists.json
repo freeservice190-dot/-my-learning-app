@@ -1,0 +1,119 @@
+{
+  "id": "04-linked-lists",
+  "title": "সিঙ্গলি, ডাবলি ও সার্কুলার লিংকড লিস্ট",
+  "type": "lesson",
+  "estimatedMinutes": 25,
+  "content": [
+    {
+      "type": "heading",
+      "value": "লিংকড লিস্ট কেন প্রয়োজন?"
+    },
+    {
+      "type": "text",
+      "value": "অ্যারের বিপরীতে, লিংকড লিস্ট পয়েন্টার দিয়ে সংযুক্ত আলাদা আলাদা নোডে উপাদান সংরক্ষণ করে, যা মেমোরির যেকোনো জায়গায় ছড়িয়ে থাকতে পারে। সঠিক স্থানে একটি পয়েন্টার থাকলে সন্নিবেশ/মুছে ফেলা O(1) হয়, তবে এর বিনিময়ে অ্যাক্সেস সময় O(n) (সরাসরি ইনডেক্সিং নেই) এবং পয়েন্টারের জন্য অতিরিক্ত মেমোরি লাগে।"
+    },
+    {
+      "type": "heading",
+      "value": "সিঙ্গলি লিংকড লিস্টের নোড"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "struct Node {\n    int data;\n    struct Node *next;\n};"
+    },
+    {
+      "type": "heading",
+      "value": "ট্রাভার্সাল (অতিক্রম করা)"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "void traverse(struct Node *head) {\n    struct Node *cur = head;\n    while (cur != NULL) {\n        printf(\"%d -> \", cur->data);\n        cur = cur->next;\n    }\n    printf(\"NULL\\n\");\n}"
+    },
+    {
+      "type": "heading",
+      "value": "সামনের দিকে সন্নিবেশ"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "struct Node* insertFront(struct Node *head, int value) {\n    struct Node *newNode = malloc(sizeof(struct Node));\n    newNode->data = value;\n    newNode->next = head;\n    return newNode; // new head\n}"
+    },
+    {
+      "type": "heading",
+      "value": "একটি নির্দিষ্ট মান মুছে ফেলা"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "struct Node* deleteValue(struct Node *head, int value) {\n    struct Node *cur = head, *prev = NULL;\n    while (cur != NULL && cur->data != value) {\n        prev = cur;\n        cur = cur->next;\n    }\n    if (cur == NULL) return head; // not found\n    if (prev == NULL) head = cur->next; // deleting head\n    else prev->next = cur->next;\n    free(cur);\n    return head;\n}"
+    },
+    {
+      "type": "heading",
+      "value": "ডাবলি লিংকড লিস্ট"
+    },
+    {
+      "type": "text",
+      "value": "প্রতিটি নোডে দুটি পয়েন্টার থাকে: next এবং prev। এর ফলে দুই দিকেই ট্রাভার্সাল করা যায় এবং পরিচিত একটি নোড মুছতে আলাদাভাবে 'previous' পয়েন্টার ট্র্যাক করার প্রয়োজন ছাড়াই O(1) সময়ে মোছা যায়, তবে প্রতিটি নোডে অতিরিক্ত মেমোরি লাগে।"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "struct DNode {\n    int data;\n    struct DNode *next;\n    struct DNode *prev;\n};"
+    },
+    {
+      "type": "heading",
+      "value": "সার্কুলার লিংকড লিস্ট"
+    },
+    {
+      "type": "text",
+      "value": "শেষ নোডের next পয়েন্টার NULL এর বদলে প্রথম নোডের দিকে ফিরে যায়, ফলে একটি বৃত্ত তৈরি হয়। রাউন্ড-রবিন শিডিউলিং বা বারবার উপাদান চক্রাকারে ব্যবহার করতে হয় এমন যেকোনো অ্যাপ্লিকেশনে এটি উপযোগী। ট্রাভার্সালে NULL চেক করার বদলে 'আমি কি হেড-এ ফিরে এসেছি?' তা পরীক্ষা করতে হয়।"
+    },
+    {
+      "type": "heading",
+      "value": "লিস্ট উল্টানো"
+    },
+    {
+      "type": "text",
+      "value": "একটি সিঙ্গলি লিংকড লিস্ট স্থানেই (in-place) উল্টাতে প্রতিটি নোডের next পয়েন্টারকে আগের নোডের দিকে পুনরায় নির্দেশ করতে হয়, যেখানে prev, cur এবং next - এই তিনটি পয়েন্টার দিয়ে এগোতে হয়।"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "struct Node* reverse(struct Node *head) {\n    struct Node *prev = NULL, *cur = head, *next;\n    while (cur != NULL) {\n        next = cur->next;\n        cur->next = prev;\n        prev = cur;\n        cur = next;\n    }\n    return prev; // new head\n}"
+    },
+    {
+      "type": "tip",
+      "value": "লিস্ট উল্টানোর পরীক্ষার প্রশ্নে, প্রতিটি ধাপে কাগজে তিনটি পয়েন্টার (prev, cur, next) এঁকে নিন - কোন পয়েন্টার কখন সরছে তা গুলিয়ে ফেলার এটি সবচেয়ে সাধারণ জায়গা।"
+    }
+  ],
+  "quiz": [
+    {
+      "question": "অ্যারের তুলনায় লিংকড লিস্টের প্রধান সুবিধা কী?",
+      "options": [
+        "ইনডেক্স দিয়ে O(1) র‍্যান্ডম অ্যাক্সেস",
+        "সঠিক পয়েন্টার থাকলে O(1) সন্নিবেশ/মুছে ফেলা, সরানোর প্রয়োজন নেই",
+        "লিংকড লিস্ট প্রতি উপাদানে কম মেমোরি ব্যবহার করে"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "একটি সার্কুলার লিংকড লিস্টে, শেষ নোডের next পয়েন্টার কোথায় নির্দেশ করে?",
+      "options": [
+        "NULL",
+        "হেড নোড",
+        "নিজের দিকে"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "একটি সিঙ্গলি লিংকড লিস্ট স্থানেই উল্টাতে সাধারণত কতগুলো ট্র্যাকিং পয়েন্টার ব্যবহার করা হয়?",
+      "options": [
+        "একটি",
+        "দুটি",
+        "তিনটি (prev, cur, next)"
+      ],
+      "answer": 2
+    }
+  ]
+}

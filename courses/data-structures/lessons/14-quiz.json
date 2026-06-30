@@ -1,0 +1,131 @@
+{
+  "id": "14-quiz",
+  "title": "CSE 205 Final Review Quiz",
+  "type": "quiz",
+  "estimatedMinutes": 15,
+  "content": [
+    {
+      "type": "text",
+      "value": "A mixed review across the full Data Structures syllabus - arrays through hash tables. Use this to gauge readiness before your midterm or final."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "What is the time complexity of inserting into the middle of an array?",
+      "options": [
+        "O(1)",
+        "O(log n)",
+        "O(n)"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Binary search requires what precondition?",
+      "options": [
+        "The array must be sorted",
+        "The array must be a linked list",
+        "The array must contain unique values"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Which sort is not comparison-based?",
+      "options": [
+        "Bubble sort",
+        "Counting sort",
+        "Selection sort"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What is the main benefit of a doubly linked list over a singly linked list?",
+      "options": [
+        "Less memory usage",
+        "Traversal in both directions and O(1) deletion given a node pointer",
+        "Faster random access"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Tower of Hanoi with n disks requires how many moves?",
+      "options": [
+        "n!",
+        "2^n - 1",
+        "n^2"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Postfix expressions are evaluated using which structure?",
+      "options": [
+        "Queue",
+        "Stack",
+        "Tree"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "A circular queue avoids which inefficiency of a plain array queue?",
+      "options": [
+        "O(n) shifting on dequeue",
+        "O(1) enqueue",
+        "Memory allocation"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "DFS is naturally implemented using:",
+      "options": [
+        "A queue",
+        "Recursion / an explicit stack",
+        "A hash table"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Inorder traversal of a BST visits nodes in:",
+      "options": [
+        "Random order",
+        "Sorted order",
+        "Reverse insertion order"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Deleting a BST node with two children requires:",
+      "options": [
+        "Replacing it with its inorder successor or predecessor",
+        "Always deleting the whole subtree",
+        "Simply removing the node and leaving children disconnected"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Heapsort's time complexity is:",
+      "options": [
+        "O(n)",
+        "O(n log n)",
+        "O(n^2)"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "An AVL tree keeps the balance factor of every node within:",
+      "options": [
+        "{-1, 0, 1}",
+        "{-3...3}",
+        "Unrestricted"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "A hash table's average-case search complexity is:",
+      "options": [
+        "O(1)",
+        "O(n)",
+        "O(log n)"
+      ],
+      "answer": 0
+    }
+  ]
+}

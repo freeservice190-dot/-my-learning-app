@@ -1,0 +1,99 @@
+{
+  "id": "13-hash-tables",
+  "title": "Hash Tables: Hashing & Collision Resolution",
+  "type": "lesson",
+  "estimatedMinutes": 20,
+  "content": [
+    {
+      "type": "heading",
+      "value": "The idea behind hashing"
+    },
+    {
+      "type": "text",
+      "value": "A hash table maps keys to array indices using a hash function, giving average O(1) insert, search, and delete - much faster than searching a list or even a balanced tree for simple key lookups."
+    },
+    {
+      "type": "heading",
+      "value": "A simple hash function"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "int hash(int key, int tableSize) {\n    return key % tableSize;\n}"
+    },
+    {
+      "type": "text",
+      "value": "A good hash function should distribute keys uniformly across the table to minimize collisions (two keys mapping to the same index)."
+    },
+    {
+      "type": "heading",
+      "value": "Collision resolution: chaining"
+    },
+    {
+      "type": "text",
+      "value": "Each table slot holds a linked list of all keys that hash to that index. On collision, simply append to the list. Search degrades from O(1) to O(n) only if many keys land in the same bucket."
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "struct HashNode {\n    int key;\n    int value;\n    struct HashNode *next;\n};\nstruct HashNode* table[TABLE_SIZE];\n\nvoid insert(int key, int value) {\n    int idx = hash(key, TABLE_SIZE);\n    struct HashNode *node = malloc(sizeof(struct HashNode));\n    node->key = key; node->value = value;\n    node->next = table[idx];\n    table[idx] = node; // insert at head of the chain\n}"
+    },
+    {
+      "type": "heading",
+      "value": "Collision resolution: open addressing"
+    },
+    {
+      "type": "text",
+      "value": "Instead of chaining, all keys live directly in the array. On collision, probe for the next available slot using a defined sequence."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Linear probing: try (hash+1), (hash+2), ... can cause clustering",
+        "Quadratic probing: try (hash+1^2), (hash+2^2), ... reduces clustering",
+        "Double hashing: use a second hash function to compute the step size"
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "Load factor"
+    },
+    {
+      "type": "text",
+      "value": "Load factor = number of stored entries / table size. As load factor approaches 1, collisions become much more frequent and performance degrades; most implementations resize (rehash into a bigger table) once load factor crosses a threshold like 0.7."
+    },
+    {
+      "type": "tip",
+      "value": "When asked to trace insertions into a hash table with linear probing on an exam, always write the table as a row of boxes and fill them in step by step - it's easy to lose track of which slot got probed next otherwise."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "What is the average-case time complexity of hash table search?",
+      "options": [
+        "O(1)",
+        "O(log n)",
+        "O(n)"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "In chaining, what happens when two keys collide?",
+      "options": [
+        "The second key overwrites the first",
+        "Both keys are stored in a linked list at that index",
+        "An error is thrown"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What does a high load factor indicate?",
+      "options": [
+        "The table is mostly empty",
+        "Collisions become more frequent, hurting performance",
+        "The hash function is perfect"
+      ],
+      "answer": 1
+    }
+  ]
+}

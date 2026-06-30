@@ -1,0 +1,84 @@
+{
+  "id": "10-binary-search-trees",
+  "title": "Binary Search Trees: Insertion & Deletion",
+  "type": "lesson",
+  "estimatedMinutes": 22,
+  "content": [
+    {
+      "type": "heading",
+      "value": "BST property"
+    },
+    {
+      "type": "text",
+      "value": "For every node, all values in its left subtree are smaller and all values in its right subtree are larger. This property makes search, insert, and delete run in O(h) time, where h is the tree's height - O(log n) for a balanced tree, but O(n) for a degenerate (skewed) one."
+    },
+    {
+      "type": "heading",
+      "value": "Search"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "struct TreeNode* search(struct TreeNode *root, int key) {\n    if (root == NULL || root->data == key) return root;\n    if (key < root->data) return search(root->left, key);\n    return search(root->right, key);\n}"
+    },
+    {
+      "type": "heading",
+      "value": "Insertion"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "struct TreeNode* insert(struct TreeNode *root, int key) {\n    if (root == NULL) {\n        struct TreeNode *node = malloc(sizeof(struct TreeNode));\n        node->data = key;\n        node->left = node->right = NULL;\n        return node;\n    }\n    if (key < root->data) root->left = insert(root->left, key);\n    else if (key > root->data) root->right = insert(root->right, key);\n    return root; // duplicates ignored\n}"
+    },
+    {
+      "type": "heading",
+      "value": "Deletion - the three cases"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Leaf node (no children): simply remove it",
+        "One child: replace the node with its single child",
+        "Two children: replace the node's value with its inorder successor (smallest value in the right subtree), then delete that successor node"
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "struct TreeNode* minValueNode(struct TreeNode *node) {\n    while (node->left != NULL) node = node->left;\n    return node;\n}\n\nstruct TreeNode* deleteNode(struct TreeNode *root, int key) {\n    if (root == NULL) return root;\n    if (key < root->data) root->left = deleteNode(root->left, key);\n    else if (key > root->data) root->right = deleteNode(root->right, key);\n    else {\n        if (root->left == NULL) { struct TreeNode *temp = root->right; free(root); return temp; }\n        if (root->right == NULL) { struct TreeNode *temp = root->left; free(root); return temp; }\n        struct TreeNode *succ = minValueNode(root->right);\n        root->data = succ->data;\n        root->right = deleteNode(root->right, succ->data);\n    }\n    return root;\n}"
+    },
+    {
+      "type": "tip",
+      "value": "You can use either the inorder successor (min of right subtree) or the inorder predecessor (max of left subtree) for the two-children case - both are correct, just be consistent and state which one you're using."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "In a BST, where are values smaller than a node stored?",
+      "options": [
+        "In its right subtree",
+        "In its left subtree",
+        "Anywhere randomly"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "When deleting a node with two children, what do you do?",
+      "options": [
+        "Delete it directly",
+        "Replace it with its inorder successor (or predecessor), then remove that node",
+        "Replace it with the root"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What is BST search's time complexity in the worst case (skewed tree)?",
+      "options": [
+        "O(log n)",
+        "O(n)",
+        "O(1)"
+      ],
+      "answer": 1
+    }
+  ]
+}

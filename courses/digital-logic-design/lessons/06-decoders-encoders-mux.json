@@ -1,0 +1,90 @@
+{
+  "id": "06-decoders-encoders-mux",
+  "title": "Decoders, Encoders, Multiplexers & Demultiplexers",
+  "type": "lesson",
+  "estimatedMinutes": 22,
+  "content": [
+    {
+      "type": "heading",
+      "value": "Decoder"
+    },
+    {
+      "type": "text",
+      "value": "A decoder converts n binary input lines into up to 2^n unique output lines, activating exactly one output for each input combination. A 3-to-8 decoder, for example, has 3 inputs and 8 outputs, with one output line going high (or low, for active-low decoders) per input code."
+    },
+    {
+      "type": "tip",
+      "value": "Decoders are commonly used for memory address decoding - selecting exactly one memory chip or register based on an address."
+    },
+    {
+      "type": "heading",
+      "value": "Encoder"
+    },
+    {
+      "type": "text",
+      "value": "An encoder is the opposite of a decoder: it converts one active input line (out of 2^n) back into an n-bit binary code. A basic encoder assumes only one input is active at a time; a priority encoder resolves the case where multiple inputs are active by outputting the code for the highest-priority input."
+    },
+    {
+      "type": "heading",
+      "value": "Multiplexer (MUX)"
+    },
+    {
+      "type": "text",
+      "value": "A multiplexer selects one of several data inputs and routes it to a single output, based on a set of select lines. A 4-to-1 MUX needs 2 select lines (2^2 = 4 inputs)."
+    },
+    {
+      "type": "code",
+      "language": "text",
+      "value": "4-to-1 MUX select logic:\nS1 S0 | Output\n0  0  |  I0\n0  1  |  I1\n1  0  |  I2\n1  1  |  I3"
+    },
+    {
+      "type": "heading",
+      "value": "Demultiplexer (DEMUX)"
+    },
+    {
+      "type": "text",
+      "value": "A demultiplexer takes a single input and routes it to one of several outputs based on select lines - functionally the reverse of a multiplexer. A demultiplexer with select lines is structurally identical to a decoder with an added enable input."
+    },
+    {
+      "type": "heading",
+      "value": "Implementing functions with multiplexers"
+    },
+    {
+      "type": "text",
+      "value": "Any Boolean function of n variables can be implemented with a 2^(n-1)-to-1 MUX: place n-1 variables on the select lines, and wire each data input to 0, 1, the remaining variable, or its complement, based on the truth table rows for that select combination."
+    },
+    {
+      "type": "tip",
+      "value": "When asked to implement a function using a MUX in an exam, build a quick truth table first, group rows by the select-line variables, and read off what each data input needs to be."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "How many outputs does a 3-to-8 decoder have?",
+      "options": [
+        "3",
+        "6",
+        "8"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "What does a multiplexer do?",
+      "options": [
+        "Routes one of several inputs to a single output based on select lines",
+        "Converts an active line into binary code",
+        "Always doubles the number of inputs"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "A priority encoder is needed when:",
+      "options": [
+        "Only one input is ever active",
+        "Multiple inputs can be active simultaneously and one must be chosen",
+        "There are no inputs"
+      ],
+      "answer": 1
+    }
+  ]
+}

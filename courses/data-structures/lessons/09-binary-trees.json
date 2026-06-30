@@ -1,0 +1,88 @@
+{
+  "id": "09-binary-trees",
+  "title": "Binary Trees: Representation & Traversal",
+  "type": "lesson",
+  "estimatedMinutes": 20,
+  "content": [
+    {
+      "type": "heading",
+      "value": "Tree terminology"
+    },
+    {
+      "type": "text",
+      "value": "A tree is a hierarchical structure: one root node, with each node having zero or more child nodes and no cycles. A binary tree restricts each node to at most two children, conventionally called left and right."
+    },
+    {
+      "type": "heading",
+      "value": "Memory representation"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "struct TreeNode {\n    int data;\n    struct TreeNode *left;\n    struct TreeNode *right;\n};"
+    },
+    {
+      "type": "text",
+      "value": "Binary trees can also be stored in an array (common for heaps): for a node at index i, its left child is at 2i+1 and right child at 2i+2 (0-indexed), with no explicit pointers needed."
+    },
+    {
+      "type": "heading",
+      "value": "Tree traversal orders"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Preorder: visit node, then left subtree, then right subtree (Node-Left-Right)",
+        "Inorder: visit left subtree, then node, then right subtree (Left-Node-Right)",
+        "Postorder: visit left subtree, then right subtree, then node (Left-Right-Node)",
+        "Level order: visit nodes level by level, using a queue (this is BFS applied to a tree)"
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "void preorder(struct TreeNode *root) {\n    if (root == NULL) return;\n    printf(\"%d \", root->data);\n    preorder(root->left);\n    preorder(root->right);\n}\n\nvoid inorder(struct TreeNode *root) {\n    if (root == NULL) return;\n    inorder(root->left);\n    printf(\"%d \", root->data);\n    inorder(root->right);\n}\n\nvoid postorder(struct TreeNode *root) {\n    if (root == NULL) return;\n    postorder(root->left);\n    postorder(root->right);\n    printf(\"%d \", root->data);\n}"
+    },
+    {
+      "type": "tip",
+      "value": "Inorder traversal of a Binary Search Tree always visits nodes in sorted order - this single fact is tested constantly and is worth memorizing cold."
+    },
+    {
+      "type": "heading",
+      "value": "Level-order traversal"
+    },
+    {
+      "type": "text",
+      "value": "Uses a queue: start by enqueueing the root, then repeatedly dequeue a node, print it, and enqueue its non-null children, until the queue is empty."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "In preorder traversal, when is the node itself visited?",
+      "options": [
+        "Before its subtrees",
+        "Between its subtrees",
+        "After both subtrees"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Inorder traversal of a Binary Search Tree produces:",
+      "options": [
+        "Random order",
+        "Sorted order",
+        "Reverse sorted order"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Level-order traversal uses which data structure?",
+      "options": [
+        "Stack",
+        "Queue",
+        "Heap"
+      ],
+      "answer": 1
+    }
+  ]
+}
