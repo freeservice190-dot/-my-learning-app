@@ -1,0 +1,34 @@
+{
+  "id": "13-file-handling",
+  "title": "ফাইল হ্যান্ডলিং",
+  "type": "lesson",
+  "content": [
+    {
+      "type": "heading",
+      "value": "ফাইলে লেখা ও পড়া"
+    },
+    {
+      "type": "text",
+      "value": "C প্রোগ্রাম থেকে ফাইলে ডেটা সংরক্ষণ করতে এবং ফাইল থেকে ডেটা পড়তে FILE পয়েন্টার ও stdio.h এর ফাংশনগুলো ব্যবহার করা হয়।"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "#include <stdio.h>\n\nint main() {\n    // ফাইলে লেখা\n    FILE *fp = fopen(\"data.txt\", \"w\");\n    if (fp == NULL) {\n        printf(\"ফাইল খোলা যায়নি!\\n\");\n        return 1;\n    }\n    fprintf(fp, \"নাম: করিম\\nবয়স: ২৫\\n\");\n    fclose(fp);\n\n    // ফাইল থেকে পড়া\n    char line[100];\n    fp = fopen(\"data.txt\", \"r\");\n    while (fgets(line, sizeof(line), fp) != NULL) {\n        printf(\"%s\", line);\n    }\n    fclose(fp);\n\n    return 0;\n}"
+    },
+    {
+      "type": "list",
+      "items": [
+        "\"w\" — লেখার জন্য খোলা (আগের কন্টেন্ট মুছে যায়)",
+        "\"r\" — পড়ার জন্য খোলা",
+        "\"a\" — পুরাতন কন্টেন্টের শেষে নতুন ডেটা যুক্ত করার জন্য খোলা",
+        "fclose() — ফাইল ব্যবহার শেষে বন্ধ করা অবশ্যই প্রয়োজন"
+      ]
+    },
+    {
+      "type": "tip",
+      "value": "ফাইল ওপেন করার পর সবসময় NULL চেক করুন — ফাইল না থাকলে বা পারমিশন সমস্যা হলে fopen() NULL রিটার্ন করে।"
+    }
+  ],
+  "estimatedMinutes": 10
+}

@@ -1,0 +1,44 @@
+{
+  "id": "02-variable-datatype",
+  "title": "ভ্যারিয়েবল ও ডেটা টাইপ",
+  "type": "lesson",
+  "content": [
+    {
+      "type": "heading",
+      "value": "ভ্যারিয়েবল ঘোষণা করা"
+    },
+    {
+      "type": "text",
+      "value": "C একটি স্ট্যাটিকালি টাইপড ভাষা — মানে প্রতিটি ভ্যারিয়েবলের টাইপ ব্যবহারের আগেই ঘোষণা করতে হয়, এবং সেই টাইপ পরে পরিবর্তন করা যায় না।"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "#include <stdio.h>\n\nint main() {\n    int age = 25;\n    float price = 99.50;\n    char grade = 'A';\n    double pi = 3.14159265;\n\n    printf(\"বয়স: %d\\n\", age);\n    printf(\"দাম: %.2f\\n\", price);\n    printf(\"গ্রেড: %c\\n\", grade);\n\n    return 0;\n}"
+    },
+    {
+      "type": "heading",
+      "value": "মৌলিক ডেটা টাইপ"
+    },
+    {
+      "type": "list",
+      "items": [
+        "int — পূর্ণসংখ্যা (সাধারণত ৪ বাইট)",
+        "float — দশমিক সংখ্যা, একক প্রিসিশন (৪ বাইট)",
+        "double — দশমিক সংখ্যা, দ্বিগুণ প্রিসিশন (৮ বাইট)",
+        "char — একটি মাত্র ক্যারেক্টার (১ বাইট), সিঙ্গেল কোটে লেখা হয় যেমন 'A'",
+        "void — কোনো মান নেই বোঝাতে ব্যবহৃত হয়"
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "// sizeof দিয়ে ডেটা টাইপের সাইজ জানা\nprintf(\"%lu\\n\", sizeof(int));    // সাধারণত 4\nprintf(\"%lu\\n\", sizeof(char));   // সাধারণত 1\nprintf(\"%lu\\n\", sizeof(double)); // সাধারণত 8"
+    },
+    {
+      "type": "tip",
+      "value": "printf এ ফরম্যাট স্পেসিফায়ার মনে রাখুন: %d (int), %f (float), %lf (double), %c (char), %s (string)। ভুল স্পেসিফায়ার দিলে অপ্রত্যাশিত আউটপুট আসতে পারে।"
+    }
+  ],
+  "estimatedMinutes": 9
+}

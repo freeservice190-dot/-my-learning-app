@@ -1,0 +1,56 @@
+{
+  "id": "04-box-model",
+  "title": "CSS বক্স মডেল",
+  "type": "lesson",
+  "estimatedMinutes": 12,
+  "content": [
+    {
+      "type": "heading",
+      "value": "বক্স মডেল কী?"
+    },
+    {
+      "type": "text",
+      "value": "CSS-এ প্রতিটি HTML এলিমেন্টকে একটি আয়তাকার বাক্স (box) হিসেবে কল্পনা করা হয়। এই বাক্সের চারটি স্তর থাকে: Content, Padding, Border এবং Margin।"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Content — এলিমেন্টের আসল লেখা বা ছবি",
+        "Padding — কন্টেন্ট ও বর্ডারের মধ্যবর্তী ফাঁকা জায়গা (ভেতরের স্পেস)",
+        "Border — কন্টেন্ট ও প্যাডিংয়ের চারপাশের সীমারেখা",
+        "Margin — বর্ডারের বাইরে, পাশের এলিমেন্টের সাথে ফাঁকা জায়গা (বাইরের স্পেস)"
+      ]
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": "div {\n  width: 200px;\n  padding: 20px;\n  border: 2px solid black;\n  margin: 10px;\n}"
+    },
+    {
+      "type": "heading",
+      "value": "প্রতিটি দিক আলাদাভাবে নিয়ন্ত্রণ"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": "div {\n  margin-top: 10px;\n  margin-right: 15px;\n  margin-bottom: 10px;\n  margin-left: 15px;\n\n  /* শর্টহ্যান্ড: উপর ডান নিচ বাম */\n  margin: 10px 15px 10px 15px;\n\n  /* উপর-নিচ একসাথে, ডান-বাম একসাথে */\n  margin: 10px 15px;\n}"
+    },
+    {
+      "type": "heading",
+      "value": "box-sizing: border-box"
+    },
+    {
+      "type": "text",
+      "value": "ডিফল্টভাবে width শুধু content এর জন্য প্রযোজ্য হয়, padding ও border আলাদাভাবে যোগ হয়ে মোট সাইজ বাড়িয়ে দেয়। box-sizing: border-box দিলে padding ও border, width এর ভেতরেই হিসাব হয় — যা লেআউট প্ল্যানিং অনেক সহজ করে দেয়।"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": "* {\n  box-sizing: border-box;\n}"
+    },
+    {
+      "type": "tip",
+      "value": "প্রায় প্রতিটি প্রফেশনাল প্রজেক্টের শুরুতেই * { box-sizing: border-box; } লেখা হয় — এটি একটি ইন্ডাস্ট্রি স্ট্যান্ডার্ড অভ্যাস।"
+    }
+  ]
+}

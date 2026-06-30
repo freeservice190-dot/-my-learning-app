@@ -1,0 +1,39 @@
+{
+  "id": "04-condition",
+  "title": "কন্ডিশনাল স্টেটমেন্ট",
+  "type": "lesson",
+  "content": [
+    {
+      "type": "heading",
+      "value": "if, else if, else"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "#include <stdio.h>\n\nint main() {\n    int marks = 75;\n\n    if (marks >= 80) {\n        printf(\"A+\\n\");\n    } else if (marks >= 60) {\n        printf(\"A\\n\");\n    } else {\n        printf(\"আরও চেষ্টা করুন\\n\");\n    }\n    return 0;\n}"
+    },
+    {
+      "type": "heading",
+      "value": "switch স্টেটমেন্ট"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "int day = 3;\nswitch (day) {\n    case 1:\n        printf(\"শনিবার\\n\");\n        break;\n    case 2:\n        printf(\"রবিবার\\n\");\n        break;\n    case 3:\n        printf(\"সোমবার\\n\");\n        break;\n    default:\n        printf(\"অজানা দিন\\n\");\n}"
+    },
+    {
+      "type": "heading",
+      "value": "টার্নারি অপারেটর"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "int age = 20;\nint result = (age >= 18) ? 1 : 0;\nprintf(\"প্রাপ্তবয়স্ক: %d\\n\", result); // 1 মানে true"
+    },
+    {
+      "type": "tip",
+      "value": "C-তে boolean টাইপ আলাদাভাবে নেই (C99-এর আগে) — 0 কে false এবং অন্য কোনো নন-জিরো মানকে true ধরা হয়।"
+    }
+  ],
+  "estimatedMinutes": 8
+}

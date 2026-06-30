@@ -1,0 +1,48 @@
+{
+  "id": "07-display-and-positioning",
+  "title": "ডিসপ্লে ও পজিশনিং",
+  "type": "lesson",
+  "estimatedMinutes": 14,
+  "content": [
+    {
+      "type": "heading",
+      "value": "Display প্রপার্টি"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": "div { display: block; }       /* পুরো লাইন নেয়, নতুন লাইনে শুরু হয় */\nspan { display: inline; }     /* শুধু কন্টেন্টের সমান জায়গা নেয় */\nli { display: inline-block; } /* ইনলাইনের মতো পাশাপাশি, কিন্তু width/height সেট করা যায় */\ndiv { display: none; }        /* এলিমেন্ট সম্পূর্ণ অদৃশ্য, জায়গাও নেয় না */"
+    },
+    {
+      "type": "heading",
+      "value": "Position প্রপার্টি"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": "/* static: ডিফল্ট, স্বাভাবিক প্রবাহে থাকে */\n.box1 { position: static; }\n\n/* relative: নিজের আগের জায়গা থেকে সরে, কিন্তু জায়গা ধরে রাখে */\n.box2 { position: relative; top: 10px; left: 20px; }\n\n/* absolute: নিকটতম positioned (relative/absolute) প্যারেন্টের সাপেক্ষে */\n.box3 { position: absolute; top: 0; right: 0; }\n\n/* fixed: স্ক্রল করলেও স্ক্রিনের একই জায়গায় থাকে */\n.box4 { position: fixed; bottom: 20px; right: 20px; }\n\n/* sticky: স্বাভাবিক প্রবাহে থাকে, কিন্তু স্ক্রল করলে একটা পয়েন্টে আটকে যায় */\n.navbar { position: sticky; top: 0; }"
+    },
+    {
+      "type": "list",
+      "items": [
+        "static — ডিফল্ট পজিশন, top/left কাজ করে না",
+        "relative — নিজের সাপেক্ষে সরে, লেআউটে আগের জায়গা ফাঁকা থাকে",
+        "absolute — প্যারেন্টের সাপেক্ষে অবস্থান করে, লেআউট থেকে সম্পূর্ণ বের হয়ে যায়",
+        "fixed — ভিউপোর্টের সাপেক্ষে, স্ক্রল করলেও নড়ে না (যেমন ফ্লোটিং বাটন)",
+        "sticky — relative ও fixed এর মিশ্রণ, sticky navbar বানাতে জনপ্রিয়"
+      ]
+    },
+    {
+      "type": "tip",
+      "value": "absolute পজিশনিং কাজ করার জন্য তার প্যারেন্ট এলিমেন্টে position: relative দেওয়া আবশ্যক, নাহলে এটি পুরো পেজের (body) সাপেক্ষে পজিশন হবে।"
+    },
+    {
+      "type": "heading",
+      "value": "z-index"
+    },
+    {
+      "type": "text",
+      "value": "একাধিক positioned এলিমেন্ট একে অপরের উপর ওভারল্যাপ করলে z-index দিয়ে ঠিক করা যায় কোনটি উপরে দেখাবে — বড় মান উপরে থাকে।"
+    }
+  ]
+}

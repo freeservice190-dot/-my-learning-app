@@ -1,0 +1,15 @@
+{
+  "id": "8051-microcontroller",
+  "title": "৮০৫১ মাইক্রোকন্ট্রোলার",
+  "description": "মাইক্রোকন্ট্রোলারের ধারণা, ৮০৫১-এর আর্কিটেকচার, টাইমার/কাউন্টার, ইন্টারাপ্ট এবং মেমোরি ইন্টারফেসিং নিয়ে সম্পূর্ণ কোর্স।",
+  "icon": "🔧",
+  "order": 3,
+  "lessons": [
+    "01-microcontroller-porichiti",
+    "02-block-diagram",
+    "03-timers-counters",
+    "04-interrupts",
+    "05-memory-interfacing",
+    "06-quiz"
+  ]
+}

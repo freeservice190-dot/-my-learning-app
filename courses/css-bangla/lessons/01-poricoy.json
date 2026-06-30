@@ -1,0 +1,41 @@
+{
+  "id": "01-poricoy",
+  "title": "CSS কী এবং কেন দরকার",
+  "type": "lesson",
+  "estimatedMinutes": 8,
+  "content": [
+    {
+      "type": "heading",
+      "value": "CSS কী?"
+    },
+    {
+      "type": "text",
+      "value": "CSS (Cascading Style Sheets) দিয়ে একটি ওয়েবপেজের ডিজাইন বা সাজসজ্জা করা হয় — রং, ফন্ট, স্পেসিং, লেআউট ইত্যাদি। HTML যদি হয় বাড়ির কাঠামো, CSS তাহলে সেই বাড়ির রং, পর্দা, আসবাবপত্রের সাজানো।"
+    },
+    {
+      "type": "heading",
+      "value": "CSS যুক্ত করার তিনটি উপায়"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Inline CSS — সরাসরি HTML ট্যাগের style অ্যাট্রিবিউটে",
+        "Internal CSS — HTML ফাইলের <head> এর ভেতরে <style> ট্যাগে",
+        "External CSS — আলাদা .css ফাইলে লিখে <link> দিয়ে যুক্ত করা (সবচেয়ে ভালো পদ্ধতি)"
+      ]
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<!-- Inline -->\n<p style=\"color: red;\">লাল টেক্সট</p>\n\n<!-- Internal -->\n<head>\n  <style>\n    p { color: red; }\n  </style>\n</head>\n\n<!-- External -->\n<head>\n  <link rel=\"stylesheet\" href=\"style.css\">\n</head>"
+    },
+    {
+      "type": "tip",
+      "value": "প্রফেশনাল প্রজেক্টে সবসময় External CSS ব্যবহার করা হয় — এতে কোড সংগঠিত থাকে এবং একই CSS ফাইল একাধিক HTML পেজে ব্যবহার করা যায়।"
+    },
+    {
+      "type": "text",
+      "value": "এই কোর্সে আমরা সিলেক্টর, বক্স মডেল, Flexbox, Grid, Responsive Design থেকে শুরু করে অ্যানিমেশন পর্যন্ত সব শিখব — একদম বিগিনার থেকে এক্সপার্ট লেভেল।"
+    }
+  ]
+}

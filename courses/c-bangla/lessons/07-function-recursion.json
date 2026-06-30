@@ -1,0 +1,47 @@
+{
+  "id": "07-function-recursion",
+  "title": "ফাংশন ও রিকার্শন",
+  "type": "lesson",
+  "content": [
+    {
+      "type": "heading",
+      "value": "ফাংশন কী এবং কেন প্রয়োজন?"
+    },
+    {
+      "type": "text",
+      "value": "ফাংশন হলো কোডের একটি নামকৃত ব্লক, যা একটি নির্দিষ্ট কাজ করে এবং প্রয়োজনে বারবার কল করা যায়। C-তে ফাংশন ব্যবহারের আগে তার রিটার্ন টাইপ ঘোষণা করতে হয়।"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "#include <stdio.h>\n\nint add(int a, int b) {\n    return a + b;\n}\n\nint main() {\n    int result = add(5, 7);\n    printf(\"যোগফল: %d\\n\", result);\n    return 0;\n}"
+    },
+    {
+      "type": "heading",
+      "value": "ফাংশন প্রোটোটাইপ"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "#include <stdio.h>\n\nint square(int n); // প্রোটোটাইপ - main এর আগে ঘোষণা\n\nint main() {\n    printf(\"%d\\n\", square(6)); // 36\n    return 0;\n}\n\nint square(int n) {\n    return n * n;\n}"
+    },
+    {
+      "type": "heading",
+      "value": "রিকার্শন (Recursion)"
+    },
+    {
+      "type": "text",
+      "value": "রিকার্শন হলো এমন একটি কৌশল, যেখানে একটি ফাংশন নিজেকেই কল করে, একটি ছোট সমস্যার সমাধান করার জন্য। প্রতিটি রিকার্সিভ ফাংশনে একটি 'বেস কেস' থাকতে হবে, যা রিকার্শন বন্ধ করে।"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "int factorial(int n) {\n    if (n == 0) return 1;     // বেস কেস\n    return n * factorial(n - 1); // রিকার্সিভ কল\n}\n\nint main() {\n    printf(\"5! = %d\\n\", factorial(5)); // 120\n    return 0;\n}"
+    },
+    {
+      "type": "tip",
+      "value": "বেস কেস ছাড়া রিকার্সিভ ফাংশন লিখলে তা অসীমভাবে নিজেকে কল করতেই থাকবে এবং 'Stack Overflow' এরর দেখাবে।"
+    }
+  ],
+  "estimatedMinutes": 10
+}

@@ -1,0 +1,48 @@
+{
+  "id": "12-pseudo-classes-elements",
+  "title": "সুডো ক্লাস ও সুডো এলিমেন্ট",
+  "type": "lesson",
+  "estimatedMinutes": 12,
+  "content": [
+    {
+      "type": "heading",
+      "value": "সুডো ক্লাস (Pseudo-class) কী?"
+    },
+    {
+      "type": "text",
+      "value": "সুডো ক্লাস দিয়ে একটি এলিমেন্টের বিশেষ অবস্থা (state) বা অবস্থান অনুযায়ী স্টাইল দেওয়া যায়, যেমন মাউস হোভার করলে বা কোনো লিস্টের প্রথম আইটেমে।"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": "a:hover { color: red; }\na:visited { color: purple; }\nbutton:active { transform: scale(0.95); }\ninput:focus { border-color: blue; }\nli:first-child { font-weight: bold; }\nli:last-child { border-bottom: none; }\ntr:nth-child(even) { background: #f2f2f2; }\nbutton:disabled { opacity: 0.5; }"
+    },
+    {
+      "type": "list",
+      "items": [
+        ":hover — মাউস উপরে আনলে",
+        ":focus — ইনপুট ফোকাস করলে (যেমন টাইপ করার জন্য ক্লিক করলে)",
+        ":first-child / :last-child — প্যারেন্টের প্রথম/শেষ সন্তান হলে",
+        ":nth-child(n) — নির্দিষ্ট ক্রমের সন্তান, যেমন even/odd দিয়ে জেব্রা-স্ট্রাইপ টেবিল",
+        ":disabled — ইনপুট বা বাটন নিষ্ক্রিয় থাকলে"
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "সুডো এলিমেন্ট (Pseudo-element)"
+    },
+    {
+      "type": "text",
+      "value": "সুডো এলিমেন্ট দিয়ে এমন একটি অংশ স্টাইল করা যায় যা সরাসরি HTML-এ নেই, বরং CSS দিয়ে তৈরি করা হয় — যেমন কোনো টেক্সটের প্রথম অক্ষর বড় করা, বা কোনো এলিমেন্টের আগে/পরে নতুন কন্টেন্ট যোগ করা।"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": "p::first-letter {\n  font-size: 2em;\n  font-weight: bold;\n}\n\n.required::after {\n  content: \" *\";\n  color: red;\n}\n\n.quote::before {\n  content: \"\\201C\";\n}"
+    },
+    {
+      "type": "tip",
+      "value": "::before ও ::after এর সাথে content প্রপার্টি অবশ্যই দিতে হয়, নাহলে এলিমেন্ট দেখা যাবে না — এমনকি ফাঁকা স্ট্রিং content: \"\"; দিয়েও আইকন বা ডেকোরেশন যোগ করা যায়।"
+    }
+  ]
+}

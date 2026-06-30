@@ -1,0 +1,38 @@
+{
+  "id": "12-dynamic-memory",
+  "title": "ডায়নামিক মেমোরি অ্যালোকেশন",
+  "type": "lesson",
+  "content": [
+    {
+      "type": "heading",
+      "value": "Stack বনাম Heap মেমোরি"
+    },
+    {
+      "type": "text",
+      "value": "সাধারণ ভ্যারিয়েবল ও অ্যারে 'Stack' মেমোরিতে তৈরি হয়, যার সাইজ প্রোগ্রাম শুরুর আগেই নির্ধারিত থাকে। কিন্তু অনেক সময় রানটাইমে কত মেমোরি লাগবে, তা আগে থেকে জানা থাকে না — সেই ক্ষেত্রে 'Heap' মেমোরি থেকে ডায়নামিকভাবে মেমোরি নেওয়া হয়।"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int n;\n    printf(\"কতগুলো সংখ্যা ইনপুট দিবেন? \");\n    scanf(\"%d\", &n);\n\n    int *arr = (int *) malloc(n * sizeof(int)); // মেমোরি বরাদ্দ\n\n    if (arr == NULL) {\n        printf(\"মেমোরি বরাদ্দ ব্যর্থ হয়েছে!\\n\");\n        return 1;\n    }\n\n    for (int i = 0; i < n; i++) {\n        arr[i] = i * 10;\n        printf(\"%d \", arr[i]);\n    }\n\n    free(arr); // ব্যবহার শেষে মেমোরি ফিরিয়ে দেওয়া বাধ্যতামূলক\n    return 0;\n}"
+    },
+    {
+      "type": "heading",
+      "value": "malloc, calloc, realloc, free"
+    },
+    {
+      "type": "list",
+      "items": [
+        "malloc(size) — নির্দিষ্ট বাইটের মেমোরি বরাদ্দ করে, মান অনির্ধারিত (garbage) থাকে",
+        "calloc(n, size) — মেমোরি বরাদ্দ করে এবং সব বাইট 0 দিয়ে ভরে রাখে",
+        "realloc(ptr, newSize) — আগে বরাদ্দ করা মেমোরির সাইজ পরিবর্তন করে",
+        "free(ptr) — বরাদ্দ করা মেমোরি ফিরিয়ে দেয়, যেন মেমোরি লিক না হয়"
+      ]
+    },
+    {
+      "type": "tip",
+      "value": "প্রতিটি malloc/calloc এর জন্য একটি free() থাকা বাধ্যতামূলক — না হলে 'মেমোরি লিক' হয়, যা প্রোগ্রাম দীর্ঘ সময় চললে ক্রমশ বেশি মেমোরি খেয়ে ফেলে।"
+    }
+  ],
+  "estimatedMinutes": 11
+}

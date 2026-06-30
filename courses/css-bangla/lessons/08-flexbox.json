@@ -1,0 +1,53 @@
+{
+  "id": "08-flexbox",
+  "title": "ফ্লেক্সবক্স (Flexbox)",
+  "type": "lesson",
+  "estimatedMinutes": 16,
+  "content": [
+    {
+      "type": "heading",
+      "value": "Flexbox কী এবং কেন শক্তিশালী"
+    },
+    {
+      "type": "text",
+      "value": "Flexbox একটি ১-ডাইমেনশনাল (এক সারি বা এক কলামে) লেআউট সিস্টেম, যা দিয়ে এলিমেন্টগুলোকে সহজে সারিবদ্ধ, মাঝখানে, বা সমানভাবে ছড়িয়ে রাখা যায়। আধুনিক ওয়েব ডিজাইনে এটি সবচেয়ে বেশি ব্যবহৃত টুল।"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": ".container {\n  display: flex;\n  flex-direction: row;       /* row, column, row-reverse */\n  justify-content: center;   /* মূল অক্ষ বরাবর সাজানো */\n  align-items: center;       /* ক্রস অক্ষ বরাবর সাজানো */\n  gap: 16px;                 /* আইটেমের মধ্যে ফাঁকা জায়গা */\n}"
+    },
+    {
+      "type": "list",
+      "items": [
+        "display: flex — প্যারেন্টকে flex container বানায়, ভেতরের সব সরাসরি সন্তান flex item হয়ে যায়",
+        "flex-direction — আইটেম সারি (row) না কলামে (column) সাজবে তা ঠিক করে",
+        "justify-content — মূল অক্ষে (main axis) আইটেমগুলোর জায়গা নিয়ন্ত্রণ করে: flex-start, center, flex-end, space-between, space-around",
+        "align-items — ক্রস অক্ষে (cross axis) আইটেম সাজায়: flex-start, center, flex-end, stretch",
+        "gap — আইটেমগুলোর মধ্যবর্তী স্পেস, margin ব্যবহার না করেই"
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "পৃথক আইটেমের জন্য প্রপার্টি"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": ".item {\n  flex-grow: 1;     /* অতিরিক্ত জায়গা পেলে কতটা বাড়বে */\n  flex-shrink: 1;   /* জায়গা কম হলে কতটা ছোট হবে */\n  flex-basis: 200px;/* শুরুর সাইজ */\n  flex: 1;          /* শর্টহ্যান্ড: grow shrink basis */\n}"
+    },
+    {
+      "type": "heading",
+      "value": "বাস্তব উদাহরণ: একটি নেভিগেশন বার"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": "nav ul {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  list-style: none;\n}"
+    },
+    {
+      "type": "tip",
+      "value": "navbar, কার্ড সারি, বা যেকোনো জায়গায় এলিমেন্ট পাশাপাশি বা মাঝখানে আনতে হলে প্রথমেই Flexbox ব্যবহারের কথা ভাবা উচিত।"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "8085-microprocessor",
+  "title": "৮০৮৫ মাইক্রোপ্রসেসর",
+  "description": "৮০৮৫ মাইক্রোপ্রসেসরের আর্কিটেকচার, ইন্সট্রাকশন সেট, ইন্টারাপ্ট, মেমোরি ইন্টারফেসিং ও অ্যাসেম্বলি প্রোগ্রামিং নিয়ে সম্পূর্ণ কোর্স।",
+  "icon": "🖥️",
+  "order": 1,
+  "lessons": [
+    "01-porichiti",
+    "02-architecture",
+    "03-flag-register",
+    "04-addressing-modes",
+    "05-instruction-set",
+    "06-stack-subroutine",
+    "07-interrupts",
+    "08-memory-io-interfacing",
+    "09-quiz"
+  ]
+}

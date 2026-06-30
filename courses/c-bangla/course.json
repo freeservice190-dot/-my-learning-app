@@ -1,0 +1,25 @@
+{
+  "id": "c-bangla",
+  "title": "সি (C) প্রোগ্রামিং শিখি (বিগিনার থেকে এক্সপার্ট)",
+  "description": "শূন্য থেকে শুরু করে এক্সপার্ট লেভেল পর্যন্ত C ভাষা শেখার সম্পূর্ণ বাংলা কোর্স — ভ্যারিয়েবল থেকে শুরু করে পয়েন্টার, স্ট্রাকচার, ডায়নামিক মেমোরি এবং ডেটা স্ট্রাকচার পর্যন্ত।",
+  "icon": "🔵",
+  "order": 2,
+  "lessons": [
+    "01-porichiti",
+    "02-variable-datatype",
+    "03-operator-io",
+    "04-condition",
+    "05-loop",
+    "06-quiz-1",
+    "07-function-recursion",
+    "08-array-string",
+    "09-pointer",
+    "10-structure-union",
+    "11-quiz-2",
+    "12-dynamic-memory",
+    "13-file-handling",
+    "14-preprocessor-multidim-array",
+    "15-function-pointer-linked-list",
+    "16-quiz-final"
+  ]
+}

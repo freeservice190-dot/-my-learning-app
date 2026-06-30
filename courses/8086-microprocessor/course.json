@@ -1,0 +1,19 @@
+{
+  "id": "8086-microprocessor",
+  "title": "৮০৮৬ মাইক্রোপ্রসেসর",
+  "description": "৮০৮৬ মাইক্রোপ্রসেসরের আর্কিটেকচার, পাইপলাইনিং, রেজিস্টার, ইন্টারাপ্ট, মেমোরি ইন্টারফেসিং, কো-প্রসেসর ও অ্যাসেম্বলি ভাষা নিয়ে সম্পূর্ণ কোর্স।",
+  "icon": "💾",
+  "order": 2,
+  "lessons": [
+    "01-porichiti",
+    "02-internal-architecture",
+    "03-pipelining",
+    "04-registers",
+    "05-min-max-mode",
+    "06-interrupts",
+    "07-memory-io-interfacing",
+    "08-coprocessor-8087",
+    "09-assembly-language",
+    "10-quiz"
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "id": "15-quiz",
+  "title": "কুইজ: CSS জ্ঞান যাচাই",
+  "type": "quiz",
+  "estimatedMinutes": 10,
+  "content": [
+    {
+      "type": "heading",
+      "value": "নিজের জ্ঞান যাচাই করো"
+    },
+    {
+      "type": "text",
+      "value": "নিচের প্রশ্নগুলোর উত্তর দিয়ে যাচাই করো তুমি এই কোর্স থেকে কতটা শিখেছো।"
+    }
+  ],
+  "quiz": [
+    {
+      "question": "CSS এর পূর্ণরূপ কী?",
+      "options": [
+        "Cascading Style Sheets",
+        "Computer Style Sheets",
+        "Creative Style System",
+        "Colorful Style Sheets"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "ক্লাস সিলেক্টর কোন চিহ্ন দিয়ে শুরু হয়?",
+      "options": [
+        "#",
+        ".",
+        "*",
+        "&"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "বক্স মডেলের সঠিক ক্রম কোনটি (ভেতর থেকে বাইরে)?",
+      "options": [
+        "Margin, Border, Padding, Content",
+        "Content, Padding, Border, Margin",
+        "Content, Border, Padding, Margin",
+        "Padding, Content, Margin, Border"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "একটি এলিমেন্টকে Flex container বানাতে কী লিখতে হয়?",
+      "options": [
+        "display: block;",
+        "display: flex;",
+        "position: flex;",
+        "flex: true;"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "কোন position ভ্যালু দিলে এলিমেন্ট স্ক্রল করলেও স্ক্রিনের একই জায়গায় থাকে?",
+      "options": [
+        "relative",
+        "static",
+        "fixed",
+        "inherit"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "মোবাইল ডিভাইসের জন্য আলাদা স্টাইল দিতে কী ব্যবহার করা হয়?",
+      "options": [
+        "@import",
+        "@media",
+        "@mobile",
+        "@responsive"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "CSS Variable সংজ্ঞায়িত করতে কোনটি সঠিক?",
+      "options": [
+        "$primary-color: blue;",
+        "--primary-color: blue;",
+        "var primary-color: blue;",
+        "#primary-color: blue;"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "::before ও ::after ব্যবহার করতে কোন প্রপার্টি অবশ্যই দিতে হয়?",
+      "options": [
+        "display",
+        "content",
+        "position",
+        "color"
+      ],
+      "answer": 1
+    }
+  ]
+}

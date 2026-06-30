@@ -1,0 +1,35 @@
+{
+  "id": "04-registers",
+  "title": "৮০৮৬-এর রেজিস্টার",
+  "type": "lesson",
+  "estimatedMinutes": 9,
+  "content": [
+    {
+      "type": "heading",
+      "value": "রেজিস্টারের শ্রেণিবিভাগ"
+    },
+    {
+      "type": "list",
+      "items": [
+        "General Purpose Registers — AX, BX, CX, DX (প্রতিটি ১৬-বিট, উচ্চ ও নিম্ন ৮-বিটে ভাগ করা যায়: AH/AL, BH/BL, CH/CL, DH/DL)",
+        "Pointer Registers — SP (Stack Pointer), BP (Base Pointer)",
+        "Index Registers — SI (Source Index), DI (Destination Index)",
+        "Segment Registers — CS, DS, SS, ES",
+        "Special Registers — IP (Instruction Pointer), FLAGS"
+      ]
+    },
+    {
+      "type": "text",
+      "value": "AX রেজিস্টার সাধারণত গাণিতিক অপারেশনে, BX মেমোরি অ্যাড্রেসিংয়ে বেস রেজিস্টার হিসেবে, CX লুপ কাউন্টার হিসেবে, এবং DX I/O অপারেশন ও বড় গুণফল/ভাগফলে ব্যবহৃত হয়।"
+    },
+    {
+      "type": "code",
+      "language": "asm",
+      "value": "MOV AX, 0005H   ; AX = 0005H\nMOV CX, 0003H   ; লুপ কাউন্টার সেট\nLOOP_START:\nADD AX, AX      ; AX = AX + AX\nLOOP LOOP_START ; CX কমাও, শূন্য না হলে লুপে ফিরে যাও"
+    },
+    {
+      "type": "tip",
+      "value": "LOOP ইন্সট্রাকশন স্বয়ংক্রিয়ভাবে CX-কে ১ কমায় এবং CX শূন্য না হওয়া পর্যন্ত নির্দিষ্ট লেবেলে লাফ দেয় — এটি ৮০৮৬-এর একটি সুবিধাজনক বৈশিষ্ট্য, যা ৮০৮৫-তে ছিল না।"
+    }
+  ]
+}

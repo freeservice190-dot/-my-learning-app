@@ -1,0 +1,43 @@
+{
+  "id": "05-instruction-set",
+  "title": "৮০৮৫-এর ইন্সট্রাকশন সেট",
+  "type": "lesson",
+  "estimatedMinutes": 12,
+  "content": [
+    {
+      "type": "heading",
+      "value": "ইন্সট্রাকশনের শ্রেণিবিভাগ"
+    },
+    {
+      "type": "text",
+      "value": "৮০৮৫-এর ৭৪টি ইন্সট্রাকশনকে প্রধানত পাঁচটি গ্রুপে ভাগ করা হয়।"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Data Transfer — MOV, MVI, LDA, STA, LXI, LDAX, STAX",
+        "Arithmetic — ADD, SUB, INR, DCR, ADC, SBB, DAA",
+        "Logical — ANA, ORA, XRA, CMP, RAL, RAR, CMA",
+        "Branching — JMP, JZ, JNZ, JC, CALL, RET",
+        "Machine Control — HLT, NOP, EI, DI"
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "একটি বাস্তব উদাহরণ: দুটি সংখ্যা যোগ করা"
+    },
+    {
+      "type": "code",
+      "language": "asm",
+      "value": "; মেমোরি লোকেশন 2000H ও 2001H-এর মান যোগ করে 2002H-এ রাখো\nLXI H, 2000H   ; HL = 2000H\nMOV A, M       ; A = [2000H]\nINX H          ; HL = 2001H\nADD M          ; A = A + [2001H]\nINX H          ; HL = 2002H\nMOV M, A       ; [2002H] = A\nHLT            ; প্রোগ্রাম থামাও"
+    },
+    {
+      "type": "text",
+      "value": "এই প্রোগ্রামটি Indirect Addressing ব্যবহার করে দুটি মেমোরি লোকেশনের মান যোগ করে তৃতীয় লোকেশনে ফলাফল সংরক্ষণ করে — যা ৮০৮৫ প্রোগ্রামিংয়ের সবচেয়ে সাধারণ অনুশীলনগুলোর একটি।"
+    },
+    {
+      "type": "tip",
+      "value": "ADD M-এর মতো ইন্সট্রাকশনে 'M' মানে মেমোরি লোকেশন যা HL রেজিস্টার পেয়ার নির্দেশ করছে।"
+    }
+  ]
+}

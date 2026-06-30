@@ -1,0 +1,24 @@
+{
+  "id": "css-bangla",
+  "title": "CSS শিখি বাংলায় (Beginner to Expert)",
+  "description": "একদম শুরু থেকে এক্সপার্ট লেভেল পর্যন্ত সম্পূর্ণ বাংলা ভাষায় CSS কোর্স — Flexbox, Grid, Responsive Design ও Animation সহ থিওরি ও প্র্যাকটিক্যাল কোডিং।",
+  "icon": "🎨",
+  "order": 2,
+  "lessons": [
+    "01-poricoy",
+    "02-syntax-and-selectors",
+    "03-colors-and-units",
+    "04-box-model",
+    "05-typography",
+    "06-backgrounds-and-borders",
+    "07-display-and-positioning",
+    "08-flexbox",
+    "09-grid",
+    "10-responsive-design",
+    "11-transitions-and-animations",
+    "12-pseudo-classes-elements",
+    "13-advanced-css",
+    "14-practical-project",
+    "15-quiz"
+  ]
+}

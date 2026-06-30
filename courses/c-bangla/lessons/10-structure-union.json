@@ -1,0 +1,47 @@
+{
+  "id": "10-structure-union",
+  "title": "স্ট্রাকচার ও ইউনিয়ন",
+  "type": "lesson",
+  "content": [
+    {
+      "type": "heading",
+      "value": "স্ট্রাকচার (struct) কী?"
+    },
+    {
+      "type": "text",
+      "value": "স্ট্রাকচার হলো ভিন্ন ভিন্ন ডেটা টাইপের একাধিক ভ্যারিয়েবলকে একটি একক ইউনিটের মধ্যে সংগঠিত করার উপায় — যেমন একজন ছাত্রের নাম, বয়স ও রোল নম্বর একসাথে রাখা।"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "#include <stdio.h>\n#include <string.h>\n\nstruct Student {\n    char name[30];\n    int roll;\n    float gpa;\n};\n\nint main() {\n    struct Student s1;\n    strcpy(s1.name, \"করিম\");\n    s1.roll = 101;\n    s1.gpa = 3.85;\n\n    printf(\"নাম: %s, রোল: %d, GPA: %.2f\\n\", s1.name, s1.roll, s1.gpa);\n\n    // ঘোষণার সময়েই মান দেওয়া\n    struct Student s2 = {\"রহিম\", 102, 3.60};\n    printf(\"%s\\n\", s2.name);\n\n    return 0;\n}"
+    },
+    {
+      "type": "heading",
+      "value": "স্ট্রাকচার পয়েন্টার"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "struct Student s1 = {\"নাফিস\", 103, 3.9};\nstruct Student *ptr = &s1;\n\nprintf(\"%s\\n\", ptr->name); // অ্যারো অপারেটর দিয়ে অ্যাক্সেস"
+    },
+    {
+      "type": "heading",
+      "value": "ইউনিয়ন (union) ও enum"
+    },
+    {
+      "type": "text",
+      "value": "union ও struct দেখতে একই রকম, কিন্তু union এর সব মেম্বার একই মেমোরি স্থান শেয়ার করে — একসাথে একটি মেম্বারের মানই বৈধ থাকে। enum দিয়ে নামকৃত পূর্ণসংখ্যা ধারণকারী কনস্ট্যান্টের তালিকা তৈরি করা যায়।"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "union Data {\n    int i;\n    float f;\n};\n\nenum Day { SHANIBAR, ROBIBAR, SOMBAR };\n\nint main() {\n    enum Day today = SOMBAR;\n    printf(\"%d\\n\", today); // 2\n    return 0;\n}"
+    },
+    {
+      "type": "tip",
+      "value": "স্ট্রাকচার পয়েন্টারের মাধ্যমে মেম্বার অ্যাক্সেস করতে . এর বদলে -> (অ্যারো) অপারেটর ব্যবহার করতে হয়।"
+    }
+  ],
+  "estimatedMinutes": 11
+}

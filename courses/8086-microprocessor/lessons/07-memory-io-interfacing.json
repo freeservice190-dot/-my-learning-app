@@ -1,0 +1,41 @@
+{
+  "id": "07-memory-io-interfacing",
+  "title": "মেমোরি ও I/O ইন্টারফেসিং",
+  "type": "lesson",
+  "estimatedMinutes": 9,
+  "content": [
+    {
+      "type": "heading",
+      "value": "মেমোরি ব্যাংকিং"
+    },
+    {
+      "type": "text",
+      "value": "৮০৮৬-এর ১৬-বিট ডেটা বাস থাকার কারণে মেমোরিকে দুটি ব্যাংকে ভাগ করা হয়: Lower Bank (Even addresses, D0–D7) এবং Higher Bank (Odd addresses, D8–D15)। BHE (Bus High Enable) ও A0 সিগন্যাল দিয়ে নির্ধারণ করা হয় কোন ব্যাংক সক্রিয় থাকবে।"
+    },
+    {
+      "type": "list",
+      "items": [
+        "BHE = 0, A0 = 0 — উভয় ব্যাংক সক্রিয় (১৬-বিট ওয়ার্ড অ্যাক্সেস)",
+        "BHE = 1, A0 = 0 — শুধু Lower Bank সক্রিয় (Even byte)",
+        "BHE = 0, A0 = 1 — শুধু Higher Bank সক্রিয় (Odd byte)"
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "I/O ইন্টারফেসিং"
+    },
+    {
+      "type": "text",
+      "value": "৮০৮৬-তেও ৮০৮৫-এর মতো IN ও OUT ইন্সট্রাকশন দিয়ে I/O-mapped I/O করা যায়, তবে এখানে ৬৪KB পর্যন্ত I/O পোর্ট অ্যাড্রেস স্পেস (১৬-বিট) ব্যবহার করা যায়।"
+    },
+    {
+      "type": "code",
+      "language": "asm",
+      "value": "MOV DX, 0300H   ; পোর্ট অ্যাড্রেস DX-এ রাখো\nIN  AL, DX      ; পোর্ট থেকে পড়ো\nMOV AH, AL\nOUT DX, AL      ; পোর্টে লেখো"
+    },
+    {
+      "type": "tip",
+      "value": "১৬-বিট পোর্ট অ্যাড্রেসের জন্য DX রেজিস্টার ব্যবহার করতে হয়, কারণ IN/OUT ইন্সট্রাকশন সরাসরি ১৬-বিট immediate পোর্ট নম্বর নিতে পারে না (যদি 0–255 রেঞ্জের বাইরে হয়)।"
+    }
+  ]
+}

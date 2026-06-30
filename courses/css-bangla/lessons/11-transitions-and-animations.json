@@ -1,0 +1,64 @@
+{
+  "id": "11-transitions-and-animations",
+  "title": "ট্রানজিশন ও অ্যানিমেশন",
+  "type": "lesson",
+  "estimatedMinutes": 14,
+  "content": [
+    {
+      "type": "heading",
+      "value": "Transition — মসৃণ পরিবর্তন"
+    },
+    {
+      "type": "text",
+      "value": "Transition দিয়ে কোনো প্রপার্টি হঠাৎ পরিবর্তনের বদলে ধীরে ধীরে (smoothly) বদলায়, যেমন বাটনে হোভার করলে রং আস্তে আস্তে বদলানো।"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": "button {\n  background-color: #3498db;\n  transition: background-color 0.3s ease, transform 0.3s ease;\n}\n\nbutton:hover {\n  background-color: #2980b9;\n  transform: scale(1.05);\n}"
+    },
+    {
+      "type": "list",
+      "items": [
+        "transition-property — কোন প্রপার্টি অ্যানিমেট হবে",
+        "transition-duration — কত সময় ধরে পরিবর্তন হবে (যেমন 0.3s)",
+        "transition-timing-function — গতির ধরন: ease, linear, ease-in, ease-out"
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "Keyframe Animation"
+    },
+    {
+      "type": "text",
+      "value": "@keyframes দিয়ে নিজের মতো কাস্টম অ্যানিমেশন তৈরি করা যায়, যা শুধু hover না, পেজ লোড হওয়ার সাথে সাথেও চলতে পারে এবং বারবার রিপিট হতে পারে।"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": "@keyframes bounce {\n  0%   { transform: translateY(0); }\n  50%  { transform: translateY(-20px); }\n  100% { transform: translateY(0); }\n}\n\n.icon {\n  animation: bounce 1.5s ease-in-out infinite;\n}"
+    },
+    {
+      "type": "list",
+      "items": [
+        "animation-name — কোন @keyframes ব্যবহার হবে",
+        "animation-duration — একবার চলতে কত সময় লাগবে",
+        "animation-iteration-count — কতবার চলবে, infinite দিলে অনন্তবার চলবে",
+        "animation-direction — normal, reverse, alternate"
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "Transform প্রপার্টি"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": ".box {\n  transform: rotate(15deg) scale(1.2) translateX(10px);\n}"
+    },
+    {
+      "type": "tip",
+      "value": "পারফরম্যান্সের জন্য transform ও opacity অ্যানিমেট করা সবচেয়ে ভালো — এগুলো GPU দিয়ে দ্রুত প্রসেস হয়, width/height অ্যানিমেট করলে পেজ ধীরগতির হতে পারে।"
+    }
+  ]
+}

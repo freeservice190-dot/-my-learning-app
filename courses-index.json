@@ -1,0 +1,15 @@
+{
+  "courses": [
+    { "id": "html-bangla", "version": "2026-07-01-v1" },
+    { "id": "css-bangla", "version": "2026-07-01-v1" },
+    { "id": "javascript-bangla", "version": "2026-07-01-v1" },
+    { "id": "c-bangla", "version": "2026-07-01-v1" },
+    { "id": "data-structures", "version": "2026-07-01-v1" },
+    { "id": "data-structures-bangla", "version": "2026-07-01-v1" },
+    { "id": "digital-logic-design", "version": "2026-07-01-v1" },
+    { "id": "digital-logic-design-bangla", "version": "2026-07-01-v1" },
+    { "id": "8051-microcontroller", "version": "2026-07-01-v1" },
+    { "id": "8085-microprocessor", "version": "2026-07-01-v1" },
+    { "id": "8086-microprocessor", "version": "2026-07-01-v1" }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "05-typography",
+  "title": "টাইপোগ্রাফি ও টেক্সট স্টাইলিং",
+  "type": "lesson",
+  "estimatedMinutes": 10,
+  "content": [
+    {
+      "type": "heading",
+      "value": "ফন্ট সংক্রান্ত প্রপার্টি"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": "p {\n  font-family: 'Hind Siliguri', Arial, sans-serif;\n  font-size: 18px;\n  font-weight: bold;     /* normal, bold, 100-900 */\n  font-style: italic;    /* normal, italic */\n  line-height: 1.6;      /* লাইনের মধ্যে উচ্চতা */\n}"
+    },
+    {
+      "type": "text",
+      "value": "font-family-এ একাধিক ফন্ট কমা দিয়ে দেওয়া হয় — প্রথমটি না থাকলে ব্রাউজার পরেরটি ব্যবহার করে। বাংলা টেক্সটের জন্য 'Hind Siliguri' বা 'Noto Sans Bengali' এর মতো ফন্ট জনপ্রিয়।"
+    },
+    {
+      "type": "heading",
+      "value": "টেক্সট অ্যালাইনমেন্ট ও সাজানো"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": "h1 {\n  text-align: center;       /* left, right, center, justify */\n  text-decoration: underline;\n  text-transform: uppercase;\n  letter-spacing: 1px;\n  color: #333333;\n}"
+    },
+    {
+      "type": "list",
+      "items": [
+        "text-align — টেক্সট কোন দিকে অ্যালাইন হবে",
+        "text-decoration — আন্ডারলাইন, স্ট্রাইকথ্রু ইত্যাদি",
+        "text-transform — সব বড় হাতের, ছোট হাতের, বা ক্যাপিটালাইজ করে",
+        "line-height — লাইনের উচ্চতা, পড়তে সহজ করার জন্য গুরুত্বপূর্ণ"
+      ]
+    },
+    {
+      "type": "tip",
+      "value": "ভালো readability-র জন্য line-height সাধারণত ১.৪ থেকে ১.৮ এর মধ্যে রাখা ভালো।"
+    }
+  ]
+}

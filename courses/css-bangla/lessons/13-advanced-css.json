@@ -1,0 +1,65 @@
+{
+  "id": "13-advanced-css",
+  "title": "এডভান্সড CSS: ভেরিয়েবল, স্পেসিফিসিটি ও আরও",
+  "type": "lesson",
+  "estimatedMinutes": 14,
+  "content": [
+    {
+      "type": "heading",
+      "value": "CSS Variables (Custom Properties)"
+    },
+    {
+      "type": "text",
+      "value": "CSS Variables দিয়ে একটি মান একবার সংজ্ঞায়িত করে পুরো প্রজেক্টে বারবার ব্যবহার করা যায় — থিম রং বা স্পেসিং বদলাতে চাইলে শুধু একটি জায়গায় পরিবর্তন করলেই হয়।"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": ":root {\n  --primary-color: #6c5ce7;\n  --spacing: 16px;\n}\n\nbutton {\n  background-color: var(--primary-color);\n  padding: var(--spacing);\n}"
+    },
+    {
+      "type": "heading",
+      "value": "Specificity (কোন রুল জিতবে?)"
+    },
+    {
+      "type": "text",
+      "value": "একই এলিমেন্টে একাধিক CSS রুল প্রযোজ্য হলে কোনটি জিতবে তা নির্ভর করে Specificity-র উপর। ID সিলেক্টর, class সিলেক্টরের চেয়ে শক্তিশালী, আর inline style সবচেয়ে শক্তিশালী।"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Inline style (style=\"\") — সবচেয়ে বেশি priority",
+        "ID selector (#id) — তার পরের priority",
+        "Class, attribute, pseudo-class (.class, :hover) — তার পরের priority",
+        "Element selector (p, div) — সবচেয়ে কম priority",
+        "!important — সব নিয়ম ভেঙে জোর করে প্রয়োগ করায়, কিন্তু এটি কম ব্যবহার করাই ভালো অভ্যাস"
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "CSS Functions: calc(), clamp(), minmax()"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": ".sidebar {\n  width: calc(100% - 250px);\n}\n\nh1 {\n  font-size: clamp(1.5rem, 4vw, 3rem); /* মিনিমাম, পছন্দসই, ম্যাক্সিমাম */\n}"
+    },
+    {
+      "type": "heading",
+      "value": "CSS Reset / Normalize"
+    },
+    {
+      "type": "text",
+      "value": "ভিন্ন ব্রাউজার ডিফল্টভাবে কিছুটা ভিন্ন margin/padding ব্যবহার করে। একটি বেসিক reset দিয়ে সব ব্রাউজারে সমান শুরু পয়েন্ট নিশ্চিত করা যায়।"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}"
+    },
+    {
+      "type": "tip",
+      "value": "একজন এক্সপার্ট ডেভেলপার সবসময় CSS Variables ব্যবহার করে কোড maintainable রাখে এবং Specificity বুঝে !important এড়িয়ে চলে।"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "08-array-string",
+  "title": "অ্যারে ও স্ট্রিং",
+  "type": "lesson",
+  "content": [
+    {
+      "type": "heading",
+      "value": "অ্যারে কী?"
+    },
+    {
+      "type": "text",
+      "value": "অ্যারে হলো একই ডেটা টাইপের একাধিক মান একসাথে রাখার একটি কন্টেইনার, যার সাইজ ঘোষণা করার সময়েই নির্দিষ্ট হয়ে যায়।"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "#include <stdio.h>\n\nint main() {\n    int numbers[5] = {10, 20, 30, 40, 50};\n\n    printf(\"প্রথম উপাদান: %d\\n\", numbers[0]);\n    numbers[2] = 99; // পরিবর্তন করা\n\n    for (int i = 0; i < 5; i++) {\n        printf(\"%d \", numbers[i]);\n    }\n    return 0;\n}"
+    },
+    {
+      "type": "heading",
+      "value": "স্ট্রিং (Character Array)"
+    },
+    {
+      "type": "text",
+      "value": "C-তে আলাদা কোনো স্ট্রিং টাইপ নেই — স্ট্রিং হলো char এর একটি অ্যারে, যার শেষে একটি বিশেষ '\\0' (নাল ক্যারেক্টার) থাকে।"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char name[20] = \"Bangladesh\";\n\n    printf(\"নাম: %s\\n\", name);\n    printf(\"লম্বা: %lu\\n\", strlen(name));\n\n    char greeting[50];\n    strcpy(greeting, \"Hello, \");\n    strcat(greeting, name);\n    printf(\"%s\\n\", greeting); // Hello, Bangladesh\n\n    return 0;\n}"
+    },
+    {
+      "type": "tip",
+      "value": "char অ্যারের সাইজ ঘোষণা করার সময় টেক্সটের আসল লম্বার চেয়ে অন্তত ১ ঘর বেশি রাখুন, কারণ শেষে '\\0' এর জন্য জায়গা প্রয়োজন।"
+    },
+    {
+      "type": "list",
+      "items": [
+        "strlen() — স্ট্রিং এর লম্বা বের করা",
+        "strcpy() — এক স্ট্রিং অন্যটিতে কপি করা",
+        "strcat() — দুটি স্ট্রিং জোড়া দেওয়া",
+        "strcmp() — দুটি স্ট্রিং তুলনা করা (সমান হলে 0 রিটার্ন করে)"
+      ]
+    }
+  ],
+  "estimatedMinutes": 10
+}

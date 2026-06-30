@@ -1,0 +1,42 @@
+{
+  "id": "09-assembly-language",
+  "title": "অ্যাসেম্বলি ভাষার পরিচিতি",
+  "type": "lesson",
+  "estimatedMinutes": 11,
+  "content": [
+    {
+      "type": "heading",
+      "value": "অ্যাসেম্বলি ভাষা কী?"
+    },
+    {
+      "type": "text",
+      "value": "অ্যাসেম্বলি ভাষা হলো মেশিন কোডের একটি মানুষ-পঠনযোগ্য রূপ। প্রতিটি অ্যাসেম্বলি ইন্সট্রাকশন সরাসরি একটি নির্দিষ্ট মেশিন কোড নির্দেশ করে। একে মেশিন কোডে রূপান্তর করে একটি অ্যাসেম্বলার (যেমন MASM, TASM)।"
+    },
+    {
+      "type": "heading",
+      "value": "একটি প্রোগ্রামের গঠন"
+    },
+    {
+      "type": "code",
+      "language": "asm",
+      "value": ".MODEL SMALL\n.STACK 100H\n.DATA\n    NUM1 DW 0005H\n    NUM2 DW 0003H\n    RESULT DW ?\n.CODE\nMAIN PROC\n    MOV AX, @DATA\n    MOV DS, AX\n\n    MOV AX, NUM1\n    ADD AX, NUM2\n    MOV RESULT, AX\n\n    MOV AH, 4CH      ; প্রোগ্রাম শেষ করার DOS সার্ভিস\n    INT 21H\nMAIN ENDP\nEND MAIN"
+    },
+    {
+      "type": "list",
+      "items": [
+        ".MODEL — মেমোরি মডেল নির্ধারণ করে (SMALL, LARGE ইত্যাদি)",
+        ".STACK — স্ট্যাক সেগমেন্টের আকার নির্ধারণ করে",
+        ".DATA — ভ্যারিয়েবল ও কনস্ট্যান্ট সংজ্ঞায়িত করার জায়গা",
+        ".CODE — মূল প্রোগ্রাম কোড থাকে এখানে"
+      ]
+    },
+    {
+      "type": "text",
+      "value": "এই উদাহরণে NUM1 ও NUM2-কে যোগ করে RESULT-এ রাখা হয়েছে, এবং সবশেষে INT 21H দিয়ে DOS-কে জানানো হয়েছে প্রোগ্রাম শেষ করতে।"
+    },
+    {
+      "type": "tip",
+      "value": "অ্যাসেম্বলি প্রোগ্রাম লিখে অনুশীলন করার জন্য DOSBox-এর সাথে MASM/TASM ব্যবহার করা যায়, যা পুরনো DOS পরিবেশ এমুলেট করে।"
+    }
+  ]
+}

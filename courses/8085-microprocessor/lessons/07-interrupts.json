@@ -1,0 +1,51 @@
+{
+  "id": "07-interrupts",
+  "title": "৮০৮৫-এর ইন্টারাপ্ট, SIM ও RIM",
+  "type": "lesson",
+  "estimatedMinutes": 10,
+  "content": [
+    {
+      "type": "heading",
+      "value": "ইন্টারাপ্ট কী?"
+    },
+    {
+      "type": "text",
+      "value": "ইন্টারাপ্ট হলো একটি সিগন্যাল যা প্রসেসরকে তার বর্তমান কাজ সাময়িকভাবে থামিয়ে অন্য একটি জরুরি কাজ (Interrupt Service Routine বা ISR) করতে বাধ্য করে, এবং পরে আবার আগের কাজে ফিরে যায়।"
+    },
+    {
+      "type": "heading",
+      "value": "৮০৮৫-এর ইন্টারাপ্টসমূহ"
+    },
+    {
+      "type": "list",
+      "items": [
+        "TRAP — সর্বোচ্চ অগ্রাধিকার, Non-maskable (বন্ধ করা যায় না), edge ও level triggered",
+        "RST 7.5 — Maskable, edge triggered, vector address 003CH",
+        "RST 6.5 — Maskable, level triggered, vector address 0034H",
+        "RST 5.5 — Maskable, level triggered, vector address 002CH (সর্বনিম্ন অগ্রাধিকার)",
+        "INTR — সাধারণ ইন্টারাপ্ট, বাহ্যিক হার্ডওয়্যার থেকে vector address সরবরাহ করতে হয়"
+      ]
+    },
+    {
+      "type": "text",
+      "value": "অগ্রাধিকারের ক্রম: TRAP > RST 7.5 > RST 6.5 > RST 5.5 > INTR।"
+    },
+    {
+      "type": "heading",
+      "value": "SIM ও RIM ইন্সট্রাকশন"
+    },
+    {
+      "type": "text",
+      "value": "SIM (Set Interrupt Mask) ইন্সট্রাকশন ব্যবহার করে RST 7.5, 6.5, 5.5 ইন্টারাপ্টগুলো মাস্ক (বন্ধ) বা আনমাস্ক করা যায়, এবং RST 7.5 ফ্ল্যাগ রিসেট করা যায়। RIM (Read Interrupt Mask) ইন্সট্রাকশন বর্তমান ইন্টারাপ্ট মাস্কের অবস্থা পড়তে ব্যবহৃত হয়।"
+    },
+    {
+      "type": "code",
+      "language": "asm",
+      "value": "MVI A, 0CH   ; মাস্ক প্যাটার্ন A-তে লোড করো\nSIM          ; ইন্টারাপ্ট মাস্ক সেট করো\n...\nRIM          ; বর্তমান ইন্টারাপ্ট অবস্থা A-তে পড়ো"
+    },
+    {
+      "type": "tip",
+      "value": "TRAP-কে কখনো মাস্ক করা যায় না, তাই এটি সাধারণত পাওয়ার ফেইলিউরের মতো গুরুত্বপূর্ণ ঘটনা হ্যান্ডেল করতে ব্যবহৃত হয়।"
+    }
+  ]
+}

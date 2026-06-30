@@ -1,0 +1,43 @@
+{
+  "id": "14-practical-project",
+  "title": "প্র্যাকটিক্যাল প্রজেক্ট: প্রোফাইল কার্ড ডিজাইন",
+  "type": "lesson",
+  "estimatedMinutes": 22,
+  "content": [
+    {
+      "type": "heading",
+      "value": "প্রজেক্ট: একটি সুন্দর প্রোফাইল কার্ড"
+    },
+    {
+      "type": "text",
+      "value": "এখন আমরা Flexbox, Box Model, Shadow, Border-radius ও Transition একসাথে ব্যবহার করে একটি আধুনিক প্রোফাইল কার্ড বানাবো।"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<div class=\"card\">\n  <img src=\"profile.jpg\" alt=\"প্রোফাইল ছবি\" class=\"avatar\">\n  <h2>রাহাত হোসেন</h2>\n  <p>ওয়েব ডেভেলপার</p>\n  <button class=\"btn\">যোগাযোগ করো</button>\n</div>"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  font-family: 'Hind Siliguri', sans-serif;\n  background: #f4f4f9;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n}\n\n.card {\n  background: white;\n  width: 280px;\n  padding: 30px;\n  border-radius: 16px;\n  text-align: center;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 10px;\n  transition: transform 0.3s ease;\n}\n\n.card:hover {\n  transform: translateY(-8px);\n}\n\n.avatar {\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  object-fit: cover;\n  border: 3px solid #6c5ce7;\n}\n\n.btn {\n  margin-top: 10px;\n  padding: 10px 24px;\n  background: #6c5ce7;\n  color: white;\n  border: none;\n  border-radius: 8px;\n  cursor: pointer;\n  transition: background 0.3s ease;\n}\n\n.btn:hover {\n  background: #5a4bd1;\n}"
+    },
+    {
+      "type": "heading",
+      "value": "নিজে চেষ্টা করো (অ্যাসাইনমেন্ট)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "এই কোড দিয়ে .html ও .css ফাইল বানিয়ে ব্রাউজারে চালাও",
+        "@media query যোগ করে মোবাইল স্ক্রিনে কার্ডের width: 90% করো",
+        "CSS Variables ব্যবহার করে --primary-color সংজ্ঞায়িত করো এবং পুরো কার্ডে ব্যবহার করো",
+        "একটি social icon সারি যোগ করো Flexbox দিয়ে, gap সহ"
+      ]
+    },
+    {
+      "type": "tip",
+      "value": "এই প্রজেক্টে তুমি বক্স মডেল, ফ্লেক্সবক্স, শ্যাডো, ট্রানজিশন আর হোভার ইফেক্ট — সব একসাথে প্রয়োগ করেছো। এটাই আসল CSS দক্ষতা!"
+    }
+  ]
+}

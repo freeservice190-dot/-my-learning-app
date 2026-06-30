@@ -1,0 +1,55 @@
+{
+  "id": "10-responsive-design",
+  "title": "রেসপন্সিভ ডিজাইন ও মিডিয়া কোয়েরি",
+  "type": "lesson",
+  "estimatedMinutes": 14,
+  "content": [
+    {
+      "type": "heading",
+      "value": "রেসপন্সিভ ডিজাইন কী?"
+    },
+    {
+      "type": "text",
+      "value": "রেসপন্সিভ ডিজাইন মানে একটি ওয়েবসাইট মোবাইল, ট্যাবলেট ও ডেস্কটপ — সব ডিভাইসেই সুন্দরভাবে দেখানো। এটি আধুনিক ওয়েব ডেভেলপমেন্টের একটি অপরিহার্য দক্ষতা।"
+    },
+    {
+      "type": "heading",
+      "value": "viewport meta tag"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "value": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
+    },
+    {
+      "type": "text",
+      "value": "এই ট্যাগ ছাড়া মোবাইল ব্রাউজার পেজটিকে ডেস্কটপ সাইজে দেখানোর চেষ্টা করবে এবং জুম আউট দেখাবে — তাই এটি প্রতিটি HTML পেজের <head> এ থাকা আবশ্যক।"
+    },
+    {
+      "type": "heading",
+      "value": "Media Query"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": "/* ডিফল্ট: মোবাইল-প্রথম স্টাইল */\n.container {\n  display: flex;\n  flex-direction: column;\n}\n\n/* ট্যাবলেট ও তার বড় স্ক্রিনে */\n@media (min-width: 768px) {\n  .container {\n    flex-direction: row;\n  }\n}\n\n/* ডেস্কটপ */\n@media (min-width: 1200px) {\n  .container {\n    max-width: 1140px;\n    margin: 0 auto;\n  }\n}"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Mobile-first পদ্ধতি — আগে মোবাইলের জন্য স্টাইল লেখো, তারপর min-width দিয়ে বড় স্ক্রিনের জন্য পরিবর্তন যোগ করো",
+        "সাধারণ breakpoint: মোবাইল < 768px, ট্যাবলেট 768px-1024px, ডেস্কটপ > 1024px",
+        "max-width ব্যবহার করলে কন্টেন্ট খুব বড় স্ক্রিনেও অতিরিক্ত প্রশস্ত হয় না"
+      ]
+    },
+    {
+      "type": "tip",
+      "value": "মিডিয়া কোয়েরির জন্য নির্দিষ্ট ডিভাইসের সাইজ মুখস্থ করার বদলে কন্টেন্ট কখন ভেঙে যাচ্ছে (break) সেটার ভিত্তিতে breakpoint ঠিক করা ভালো অভ্যাস।"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": "img {\n  max-width: 100%;\n  height: auto;\n}"
+    }
+  ]
+}

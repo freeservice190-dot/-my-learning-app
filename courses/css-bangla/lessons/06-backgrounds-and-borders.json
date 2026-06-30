@@ -1,0 +1,51 @@
+{
+  "id": "06-backgrounds-and-borders",
+  "title": "ব্যাকগ্রাউন্ড ও বর্ডার",
+  "type": "lesson",
+  "estimatedMinutes": 10,
+  "content": [
+    {
+      "type": "heading",
+      "value": "ব্যাকগ্রাউন্ড প্রপার্টি"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": "div {\n  background-color: #f0f0f0;\n  background-image: url('bg.jpg');\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n}"
+    },
+    {
+      "type": "text",
+      "value": "background-size: cover দিলে ছবি পুরো এলিমেন্ট ঢেকে দেয়, অনুপাত (aspect ratio) ঠিক রেখে। background-repeat: no-repeat না দিলে ছবি ডিফল্টভাবে বারবার রিপিট হয়ে এলিমেন্ট ভরে ফেলে।"
+    },
+    {
+      "type": "heading",
+      "value": "বর্ডার ও বর্ডার রেডিয়াস"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": "div {\n  border: 2px solid #333;\n  border-radius: 10px;       /* কোণা গোল করে */\n  border-radius: 50%;        /* সম্পূর্ণ বৃত্ত (বর্গাকার এলিমেন্টে) */\n}"
+    },
+    {
+      "type": "heading",
+      "value": "Box Shadow"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": "div {\n  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);\n  /* x-offset y-offset blur-radius color */\n}"
+    },
+    {
+      "type": "list",
+      "items": [
+        "border-radius: 50% দিয়ে বর্গাকার div কে গোল প্রোফাইল ছবিতে রূপান্তর করা একটি জনপ্রিয় টেকনিক",
+        "box-shadow দিয়ে কার্ড বা বাটনে গভীরতার (depth) অনুভূতি তৈরি করা যায়",
+        "একাধিক ব্যাকগ্রাউন্ড বা শ্যাডো কমা দিয়ে আলাদা করে একসাথে ব্যবহার করা যায়"
+      ]
+    },
+    {
+      "type": "tip",
+      "value": "linear-gradient() দিয়ে background-color এর বদলে সুন্দর গ্র্যাডিয়েন্ট ব্যাকগ্রাউন্ডও তৈরি করা যায়: background: linear-gradient(to right, #00c6ff, #0072ff);"
+    }
+  ]
+}

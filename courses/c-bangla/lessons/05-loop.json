@@ -1,0 +1,39 @@
+{
+  "id": "05-loop",
+  "title": "লুপ",
+  "type": "lesson",
+  "content": [
+    {
+      "type": "heading",
+      "value": "for লুপ"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "#include <stdio.h>\n\nint main() {\n    for (int i = 1; i <= 5; i++) {\n        printf(\"গণনা: %d\\n\", i);\n    }\n    return 0;\n}"
+    },
+    {
+      "type": "heading",
+      "value": "while ও do-while লুপ"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "int i = 0;\nwhile (i < 3) {\n    printf(\"while: %d\\n\", i);\n    i++;\n}\n\nint j = 0;\ndo {\n    printf(\"do-while: %d\\n\", j);\n    j++;\n} while (j < 3);"
+    },
+    {
+      "type": "heading",
+      "value": "break ও continue"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "for (int i = 1; i <= 10; i++) {\n    if (i == 5) break;     // লুপ সম্পূর্ণ বন্ধ\n    if (i % 2 == 0) continue; // এই ইটারেশন স্কিপ\n    printf(\"%d \", i);\n}\n// আউটপুট: 1 3"
+    },
+    {
+      "type": "tip",
+      "value": "do-while লুপ কন্ডিশন চেক করার আগেই একবার বডি রান করে — তাই এটি অন্তত একবার চলবে, কন্ডিশন যা-ই হোক।"
+    }
+  ],
+  "estimatedMinutes": 9
+}

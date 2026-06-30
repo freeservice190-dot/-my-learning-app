@@ -1,0 +1,46 @@
+{
+  "id": "15-function-pointer-linked-list",
+  "title": "ফাংশন পয়েন্টার ও লিংকড লিস্ট",
+  "type": "lesson",
+  "content": [
+    {
+      "type": "heading",
+      "value": "ফাংশন পয়েন্টার"
+    },
+    {
+      "type": "text",
+      "value": "ঠিক যেমন একটি পয়েন্টার একটি ভ্যারিয়েবলের অ্যাড্রেস ধরে রাখতে পারে, তেমনি একটি ফাংশন পয়েন্টার একটি ফাংশনের অ্যাড্রেস ধরে রাখতে পারে — এটি কলব্যাক ফাংশন বা ডায়নামিক ফাংশন নির্বাচনের জন্য খুব কাজে লাগে।"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "#include <stdio.h>\n\nint add(int a, int b) { return a + b; }\nint subtract(int a, int b) { return a - b; }\n\nint main() {\n    int (*operation)(int, int);\n\n    operation = add;\n    printf(\"যোগ: %d\\n\", operation(10, 5));\n\n    operation = subtract;\n    printf(\"বিয়োগ: %d\\n\", operation(10, 5));\n\n    return 0;\n}"
+    },
+    {
+      "type": "heading",
+      "value": "লিংকড লিস্ট (Linked List) — এক্সপার্ট লেভেলের ডেটা স্ট্রাকচার"
+    },
+    {
+      "type": "text",
+      "value": "লিংকড লিস্ট হলো এমন একটি ডেটা স্ট্রাকচার, যেখানে প্রতিটি নোড তার ডেটা এবং পরের নোডের অ্যাড্রেস ধরে রাখে। অ্যারের মতো আকার আগে থেকে নির্ধারণ করতে হয় না — প্রয়োজন অনুযায়ী নোড যুক্ত করা যায়।"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "value": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Node {\n    int data;\n    struct Node *next;\n};\n\nint main() {\n    struct Node *head = (struct Node *) malloc(sizeof(struct Node));\n    struct Node *second = (struct Node *) malloc(sizeof(struct Node));\n\n    head->data = 10;\n    head->next = second;\n\n    second->data = 20;\n    second->next = NULL;\n\n    struct Node *temp = head;\n    while (temp != NULL) {\n        printf(\"%d -> \", temp->data);\n        temp = temp->next;\n    }\n    printf(\"NULL\\n\");\n\n    free(head);\n    free(second);\n    return 0;\n}"
+    },
+    {
+      "type": "tip",
+      "value": "লিংকড লিস্টের শেষ নোডের next সবসময় NULL রাখা হয় — এটিই লিস্টের শেষ চিহ্নিত করে এবং ট্রাভার্স করার সময় while (temp != NULL) দিয়ে লুপ থামানো হয়।"
+    },
+    {
+      "type": "list",
+      "items": [
+        "অ্যারে — ফিক্সড সাইজ, কন্টিগুয়াস মেমোরি, র‍্যান্ডম অ্যাক্সেস দ্রুত",
+        "লিংকড লিস্ট — ডায়নামিক সাইজ, ছড়ানো মেমোরি, ইনসার্ট/ডিলিট সহজ",
+        "প্রতিটি malloc করা নোডের জন্য free() করা ভোলা যাবে না"
+      ]
+    }
+  ],
+  "estimatedMinutes": 13
+}

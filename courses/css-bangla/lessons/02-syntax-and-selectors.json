@@ -1,0 +1,52 @@
+{
+  "id": "02-syntax-and-selectors",
+  "title": "CSS সিনট্যাক্স ও সিলেক্টর",
+  "type": "lesson",
+  "estimatedMinutes": 12,
+  "content": [
+    {
+      "type": "heading",
+      "value": "CSS এর গঠন (Syntax)"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": "selector {\n  property: value;\n  property2: value2;\n}"
+    },
+    {
+      "type": "text",
+      "value": "selector দিয়ে বোঝানো হয় কোন HTML এলিমেন্টে স্টাইল প্রয়োগ হবে। { } এর ভেতরে property ও value জোড়ায় জোড়ায় লেখা হয়, প্রতিটির শেষে সেমিকোলন (;) দিতে হয়।"
+    },
+    {
+      "type": "heading",
+      "value": "Selector এর প্রকারভেদ"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": "/* Element selector */\np { color: navy; }\n\n/* Class selector */\n.highlight { background: yellow; }\n\n/* ID selector */\n#header { font-size: 24px; }\n\n/* Universal selector */\n* { margin: 0; padding: 0; }\n\n/* Group selector */\nh1, h2, h3 { font-family: sans-serif; }"
+    },
+    {
+      "type": "heading",
+      "value": "Combinator (একাধিক এলিমেন্ট সম্পর্কিত সিলেক্টর)"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "value": "/* Descendant selector: section এর ভেতরের সব p */\nsection p { color: gray; }\n\n/* Child selector: শুধু সরাসরি সন্তান */\nul > li { list-style: none; }\n\n/* Adjacent sibling: ঠিক পরের ভাইবোন */\nh2 + p { font-weight: bold; }"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Element selector: ট্যাগের নাম দিয়ে সিলেক্ট করে, যেমন p, div",
+        "Class selector: . দিয়ে শুরু হয়, একাধিক এলিমেন্টে ব্যবহারযোগ্য",
+        "ID selector: # দিয়ে শুরু হয়, একটি পেজে একবারই ব্যবহার করা উচিত",
+        "Combinator: এলিমেন্টগুলোর সম্পর্কের ভিত্তিতে সিলেক্ট করে"
+      ]
+    },
+    {
+      "type": "tip",
+      "value": "Class বেশি ব্যবহার করো, কারণ এটি reusable — একই স্টাইল একাধিক জায়গায় প্রয়োগ করা যায়।"
+    }
+  ]
+}

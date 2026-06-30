@@ -1,0 +1,35 @@
+{
+  "id": "04-addressing-modes",
+  "title": "অ্যাড্রেসিং মোড ও মেমোরি",
+  "type": "lesson",
+  "estimatedMinutes": 9,
+  "content": [
+    {
+      "type": "heading",
+      "value": "অ্যাড্রেসিং মোড কী?"
+    },
+    {
+      "type": "text",
+      "value": "অ্যাড্রেসিং মোড বলতে বোঝায়, কোনো ইন্সট্রাকশন কীভাবে তার অপারেন্ড (যে ডেটা নিয়ে কাজ করবে) খুঁজে পায়। ৮০৮৫-এ পাঁচ ধরনের অ্যাড্রেসিং মোড রয়েছে।"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Immediate Addressing — ডেটা সরাসরি ইন্সট্রাকশনের সাথে দেওয়া থাকে (যেমন MVI A, 05H)",
+        "Register Addressing — ডেটা কোনো রেজিস্টারে থাকে (যেমন MOV A, B)",
+        "Direct Addressing — মেমোরির অ্যাড্রেস সরাসরি ইন্সট্রাকশনে দেওয়া থাকে (যেমন LDA 2000H)",
+        "Indirect Addressing — রেজিস্টার পেয়ার (সাধারণত HL) মেমোরি অ্যাড্রেস ধরে রাখে (যেমন MOV A, M)",
+        "Implied/Implicit Addressing — অপারেন্ড ইন্সট্রাকশনেই অন্তর্নিহিত থাকে (যেমন CMA, RAL)"
+      ]
+    },
+    {
+      "type": "code",
+      "language": "asm",
+      "value": "MVI A, 32H      ; Immediate — সরাসরি মান\nMOV B, A        ; Register — A থেকে B তে কপি\nLDA 2050H       ; Direct — 2050H অ্যাড্রেস থেকে A তে লোড\nLXI H, 2050H\nMOV A, M        ; Indirect — HL যেখানে নির্দেশ করছে সেখান থেকে লোড\nCMA             ; Implied — A-কে কমপ্লিমেন্ট করো"
+    },
+    {
+      "type": "tip",
+      "value": "Indirect Addressing বড় বড় ডেটা অ্যারে বা লুপের মধ্যে মেমোরি অ্যাক্সেস করার জন্য সবচেয়ে বেশি ব্যবহৃত হয়।"
+    }
+  ]
+}
